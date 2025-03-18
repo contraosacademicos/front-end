@@ -3,9 +3,11 @@ import { blue, green, rose, slate, yellow } from "tailwindcss/colors";
 import { PluginAPI } from "tailwindcss/types/config";
 
 export const colors = {
-	black: "#000",
+	black: "#1e1d1d",
+	darkest: "#010101",
 	white: "#fff",
-	primary: "#ff0ef0",
+	primary: "#DBA232",
+	graytext: "#858585",
 
 	danger: rose,
 	succes: green,
@@ -57,6 +59,21 @@ const config: Config = {
 				"Arial",
 				"sans-serif",
 			],
+			serif: ["var(--font-kaisei)", "serif"],
+			heading: ["var(--font-kaisei)", "serif"],
+			body: ["var(--font-inter)", "sans-serif"],
+		},
+
+		fontSize: {
+			h1: "87px",
+			h2: "48px",
+			h3: "32px",
+			h4: "28px",
+			h5: "24px",
+			h6: "18px",
+			base: "16px",
+			p: "14px",
+			xs: "12px",
 		},
 
 		extend: {
@@ -71,7 +88,7 @@ const config: Config = {
 		({ addUtilities }: PluginAPI) => {
 			addUtilities({
 				".wrapper": {
-					maxWidth: "calc(1216px + 48px)",
+					maxWidth: "calc(1440px + 48px)",
 					"@apply mx-auto px-6": {},
 				},
 

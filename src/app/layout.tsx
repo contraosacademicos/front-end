@@ -3,9 +3,15 @@ import "@/styles/css/globals.css";
 import type { Metadata, Viewport } from "next";
 
 import { DEFINITION } from "@/constants";
-import { inter } from "@/styles/fonts";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/pagination";
+
+import { inter, kaisei } from "@/styles/fonts";
 
 export const metadata: Metadata = {
+	metadataBase: new URL(DEFINITION.url),
 	title: {
 		default: DEFINITION.title,
 		template: `%s ${DEFINITION.resumeTitle}`,
@@ -23,43 +29,13 @@ export const metadata: Metadata = {
 		alternateLocale: "en_US",
 		url: DEFINITION.url,
 		countryName: "Brasil",
-
-		images: [
-			{
-				url: "/covers/default.jpg",
-				secureUrl: "/covers/default.jpg",
-				alt: "Open Graph Visual Image",
-				type: "jpg",
-			},
-			{
-				url: "/covers/default.png",
-				secureUrl: "/covers/default.png",
-				alt: "Open Graph Visual Image",
-				type: "png",
-			},
-		],
 	},
 
 	twitter: {
 		title: `Acessar ${DEFINITION.title}`,
 		description: DEFINITION.description,
 		card: "summary_large_image",
-		creator: "@evvvrado",
-
-		images: [
-			{
-				url: "/covers/default.jpg",
-				secureUrl: "/covers/default.jpg",
-				alt: "Open Graph Visual Image",
-				type: "jpg",
-			},
-			{
-				url: "/covers/default.png",
-				secureUrl: "/covers/default.png",
-				alt: "Open Graph Visual Image",
-				type: "png",
-			},
-		],
+		creator: "@qneves",
 	},
 
 	icons: [
@@ -87,8 +63,8 @@ export const metadata: Metadata = {
 
 	authors: [
 		{
-			name: "Everaldo Júnior",
-			url: "https://twitter.com/evvvrado",
+			name: "Gabriel Neves",
+			url: "https://github.com/qneves",
 		},
 	],
 
@@ -109,8 +85,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html className={`${inter.variable}`} lang="pt-BR">
-			<body>{children}</body>
+		<html className={`${inter.variable} ${kaisei.variable}`} lang="pt-BR">
+			<body className="bg-black text-white">{children}</body>
 		</html>
 	);
 }

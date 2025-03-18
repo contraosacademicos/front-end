@@ -19,8 +19,8 @@ export const DEFINITION = {
 	name: "Project Name",
 	description: "Descriptive Description",
 
-	title: "Page Title",
-	resumeTitle: "- Summary",
+	title: "Contra os Acadêmicos | Filosofia. Mas só da boa.",
+	resumeTitle: "Contra os Acadêmicos",
 
 	url: SITE_URL || "http://localhost:3000",
 	theme: "#000",

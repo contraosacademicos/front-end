@@ -13,4 +13,5 @@ html {
 	-webkit-font-smoothing: antialiased;
 	overscroll-behavior: none;
 	overflow: overlay;
+	line-height: normal;
 }
