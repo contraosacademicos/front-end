@@ -1,29 +1,42 @@
 import React from "react";
 
+import Image from "next/image";
+
+import logo from "@/assets/logo.png";
 import newsBg from "@/assets/newsletter-bg.jpg";
 
-import { ButtonFill } from "../../buttons/button-fill";
+import { ButtonFill } from "../../core/buttons/button-fill";
 
-const Newsletter = () => {
+const FooterNewsletter = () => {
 	return (
-		<section className="mt-[155px] wrapper">
+		<section className="mt-[155px] wrapper sm_tablet:pb-8">
 			<div
-				className="h-[400px] w-full rounded-3xl bg-gray-900 bg-cover px-[93px] py-[54px]"
-				style={{ backgroundImage: `url(${newsBg.src})` }}
+				className="newsletter-bg relative h-[400px] w-full rounded-3xl bg-gray-900 bg-cover px-[93px] py-[53px] es_tablet:px-7 lg_phone:pt-[200px]"
+				style={{
+					backgroundImage: `url(${newsBg.src})`,
+					backgroundPosition: "center",
+				}}
 			>
+				<Image
+					src={logo}
+					alt="Logo"
+					width={113}
+					height={105}
+					className="absolute left-32 top-1/3 hidden opacity-20 lg_phone:block"
+				/>
 				<div
-					className="left-24 top-16 max-w-[654px] rounded-3xl px-12 py-[72px] text-center"
+					className="max-w-[654px] rounded-3xl px-12 py-[72px] text-center lg_phone:px-6 lg_phone:py-16"
 					style={{
 						background:
-							"conic-gradient(from 212deg at 50% 20.74%, #010101 0deg, #37290F 125.99999785423279deg, #454545 233.99999141693115deg, #202020 360deg)",
+							"conic-gradient(from 212deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 304deg, #202020 360deg)",
 					}}
 				>
 					<div className="mb-10">
-						<p className="text-base">
+						<p className="text-base lg_phone:mb-2 lg_phone:text-p">
 							Que tal receber os melhores conteúdos direto no seu
 							e-mail?
 						</p>
-						<h3 className="font-heading text-h3">
+						<h3 className="font-heading text-h3 lg_phone:text-h6">
 							Assine o nosso newsletter!
 						</h3>
 					</div>
@@ -41,4 +54,4 @@ const Newsletter = () => {
 	);
 };
 
-export default Newsletter;
+export default FooterNewsletter;

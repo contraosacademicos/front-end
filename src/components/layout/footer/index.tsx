@@ -7,20 +7,20 @@ import socialIconOne from "@/assets/icons/social-1.svg";
 import socialIconTwo from "@/assets/icons/social-2.svg";
 import logo from "@/assets/logo.png";
 
-import CopyBar from "./copy-bar";
-import Module from "./module";
-import Newsletter from "./newsletter";
+import FooterCopyBar from "./copy-bar";
+import FooterModule from "./footer-module";
+import FooterNewsletter from "./newsletter";
 
 const Footer: React.FC = () => {
 	return (
 		<>
-			<Module />
+			<FooterModule />
 
-			<Newsletter />
+			<FooterNewsletter />
 
 			<footer className="mt-[140px] wrapper">
 				<div className="mx-auto flex justify-between gap-40 lg_tablet:flex-col">
-					<div className="flex justify-between gap-12 sm_tablet:flex-col">
+					<div className="flex flex-wrap justify-between gap-12 sm_tablet:justify-start">
 						<div>
 							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
 								Home
@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
 
 					<div className="max-h-full border-r border-white lg_tablet:hidden"></div>
 
-					<div className="flex w-[258px] flex-col gap-[22px]">
+					<div className="gradient-bg flex w-[258px] flex-col items-center gap-[22px] rounded-3xl lg_phone:w-full lg_phone:px-14 lg_phone:py-10 lg_phone:text-center">
 						<Image
 							src={logo}
 							alt="Logo"
@@ -192,10 +192,10 @@ const Footer: React.FC = () => {
 							height={54}
 							className="opacity-20"
 						/>
-						<h4 className="lg:text-left mb-4 font-heading text-h4 font-bold text-primary">
+						<h4 className="lg:text-left mb-4 font-heading text-h4 font-bold text-primary lg_phone:text-white">
 							Acompanhe nossas redes sociais
 						</h4>
-						<div className="lg:justify-start mb-10 flex gap-2">
+						<div className="lg:justify-start mb-10 flex gap-2 lg_phone:mb-0">
 							<a
 								href="#"
 								className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
@@ -249,7 +249,7 @@ const Footer: React.FC = () => {
 				</div>
 			</footer>
 
-			<CopyBar />
+			<FooterCopyBar />
 		</>
 	);
 };

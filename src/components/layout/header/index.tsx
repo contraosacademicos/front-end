@@ -1,20 +1,29 @@
-import React from "react";
+import type React from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo.png";
-import { Button } from "@/components/buttons/button";
-import { ButtonFill } from "@/components/buttons/button-fill";
+import { Button } from "@/components/core/buttons/button";
+import { ButtonFill } from "@/components/core/buttons/button-fill";
+
+import MobileNav from "./mobile-nav";
 
 const Header: React.FC = () => {
+	const navLinks = [
+		{ href: "/", label: "Home" },
+		{ href: "/artigos", label: "Artigos" },
+		{ href: "/projeto", label: "Projeto" },
+		{ href: "/contato", label: "Contato" },
+	];
+
 	return (
 		<header className="fixed inset-0 z-header flex h-[110px] items-center bg-black">
 			<div className="flex w-full items-center justify-between wrapper">
 				<Link href="/" className="flex items-center">
 					<Image
-						src={logo}
+						src={logo || "/placeholder.svg"}
 						alt="Logo"
 						width={67}
 						height={62}
@@ -22,34 +31,19 @@ const Header: React.FC = () => {
 					/>
 				</Link>
 
-				<nav className="flex items-center gap-6">
-					<Link
-						href="/"
-						className="text-base underline-offset-8 duration-300 hover:font-bold hover:underline"
-					>
-						Home
-					</Link>
-					<Link
-						href="/artigos"
-						className="text-base underline-offset-8 duration-300 hover:font-bold hover:underline"
-					>
-						Artigos
-					</Link>
-					<Link
-						href="/projeto"
-						className="text-base underline-offset-8 duration-300 hover:font-bold hover:underline"
-					>
-						Projeto
-					</Link>
-					<Link
-						href="/contato"
-						className="text-base underline-offset-8 duration-300 hover:font-bold hover:underline"
-					>
-						Contato
-					</Link>
+				<nav className="flex items-center gap-6 es_tablet:hidden">
+					{navLinks.map((link) => (
+						<Link
+							key={link.href}
+							href={link.href}
+							className="text-base underline-offset-8 duration-300 hover:scale-105 hover:underline"
+						>
+							{link.label}
+						</Link>
+					))}
 					<button className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50">
 						<Image
-							src={searchIcon}
+							src={searchIcon || "/placeholder.svg"}
 							alt="searchIcon"
 							width={67}
 							height={62}
@@ -62,6 +56,8 @@ const Header: React.FC = () => {
 					<ButtonFill>Entrar</ButtonFill>
 					<Button>Assinar</Button>
 				</div>
+
+				<MobileNav navLinks={navLinks} />
 			</div>
 		</header>
 	);

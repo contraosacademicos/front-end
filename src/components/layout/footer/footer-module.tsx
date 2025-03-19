@@ -6,22 +6,22 @@ import Image from "next/image";
 
 import left_icon from "@/assets/icons/left-icon.svg";
 import right_icon from "@/assets/icons/right-icon.svg";
-import moduleItem1 from "@/assets/module-item-1.png";
-import moduleItem from "@/assets/module-item.png";
+import imgModule1 from "@/assets/module/1.png";
+import imgModule2 from "@/assets/module/2.png";
 
 import { EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Button } from "../../buttons/button";
+import { Button } from "../../core/buttons/button";
 
-const Module = () => {
+const FooterModule = () => {
 	return (
 		<section className="relative h-full">
 			<div
 				className="absolute -z-modal h-[630px] w-full bg-cover"
 				style={{
 					background:
-						"conic-gradient(from 225deg at 50% 20.74%, #010101 0deg, #37290F 125.99999785423279deg, #454545 233.99999141693115deg, #202020 360deg)",
+						"conic-gradient(from 225deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 304deg, #202020 360deg)",
 				}}
 			></div>
 
@@ -46,14 +46,14 @@ const Module = () => {
 							className="relative z-content size-full"
 						>
 							<SwiperSlide>
-								<Image src={moduleItem} alt="moduleItem" />
+								<Image src={imgModule1} alt="imgModule1" />
 							</SwiperSlide>
 							<SwiperSlide>
-								<Image src={moduleItem1} alt="moduleItem" />
+								<Image src={imgModule2} alt="imgModule2" />
 							</SwiperSlide>
 						</Swiper>
 
-						<div className="absolute bottom-12 left-[44%] z-elements flex h-10 w-20 items-center justify-evenly rounded-full bg-primary">
+						<div className="absolute bottom-12 left-[44%] z-elements flex h-10 w-20 items-center justify-evenly rounded-full bg-primary lg_phone:left-[40%]">
 							<button className="swiper-button-next px-3 py-4">
 								<Image src={left_icon} alt="left-icon" />
 							</button>
@@ -92,7 +92,9 @@ const Module = () => {
 							de problemas. <br />
 							<strong>Plataforma:</strong> Google Colaboratory
 						</p>
-						<Button>Quero me inscrever</Button>
+						<div>
+							<Button>Quero me inscrever</Button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -100,4 +102,4 @@ const Module = () => {
 	);
 };
 
-export default Module;
+export default FooterModule;

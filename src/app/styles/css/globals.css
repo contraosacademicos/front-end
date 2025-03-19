@@ -15,3 +15,18 @@ html {
 	overflow: overlay;
 	line-height: normal;
 }
+
+@media (max-width: 490px) {
+	.gradient-bg {
+		background: conic-gradient(
+			from 204deg at 50% 20.74%,
+			#010101 0deg,
+			#37290f 200deg,
+			#454545 304deg,
+			#202020 360deg
+		);
+	}
+	.newsletter-bg {
+		background-image: url("/newsletter-bg-mobile.png") !important;
+	}
+}

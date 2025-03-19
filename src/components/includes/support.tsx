@@ -11,7 +11,7 @@ const Support = () => {
 				<h5 className="text-h5 text-primary">
 					Junte-se a nós e apoie o projeto
 				</h5>
-				<h3 className="mt-0.5 text-h3">
+				<h3 className="mt-0.5 text-h3 es_tablet:text-center">
 					Planos para qualquer tipo de estudante
 				</h3>
 				<div className="w-[292px] border"></div>
@@ -19,7 +19,7 @@ const Support = () => {
 
 			<div className="mt-12 flex justify-between lg_tablet:flex-col lg_tablet:items-center lg_tablet:gap-12">
 				<div
-					className="flex w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
+					className="flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
 					style={{
 						background:
 							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
@@ -43,7 +43,7 @@ const Support = () => {
 				</div>
 
 				<div
-					className="relative flex w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
+					className="relative flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
 					style={{
 						background:
 							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
@@ -71,7 +71,7 @@ const Support = () => {
 				</div>
 
 				<div
-					className="flex w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
+					className="flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
 					style={{
 						background:
 							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
