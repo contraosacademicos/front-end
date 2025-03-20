@@ -99,6 +99,14 @@ const config: Config = {
 				".center": {
 					"@apply grid place-items-center": {},
 				},
+
+				".text-limit-2": {
+					display: "-webkit-box",
+					WebkitBoxOrient: "vertical",
+					WebkitLineClamp: "2",
+					overflow: "hidden",
+					textOverflow: "ellipsis",
+				},
 			});
 		},
 	],

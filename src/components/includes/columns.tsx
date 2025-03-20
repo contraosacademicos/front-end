@@ -21,8 +21,12 @@ const Columns = () => {
 
 			<div className="flex flex-wrap justify-between gap-y-[26px]">
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn1} alt="imgColumn1" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn1}
+						alt="imgColumn1"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -31,8 +35,12 @@ const Columns = () => {
 				</div>
 
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn2} alt="imgColumn2" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn2}
+						alt="imgColumn2"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -41,8 +49,12 @@ const Columns = () => {
 				</div>
 
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn3} alt="imgColumn3" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn3}
+						alt="imgColumn3"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -51,8 +63,12 @@ const Columns = () => {
 				</div>
 
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn4} alt="imgColumn4" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn4}
+						alt="imgColumn4"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -61,8 +77,12 @@ const Columns = () => {
 				</div>
 
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn5} alt="imgColumn5" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn5}
+						alt="imgColumn5"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -71,8 +91,12 @@ const Columns = () => {
 				</div>
 
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
-					<Image src={imgColumn6} alt="imgColumn6" />
-					<h5 className="font-heading text-h5">
+					<Image
+						src={imgColumn6}
+						alt="imgColumn6"
+						className="max-h-[188px] rounded-3xl frame"
+					/>
+					<h5 className="text-limit-2 font-heading text-h5">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">

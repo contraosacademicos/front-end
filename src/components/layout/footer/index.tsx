@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 			<FooterNewsletter />
 
 			<footer className="mt-[140px] wrapper">
-				<div className="mx-auto flex justify-between gap-40 lg_tablet:flex-col">
+				<div className="mx-auto flex justify-between gap-40 lg_tablet:flex-col lg_phone:gap-14">
 					<div className="flex flex-wrap justify-between gap-12 sm_tablet:justify-start">
 						<div>
 							<h4 className="mb-12 font-heading text-h4 font-bold text-white">

@@ -21,11 +21,15 @@ const Columnists = () => {
 					className="rounded-3xl"
 					style={{
 						background:
-							"conic-gradient(from 240deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 304deg, #202020 360deg)",
+							"conic-gradient(from 240deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
 					}}
 				>
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist1} alt="imgColumnist1" />
+						<Image
+							src={imgColumnist1}
+							alt="imgColumnist1"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer
@@ -37,35 +41,11 @@ const Columnists = () => {
 
 				<div className="cursor-pointer rounded-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist2} alt="imgColumnist2" />
-						<div>
-							<p className="text-base text-primary">
-								$name_writer
-							</p>
-							<p className="mt-2 text-xs">42 postagens</p>
-						</div>
-					</div>
-				</div>
-
-				<div className="border-b border-dashed border-[#9A9A9A]"></div>
-
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
-					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist3} alt="imgColumnist3" />
-						<div>
-							<p className="text-base text-primary">
-								$name_writer
-							</p>
-							<p className="mt-2 text-xs">42 postagens</p>
-						</div>
-					</div>
-				</div>
-
-				<div className="border-b border-dashed border-[#9A9A9A]"></div>
-
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
-					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist4} alt="imgColumnist4" />
+						<Image
+							src={imgColumnist2}
+							alt="imgColumnist2"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer
@@ -79,7 +59,11 @@ const Columnists = () => {
 
 				<div className="cursor-pointer rounded-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist5} alt="imgColumnist5" />
+						<Image
+							src={imgColumnist3}
+							alt="imgColumnist3"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer
@@ -93,7 +77,11 @@ const Columnists = () => {
 
 				<div className="cursor-pointer rounded-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist6} alt="imgColumnist6" />
+						<Image
+							src={imgColumnist4}
+							alt="imgColumnist4"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer
@@ -107,7 +95,11 @@ const Columnists = () => {
 
 				<div className="cursor-pointer rounded-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist7} alt="imgColumnist7" />
+						<Image
+							src={imgColumnist5}
+							alt="imgColumnist5"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer
@@ -121,7 +113,47 @@ const Columnists = () => {
 
 				<div className="cursor-pointer rounded-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
-						<Image src={imgColumnist8} alt="imgColumnist8" />
+						<Image
+							src={imgColumnist6}
+							alt="imgColumnist6"
+							className="rounded-3xl object-cover"
+						/>
+						<div>
+							<p className="text-base text-primary">
+								$name_writer
+							</p>
+							<p className="mt-2 text-xs">42 postagens</p>
+						</div>
+					</div>
+				</div>
+
+				<div className="border-b border-dashed border-[#9A9A9A]"></div>
+
+				<div className="cursor-pointer rounded-3xl hover:bg-black">
+					<div className="flex gap-8 p-6">
+						<Image
+							src={imgColumnist7}
+							alt="imgColumnist7"
+							className="rounded-3xl object-cover"
+						/>
+						<div>
+							<p className="text-base text-primary">
+								$name_writer
+							</p>
+							<p className="mt-2 text-xs">42 postagens</p>
+						</div>
+					</div>
+				</div>
+
+				<div className="border-b border-dashed border-[#9A9A9A]"></div>
+
+				<div className="cursor-pointer rounded-3xl hover:bg-black">
+					<div className="flex gap-8 p-6">
+						<Image
+							src={imgColumnist8}
+							alt="imgColumnist8"
+							className="rounded-3xl object-cover"
+						/>
 						<div>
 							<p className="text-base text-primary">
 								$name_writer

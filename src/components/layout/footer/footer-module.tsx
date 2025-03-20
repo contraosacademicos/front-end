@@ -21,7 +21,7 @@ const FooterModule = () => {
 				className="absolute -z-modal h-[630px] w-full bg-cover"
 				style={{
 					background:
-						"conic-gradient(from 225deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 304deg, #202020 360deg)",
+						"conic-gradient(from 225deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
 				}}
 			></div>
 

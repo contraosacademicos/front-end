@@ -9,7 +9,7 @@ import { ButtonFill } from "../../core/buttons/button-fill";
 
 const FooterNewsletter = () => {
 	return (
-		<section className="mt-[155px] wrapper sm_tablet:pb-8">
+		<section className="mt-[155px] wrapper sm_tablet:pb-8 lg_phone:mt-10">
 			<div
 				className="newsletter-bg relative h-[400px] w-full rounded-3xl bg-gray-900 bg-cover px-[93px] py-[53px] es_tablet:px-7 lg_phone:pt-[200px]"
 				style={{
@@ -28,7 +28,7 @@ const FooterNewsletter = () => {
 					className="max-w-[654px] rounded-3xl px-12 py-[72px] text-center lg_phone:px-6 lg_phone:py-16"
 					style={{
 						background:
-							"conic-gradient(from 212deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 304deg, #202020 360deg)",
+							"conic-gradient(from 212deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
 					}}
 				>
 					<div className="mb-10">
