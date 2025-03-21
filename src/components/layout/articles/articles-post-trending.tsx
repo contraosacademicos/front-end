@@ -15,7 +15,7 @@ const ArticlesTrending = () => {
 			<div className="flex flex-col flex-wrap gap-y-[26px] sm_desktop:mb-[26px] sm_desktop:flex-row sm_desktop:justify-evenly">
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle7} alt="imgArticle7" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -25,7 +25,7 @@ const ArticlesTrending = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle8} alt="imgArticle8" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">

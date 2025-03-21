@@ -16,6 +16,17 @@ html {
 	line-height: normal;
 }
 
+.custom-bullet {
+	width: 100% !important;
+	max-width: 5rem !important;
+	border-radius: unset !important;
+	height: 0.2rem !important;
+}
+
+.custom-bullet.swiper-pagination-bullet-active {
+	@apply bg-primary opacity-100;
+}
+
 @media (max-width: 490px) {
 	.gradient-bg {
 		background: conic-gradient(

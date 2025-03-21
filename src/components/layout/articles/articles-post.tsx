@@ -22,7 +22,7 @@ const ArticlesPost = () => {
 			<div className="flex flex-wrap justify-between gap-y-[26px] sm_desktop:justify-evenly">
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle1} alt="imgArticle1" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -32,7 +32,7 @@ const ArticlesPost = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle2} alt="imgArticle2" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -42,7 +42,7 @@ const ArticlesPost = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle3} alt="imgArticle3" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -52,7 +52,7 @@ const ArticlesPost = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle4} alt="imgArticle4" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -62,7 +62,7 @@ const ArticlesPost = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle5} alt="imgArticle5" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -72,7 +72,7 @@ const ArticlesPost = () => {
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle6} alt="imgArticle6" />
-					<h5 className="text-limit-2 font-heading text-h5 font-medium">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">

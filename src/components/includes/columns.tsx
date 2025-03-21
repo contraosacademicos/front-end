@@ -19,14 +19,14 @@ const Columns = () => {
 				<div className="w-full max-w-[608px] border-b border-dashed border-primary"></div>
 			</div>
 
-			<div className="flex flex-wrap justify-between gap-y-[26px]">
+			<div className="flex flex-wrap justify-between gap-y-[26px] es_desktop:justify-center">
 				<div className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2">
 					<Image
 						src={imgColumn1}
 						alt="imgColumn1"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -40,7 +40,7 @@ const Columns = () => {
 						alt="imgColumn2"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						Distúrbios emocionais na infância e alienação parental
 					</h5>
 					<p className="text-xs">
@@ -54,7 +54,7 @@ const Columns = () => {
 						alt="imgColumn3"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -68,7 +68,7 @@ const Columns = () => {
 						alt="imgColumn4"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -82,7 +82,7 @@ const Columns = () => {
 						alt="imgColumn5"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">
@@ -96,7 +96,7 @@ const Columns = () => {
 						alt="imgColumn6"
 						className="max-h-[188px] rounded-3xl frame"
 					/>
-					<h5 className="text-limit-2 font-heading text-h5">
+					<h5 className="font-heading text-h5 text-limit-2">
 						O Simbolismo de Se7en
 					</h5>
 					<p className="text-xs">

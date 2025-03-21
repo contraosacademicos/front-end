@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Columnists from "@/components/includes/columnists";
 import Columns from "@/components/includes/columns";
 import CtaCourses from "@/components/includes/cta-courses";
+import HeroSlider from "@/components/includes/hero-slide";
 import Subscription from "@/components/includes/subscription";
 import Support from "@/components/includes/support";
 import Articles from "@/components/layout/articles";
@@ -16,6 +17,9 @@ const Home: NextPage = () => {
 			<Header />
 
 			<div className="mt-40"></div>
+			<HeroSlider />
+
+			<div className="mt-20"></div>
 			<FeaturedSection />
 
 			<div className="mt-20"></div>
