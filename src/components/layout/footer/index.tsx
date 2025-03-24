@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/sobre"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Sobre
 									</Link>
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/diretoria"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Diretoria
 									</Link>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/conselho"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Conselho
 									</Link>
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/linha-do-tempo"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Linha do tempo
 									</Link>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/beneficios"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Benefícios
 									</Link>
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/inscricao"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Inscrição
 									</Link>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/basico"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Básico
 									</Link>
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/intermediario"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Intermediário
 									</Link>
@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/premium"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Premium
 									</Link>
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/servicos"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Serviços
 									</Link>
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/formularios"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Formulários
 									</Link>
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/convenios"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Convênios
 									</Link>
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/cardeneta-de-obras"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Cardeneta de Obras
 									</Link>
@@ -165,7 +165,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/planejamento"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Planejamento
 									</Link>
@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/gestao"
-										className="text-h6 text-graytext transition-colors hover:text-primary"
+										className="text-coagray text-h6 transition-colors hover:text-primary"
 									>
 										Gestão
 									</Link>

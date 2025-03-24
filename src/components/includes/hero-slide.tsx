@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 
-import heroSlider from "@/assets/bg/hero-slider.jpg";
+import heroSlider1 from "@/assets/bg/hero-slider1.jpg";
+import heroSlider2 from "@/assets/bg/hero-slider2.jpg";
 import left_icon from "@/assets/icons/left-icon.svg";
 import right_icon from "@/assets/icons/right-icon.svg";
 
@@ -42,7 +43,7 @@ const HeroSlider = () => {
 					<div
 						className="rounded-3xl bg-cover bg-center px-[193px] py-[66px] sm_tablet:px-[40px] lg_phone:px-3"
 						style={{
-							backgroundImage: `url(${heroSlider.src})`,
+							backgroundImage: `url(${heroSlider1.src})`,
 						}}
 					>
 						<div className="flex w-full max-w-[450px] flex-col items-start gap-1.5">
@@ -78,7 +79,7 @@ const HeroSlider = () => {
 					<div
 						className="rounded-3xl bg-cover bg-center px-[193px] py-[66px] sm_tablet:px-[40px] lg_phone:px-3"
 						style={{
-							backgroundImage: `url(${heroSlider.src})`,
+							backgroundImage: `url(${heroSlider2.src})`,
 						}}
 					>
 						<div className="flex w-full max-w-[450px] flex-col items-start gap-1.5">

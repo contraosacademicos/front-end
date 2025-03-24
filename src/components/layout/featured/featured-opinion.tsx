@@ -9,7 +9,7 @@ import imgOpinion4 from "@/assets/opinion/4.png";
 
 const FeaturedOpinion = () => {
 	return (
-		<section className="h-full max-w-[445px] rounded-3xl border border-white/40 p-6">
+		<div className="h-full max-w-[445px] rounded-3xl border border-white/40 p-6">
 			<h6 className="font-heading text-h6 font-bold">Opinião</h6>
 			<div className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6">
 				<Image src={imgOpinion1} alt="imgOpinion1" />
@@ -50,7 +50,7 @@ const FeaturedOpinion = () => {
 					<p className="mt-1.5 text-xs">Lucas Ribeiro Fernandes</p>
 				</div>
 			</div>
-		</section>
+		</div>
 	);
 };
 

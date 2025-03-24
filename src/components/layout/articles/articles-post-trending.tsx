@@ -5,7 +5,7 @@ import Image from "next/image";
 import imgArticle7 from "@/assets/articles/7.png";
 import imgArticle8 from "@/assets/articles/8.png";
 import imgArticleT1 from "@/assets/articles/trending1.png";
-import starIcon from "@/assets/icons/star.svg";
+import starIcon from "@/assets/icons/star-icon.svg";
 import logo from "@/assets/logo.png";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 

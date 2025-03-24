@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import gemPlan from "@/assets/icons/gem-plan.svg";
+import gemPlan from "@/assets/icons/gem-icon.svg";
 
 const Support = () => {
 	return (
