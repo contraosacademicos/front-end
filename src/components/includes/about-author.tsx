@@ -10,7 +10,7 @@ import { Button } from "../core/buttons/button";
 
 const AboutAuthor = () => {
 	return (
-		<div className="flex h-full w-full max-w-[451px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
+		<div className="flex size-full max-w-[451px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
 			<h6 className="font-heading text-h6 font-bold">Sobre o autor</h6>
 
 			<div className="mt-4">

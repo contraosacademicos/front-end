@@ -12,7 +12,7 @@ import { ButtonFill } from "../core/buttons/button-fill";
 const PostContent = () => {
 	return (
 		<div className="flex w-full max-w-[948px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
-			<div className="text-base text-coagray">
+			<div className="text-coagray text-base">
 				<p className="mb-2 font-bold">$name_writer</p>
 				<p>Hoje</p>
 			</div>
@@ -29,7 +29,7 @@ const PostContent = () => {
 				lectus tempus faucibus.
 			</h3>
 
-			<p className="text-base/6 text-coagray">
+			<p className="text-coagray text-base/6">
 				Um Debate Milenar
 				<br />
 				<br />
@@ -81,7 +81,7 @@ const PostContent = () => {
 				nossas vidas.
 			</p>
 
-			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">
+			<div className="border-coagray flex flex-wrap gap-2 border-y border-dashed py-6">
 				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
 					tag
 				</p>
