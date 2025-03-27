@@ -6,7 +6,7 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import PostDetail from "@/components/layout/post-details";
 
-const Home: NextPage = () => {
+const Post: NextPage = () => {
 	return (
 		<main>
 			<Header />
@@ -26,4 +26,4 @@ const Home: NextPage = () => {
 	);
 };
 
-export default Home;
+export default Post;

@@ -13,7 +13,7 @@ import imgColumnist8 from "@/assets/columnist/8.png";
 
 const Columnists = () => {
 	return (
-		<section className="size-full max-w-[436px] bg-[#232323] p-4">
+		<section className="size-full max-w-[436px] rounded-lg bg-[#232323] p-4">
 			<h6 className="font-heading text-h6">Principais colunistas</h6>
 
 			<div className="mt-4">
@@ -39,7 +39,7 @@ const Columnists = () => {
 					</div>
 				</div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer rounded-t-3xl hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist2}
@@ -57,7 +57,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist3}
@@ -75,7 +75,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist4}
@@ -93,7 +93,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist5}
@@ -111,7 +111,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist6}
@@ -129,7 +129,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist7}
@@ -147,7 +147,7 @@ const Columnists = () => {
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-				<div className="cursor-pointer rounded-3xl hover:bg-black">
+				<div className="cursor-pointer hover:bg-black">
 					<div className="flex gap-8 p-6">
 						<Image
 							src={imgColumnist8}

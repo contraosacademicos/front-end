@@ -37,7 +37,7 @@ const HeroSlider = () => {
 					delay: 5500,
 					disableOnInteraction: false,
 				}}
-				className="hero-swiper relative"
+				className="hero-swiper relative rounded-3xl"
 			>
 				<SwiperSlide>
 					<div
