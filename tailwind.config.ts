@@ -7,7 +7,7 @@ export const colors = {
 	darkest: "#010101",
 	white: "#fff",
 	primary: "#DBA232",
-	graytext: "#858585",
+	coagray: "#858585",
 
 	danger: rose,
 	succes: green,

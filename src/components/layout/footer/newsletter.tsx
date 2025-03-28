@@ -22,7 +22,7 @@ const FooterNewsletter = () => {
 					alt="Logo"
 					width={113}
 					height={105}
-					className="absolute left-32 top-1/3 hidden opacity-20 lg_phone:block"
+					className="absolute left-32 top-1/3 hidden opacity-20 lg_phone:left-40 lg_phone:block md_phone:left-32"
 				/>
 				<div
 					className="max-w-[654px] rounded-3xl px-12 py-[72px] text-center lg_phone:px-6 lg_phone:py-16"
@@ -30,6 +30,7 @@ const FooterNewsletter = () => {
 						background:
 							"conic-gradient(from 212deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
 					}}
+					data-aos="fade-right"
 				>
 					<div className="mb-10">
 						<p className="text-base lg_phone:mb-2 lg_phone:text-p">

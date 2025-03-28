@@ -10,8 +10,6 @@ import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
 import { Button } from "@/components/core/buttons/button";
-import AboutAuthor from "@/components/includes/about-author";
-import Breadcrumb from "@/components/includes/breadcrumb";
 import Support from "@/components/includes/support";
 import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
@@ -120,7 +118,7 @@ const Autor: NextPage = () => {
 							Atividades
 						</h6>
 
-						<div className="flex flex-col gap-1 text-base text-graytext">
+						<div className="text-coagray flex flex-col gap-1 text-base">
 							<p>
 								Total de{" "}
 								<span className="text-primary">
@@ -244,7 +242,7 @@ const Autor: NextPage = () => {
 								<div className="relative">
 									<button
 										onClick={toggleDropdownPostagens}
-										className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-graytext"
+										className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
 									>
 										{filtroPostagens}
 										<svg
@@ -275,7 +273,7 @@ const Autor: NextPage = () => {
 															opcao,
 														)
 													}
-													className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-graytext"
+													className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
 												>
 													{opcao}
 												</button>
@@ -287,7 +285,7 @@ const Autor: NextPage = () => {
 								<div className="relative">
 									<button
 										onClick={toggleDropdownTipo}
-										className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-graytext"
+										className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
 									>
 										{filtroTipo}
 										<svg
@@ -316,7 +314,7 @@ const Autor: NextPage = () => {
 													onClick={() =>
 														selecionarTipo(opcao)
 													}
-													className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-graytext"
+													className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
 												>
 													{opcao}
 												</button>
@@ -423,7 +421,7 @@ const Autor: NextPage = () => {
 									].map((categoria) => (
 										<button
 											key={categoria}
-											className="bg-transparent rounded-md border border-graytext px-3 py-2.5 text-graytext duration-300 hover:bg-graytext hover:text-white"
+											className="bg-transparent border-coagray text-coagray hover:bg-coagray rounded-md border px-3 py-2.5 duration-300 hover:text-white"
 										>
 											{categoria}
 										</button>

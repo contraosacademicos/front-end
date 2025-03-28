@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
+import AOSInit from "@/components/aos-init";
 import { inter, kaisei } from "@/styles/fonts";
 
 export const metadata: Metadata = {
@@ -86,7 +87,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html className={`${inter.variable} ${kaisei.variable}`} lang="pt-BR">
-			<body className="bg-black text-white">{children}</body>
+			<body className="bg-black text-white">
+				<AOSInit />
+				{children}
+			</body>
 		</html>
 	);
 }

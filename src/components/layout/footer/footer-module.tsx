@@ -32,7 +32,10 @@ const FooterModule = () => {
 			</div>
 
 			<div className="mt-[68px] wrapper">
-				<div className="m-auto flex max-w-max items-center rounded-2xl bg-darkest lg_tablet:flex-col">
+				<div
+					className="m-auto flex max-w-max items-center rounded-2xl bg-darkest lg_tablet:flex-col"
+					data-aos="fade-up"
+				>
 					<div className="relative w-full max-w-[646px]">
 						<Swiper
 							effect={"fade"}

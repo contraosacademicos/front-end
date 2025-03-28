@@ -1,5 +1,7 @@
 import { NextPage } from "next";
+import Image from "next/image";
 
+import ellipse1 from "@/assets/shapes/ellipse1.svg";
 import Columnists from "@/components/includes/columnists";
 import Columns from "@/components/includes/columns";
 import CtaCourses from "@/components/includes/cta-courses";
@@ -29,10 +31,20 @@ const Home: NextPage = () => {
 			<Articles />
 
 			<div className="mt-20"></div>
-			<Subscription />
+			<div className="relative" data-aos="fade-up">
+				<Image
+					src={ellipse1}
+					alt="ellipse1"
+					className="absolute bottom-0 right-0 z-elements overflow-x-hidden sm_tablet:w-96"
+				/>
+				<Subscription />
+			</div>
 
 			<div className="mt-20"></div>
-			<div className="flex justify-between wrapper lg_tablet:hidden">
+			<div
+				className="flex justify-between wrapper lg_tablet:hidden"
+				data-aos="fade-up"
+			>
 				<Columnists />
 				<Columns />
 			</div>

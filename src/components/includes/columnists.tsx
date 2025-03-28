@@ -16,7 +16,7 @@ const Columnists = () => {
 		<section className="size-full max-w-[436px] rounded-lg bg-[#232323] p-4">
 			<h6 className="font-heading text-h6">Principais colunistas</h6>
 
-			<div className="mt-4">
+			<div className="mt-4 flex flex-col gap-1">
 				<div
 					className="rounded-3xl"
 					style={{

@@ -12,7 +12,7 @@ import { ButtonFill } from "@/components/core/buttons/button-fill";
 const ArticlesTrending = () => {
 	return (
 		<div className="flex justify-between wrapper sm_desktop:flex-col">
-			<div className="flex flex-col flex-wrap gap-y-[26px] sm_desktop:mb-[26px] sm_desktop:flex-row sm_desktop:justify-evenly">
+			<div className="flex flex-col flex-wrap justify-between gap-y-[26px] sm_desktop:mb-[26px] sm_desktop:flex-row sm_desktop:justify-evenly">
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle7} alt="imgArticle7" />
 					<h5 className="font-heading text-h5 font-medium text-limit-2">

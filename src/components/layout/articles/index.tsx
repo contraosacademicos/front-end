@@ -5,7 +5,7 @@ import ArticlesTrending from "./articles-post-trending";
 
 const Articles = () => {
 	return (
-		<div>
+		<div data-aos="fade-up">
 			<ArticlesPost />
 			<div className="mb-[26px]"></div>
 			<ArticlesTrending />

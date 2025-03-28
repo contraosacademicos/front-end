@@ -6,6 +6,8 @@ import Link from "next/link";
 import socialIconOne from "@/assets/icons/social-1.svg";
 import socialIconTwo from "@/assets/icons/social-2.svg";
 import logo from "@/assets/logo.png";
+import ellipse2 from "@/assets/shapes/ellipse2.svg";
+import ellipse3 from "@/assets/shapes/ellipse3.svg";
 
 import FooterCopyBar from "./copy-bar";
 import FooterModule from "./footer-module";
@@ -14,7 +16,20 @@ import FooterNewsletter from "./newsletter";
 const Footer: React.FC = () => {
 	return (
 		<>
-			<FooterModule />
+			<div className="relative">
+				<Image
+					src={ellipse2}
+					alt="ellipse2"
+					className="absolute bottom-0 left-0 z-elements overflow-x-hidden sm_tablet:w-96"
+				/>
+				<Image
+					src={ellipse3}
+					alt="ellipse3"
+					className="absolute -bottom-72 right-0 z-elements overflow-x-hidden sm_tablet:w-96"
+				/>
+
+				<FooterModule />
+			</div>
 
 			<FooterNewsletter />
 
@@ -29,7 +44,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/sobre"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Sobre
 									</Link>
@@ -37,7 +52,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/diretoria"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Diretoria
 									</Link>
@@ -45,7 +60,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/conselho"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Conselho
 									</Link>
@@ -53,7 +68,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/linha-do-tempo"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Linha do tempo
 									</Link>
@@ -69,7 +84,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/beneficios"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Benefícios
 									</Link>
@@ -77,7 +92,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/inscricao"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Inscrição
 									</Link>
@@ -93,7 +108,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/basico"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Básico
 									</Link>
@@ -101,7 +116,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/intermediario"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Intermediário
 									</Link>
@@ -109,7 +124,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/premium"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Premium
 									</Link>
@@ -125,7 +140,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/servicos"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Serviços
 									</Link>
@@ -133,7 +148,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/formularios"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Formulários
 									</Link>
@@ -141,7 +156,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/convenios"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Convênios
 									</Link>
@@ -149,7 +164,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/cardeneta-de-obras"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Cardeneta de Obras
 									</Link>
@@ -165,7 +180,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/planejamento"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Planejamento
 									</Link>
@@ -173,7 +188,7 @@ const Footer: React.FC = () => {
 								<li>
 									<Link
 										href="/gestao"
-										className="text-coagray text-h6 transition-colors hover:text-primary"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
 										Gestão
 									</Link>
@@ -184,7 +199,10 @@ const Footer: React.FC = () => {
 
 					<div className="max-h-full border-r border-white lg_tablet:hidden"></div>
 
-					<div className="gradient-bg flex w-[258px] flex-col items-center gap-[22px] rounded-3xl lg_phone:w-full lg_phone:px-14 lg_phone:py-10 lg_phone:text-center">
+					<div
+						className="gradient-bg flex w-[258px] flex-col gap-[22px] rounded-3xl lg_phone:w-full lg_phone:items-center lg_phone:px-14 lg_phone:py-10 lg_phone:text-center"
+						data-aos="fade-left"
+					>
 						<Image
 							src={logo}
 							alt="Logo"

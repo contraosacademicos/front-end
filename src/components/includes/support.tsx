@@ -6,7 +6,7 @@ import gemPlan from "@/assets/icons/gem-icon.svg";
 
 const Support = () => {
 	return (
-		<section className="wrapper">
+		<section className="wrapper" data-aos="fade-up">
 			<div className="flex flex-col items-center font-heading">
 				<h5 className="text-h5 text-primary">
 					Junte-se a nós e apoie o projeto

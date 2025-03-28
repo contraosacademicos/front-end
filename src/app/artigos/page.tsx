@@ -72,7 +72,7 @@ const Artigos: NextPage = () => {
 						<div className="relative">
 							<button
 								onClick={toggleDropdownPostagens}
-								className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-graytext"
+								className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
 							>
 								{filtroPostagens}
 								<svg
@@ -101,7 +101,7 @@ const Artigos: NextPage = () => {
 											onClick={() =>
 												selecionarPostagem(opcao)
 											}
-											className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-graytext"
+											className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
 										>
 											{opcao}
 										</button>
@@ -113,7 +113,7 @@ const Artigos: NextPage = () => {
 						<div className="relative">
 							<button
 								onClick={toggleDropdownTipo}
-								className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-graytext"
+								className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
 							>
 								{filtroTipo}
 								<svg
@@ -142,7 +142,7 @@ const Artigos: NextPage = () => {
 											onClick={() =>
 												selecionarTipo(opcao)
 											}
-											className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-graytext"
+											className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
 										>
 											{opcao}
 										</button>
@@ -241,7 +241,7 @@ const Artigos: NextPage = () => {
 								(categoria) => (
 									<button
 										key={categoria}
-										className="bg-transparent rounded-md border border-graytext px-3 py-2.5 text-graytext duration-300 hover:bg-graytext hover:text-white"
+										className="bg-transparent border-coagray text-coagray hover:bg-coagray rounded-md border px-3 py-2.5 duration-300 hover:text-white"
 									>
 										{categoria}
 									</button>

@@ -6,7 +6,7 @@ import { ButtonBanner } from "../core/buttons/button-banner";
 
 const CtaCourses = () => {
 	return (
-		<section className="wrapper es_tablet:hidden">
+		<section className="wrapper es_tablet:hidden" data-aos="fade-up">
 			<div
 				className="relative rounded-3xl bg-[#202020] bg-cover bg-center px-[187px] py-14 text-center lg_phone:px-10"
 				style={{
