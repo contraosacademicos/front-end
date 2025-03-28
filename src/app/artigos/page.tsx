@@ -72,7 +72,7 @@ const Artigos: NextPage = () => {
 						<div className="relative">
 							<button
 								onClick={toggleDropdownPostagens}
-								className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
+								className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 							>
 								{filtroPostagens}
 								<svg
@@ -101,7 +101,7 @@ const Artigos: NextPage = () => {
 											onClick={() =>
 												selecionarPostagem(opcao)
 											}
-											className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
+											className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-coagray"
 										>
 											{opcao}
 										</button>
@@ -113,7 +113,7 @@ const Artigos: NextPage = () => {
 						<div className="relative">
 							<button
 								onClick={toggleDropdownTipo}
-								className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
+								className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 							>
 								{filtroTipo}
 								<svg
@@ -142,7 +142,7 @@ const Artigos: NextPage = () => {
 											onClick={() =>
 												selecionarTipo(opcao)
 											}
-											className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
+											className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-coagray"
 										>
 											{opcao}
 										</button>
@@ -237,11 +237,11 @@ const Artigos: NextPage = () => {
 						</div>
 
 						<div className="flex flex-wrap gap-2">
-							{["Listas", "Blog", "Revistas", "Novidades"].map(
+							{["Listas", "Blog", "Colunas", "Novidades"].map(
 								(categoria) => (
 									<button
 										key={categoria}
-										className="bg-transparent border-coagray text-coagray hover:bg-coagray rounded-md border px-3 py-2.5 duration-300 hover:text-white"
+										className="bg-transparent rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 hover:bg-coagray hover:text-white"
 									>
 										{categoria}
 									</button>

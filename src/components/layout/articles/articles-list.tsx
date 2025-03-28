@@ -15,9 +15,9 @@ const ArticlesList = () => {
 	return (
 		<div className="flex w-full max-w-[948px] flex-wrap justify-between gap-y-[26px] md_desktop:max-w-[840px] sm_desktop:justify-evenly">
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -35,7 +35,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>
@@ -79,9 +79,9 @@ const ArticlesList = () => {
 			</div>
 
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -99,7 +99,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>
@@ -143,9 +143,9 @@ const ArticlesList = () => {
 			</div>
 
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -163,7 +163,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>
@@ -207,9 +207,9 @@ const ArticlesList = () => {
 			</div>
 
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -227,7 +227,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>
@@ -271,9 +271,9 @@ const ArticlesList = () => {
 			</div>
 
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -291,7 +291,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>
@@ -335,9 +335,9 @@ const ArticlesList = () => {
 			</div>
 
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
-				<div className="text-coagray flex flex-col gap-2 text-base">
+				<div className="flex flex-col gap-2 text-base text-coagray">
 					<p className="font-bold">Everaldo Júnior</p>
-					<p className="font-medium">Everaldo Júnior</p>
+					<p className="font-medium">Hoje</p>
 				</div>
 
 				<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -355,7 +355,7 @@ const ArticlesList = () => {
 					</h5>
 				</div>
 
-				<p className="text-coagray text-base font-medium">
+				<p className="text-base font-medium text-coagray">
 					For the few last days, I receive several 404 and 500 erros
 					when navigating inside Laracast.
 				</p>

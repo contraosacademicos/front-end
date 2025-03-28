@@ -13,7 +13,7 @@ const FooterCopyBar = () => {
 				}}
 			>
 				<div className="flex h-full items-center justify-between wrapper lg_tablet:flex-col lg_tablet:justify-evenly">
-					<div className="text-coagray flex gap-12 lg_phone:flex-col lg_phone:gap-1">
+					<div className="flex gap-12 text-coagray lg_phone:flex-col lg_phone:gap-1">
 						<Link href="/">Políticas de Direitos Autorais</Link>
 						<Link href="/">Política de Privacidade</Link>
 					</div>

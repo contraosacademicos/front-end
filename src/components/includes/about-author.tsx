@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
@@ -37,7 +38,7 @@ const AboutAuthor = () => {
 				</div>
 			</div>
 
-			<p className="text-coagray text-base">
+			<p className="text-base text-coagray">
 				Pouco se sabe sobre a vida de Augusto de Lyra, um enigmático
 				filósofo que dedicou sua existência às profundezas da floresta
 				amazônica. Nascido em uma pequena aldeia indígena no coração da
@@ -45,7 +46,9 @@ const AboutAuthor = () => {
 				tradições ancestrais de seu povo.
 			</p>
 
-			<Button className="w-fit">Sobre o autor</Button>
+			<Link href={"/autor"}>
+				<Button className="w-fit">Mais do autor</Button>
+			</Link>
 
 			<div className="border-b border-dashed border-[#9A9A9A]"></div>
 

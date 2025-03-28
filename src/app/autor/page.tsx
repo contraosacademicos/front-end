@@ -9,7 +9,6 @@ import Link from "next/link";
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
-import { Button } from "@/components/core/buttons/button";
 import Support from "@/components/includes/support";
 import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
@@ -101,7 +100,7 @@ const Autor: NextPage = () => {
 							</div>
 						</div>
 
-						<p className="text-coagray text-base">
+						<p className="text-base text-coagray">
 							Pouco se sabe sobre a vida de Augusto de Lyra, um
 							enigmático filósofo que dedicou sua existência às
 							profundezas da floresta amazônica. Nascido em uma
@@ -110,15 +109,13 @@ const Autor: NextPage = () => {
 							tradições ancestrais de seu povo.
 						</p>
 
-						<Button className="w-fit">Sobre o autor</Button>
-
 						<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
 						<h6 className="font-heading text-h6 font-bold">
 							Atividades
 						</h6>
 
-						<div className="text-coagray flex flex-col gap-1 text-base">
+						<div className="flex flex-col gap-1 text-base text-coagray">
 							<p>
 								Total de{" "}
 								<span className="text-primary">
@@ -242,7 +239,7 @@ const Autor: NextPage = () => {
 								<div className="relative">
 									<button
 										onClick={toggleDropdownPostagens}
-										className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
+										className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 									>
 										{filtroPostagens}
 										<svg
@@ -273,7 +270,7 @@ const Autor: NextPage = () => {
 															opcao,
 														)
 													}
-													className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
+													className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-coagray"
 												>
 													{opcao}
 												</button>
@@ -285,7 +282,7 @@ const Autor: NextPage = () => {
 								<div className="relative">
 									<button
 										onClick={toggleDropdownTipo}
-										className="bg-zinc-800 text-coagray flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5"
+										className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 									>
 										{filtroTipo}
 										<svg
@@ -314,7 +311,7 @@ const Autor: NextPage = () => {
 													onClick={() =>
 														selecionarTipo(opcao)
 													}
-													className="hover:bg-zinc-700 text-coagray block w-full px-4 py-2.5 text-left"
+													className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-coagray"
 												>
 													{opcao}
 												</button>
@@ -416,12 +413,12 @@ const Autor: NextPage = () => {
 									{[
 										"Listas",
 										"Blog",
-										"Revistas",
+										"Colunas",
 										"Novidades",
 									].map((categoria) => (
 										<button
 											key={categoria}
-											className="bg-transparent border-coagray text-coagray hover:bg-coagray rounded-md border px-3 py-2.5 duration-300 hover:text-white"
+											className="bg-transparent rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 hover:bg-coagray hover:text-white"
 										>
 											{categoria}
 										</button>

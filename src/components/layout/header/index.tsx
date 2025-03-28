@@ -19,10 +19,7 @@ const Header: React.FC = () => {
 	];
 
 	return (
-		<header
-			className="fixed inset-0 z-header flex h-[110px] items-center bg-black"
-			data-aos="fade-down"
-		>
+		<header className="fixed inset-0 z-header flex h-[110px] items-center bg-black">
 			<div className="flex w-full items-center justify-between wrapper">
 				<Link href="/" className="flex items-center">
 					<Image

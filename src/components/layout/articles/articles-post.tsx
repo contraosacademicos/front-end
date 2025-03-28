@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import imgArticle1 from "@/assets/articles/1.png";
 import imgArticle2 from "@/assets/articles/2.png";
@@ -20,15 +21,18 @@ const ArticlesPost = () => {
 			</div>
 
 			<div className="flex flex-wrap justify-between gap-y-[26px] sm_desktop:justify-evenly">
-				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-					<Image src={imgArticle1} alt="imgArticle1" />
-					<h5 className="font-heading text-h5 font-medium text-limit-2">
-						Distúrbios emocionais na infância e alienação parental
-					</h5>
-					<p className="text-xs">
-						Por: <strong>Frederico Mendonça de Oliveira</strong>
-					</p>
-				</div>
+				<Link href={"/post"}>
+					<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
+						<Image src={imgArticle1} alt="imgArticle1" />
+						<h5 className="font-heading text-h5 font-medium text-limit-2">
+							Distúrbios emocionais na infância e alienação
+							parental
+						</h5>
+						<p className="text-xs">
+							Por: <strong>Frederico Mendonça de Oliveira</strong>
+						</p>
+					</div>
+				</Link>
 
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image src={imgArticle2} alt="imgArticle2" />

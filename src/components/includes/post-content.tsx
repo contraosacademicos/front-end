@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import Image from "next/image";
@@ -81,7 +83,7 @@ const PostContent = () => {
 				nossas vidas.
 			</p>
 
-			<div className="border-coagray flex flex-wrap gap-2 border-y border-dashed py-6">
+			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">
 				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
 					tag
 				</p>
@@ -107,7 +109,15 @@ const PostContent = () => {
 						Compartilhar
 					</ButtonFill>
 
-					<ButtonFill>Responder</ButtonFill>
+					<ButtonFill
+						onClick={() =>
+							document
+								.getElementById("comentarios")
+								?.scrollIntoView({ behavior: "smooth" })
+						}
+					>
+						Responder
+					</ButtonFill>
 				</div>
 
 				<div className="flex items-center gap-2">
