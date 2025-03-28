@@ -13,7 +13,7 @@ import messagesIcon from "@/assets/icons/messages-icon.svg";
 
 const ArticlesList = () => {
 	return (
-		<div className="flex w-full max-w-[948px] flex-wrap justify-between gap-y-[26px] sm_desktop:justify-evenly">
+		<div className="flex w-full max-w-[948px] flex-wrap justify-between gap-y-[26px] md_desktop:max-w-[840px] sm_desktop:justify-evenly">
 			<div className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6">
 				<div className="flex flex-col gap-2 text-base text-graytext">
 					<p className="font-bold">Everaldo Júnior</p>
