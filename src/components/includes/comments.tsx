@@ -47,7 +47,7 @@ const Comments = () => {
 						</div>
 					</div>
 
-					<div className="mt-4 border-l-2 border-coagray/30 pl-24">
+					<div className="mt-4 border-l-2 border-coagray/30 pl-24 es_tablet:pl-10">
 						<div className="flex flex-col gap-6 space-y-2 rounded-lg bg-[#343434] p-6">
 							<div className="flex items-center justify-between">
 								<div className="flex flex-col gap-2">

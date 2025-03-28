@@ -201,7 +201,7 @@ const Footer: React.FC = () => {
 
 					<div
 						className="gradient-bg flex w-[258px] flex-col gap-[22px] rounded-3xl lg_phone:w-full lg_phone:items-center lg_phone:px-14 lg_phone:py-10 lg_phone:text-center"
-						data-aos="fade-left"
+						data-aos="fade"
 					>
 						<Image
 							src={logo}
