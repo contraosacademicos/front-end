@@ -43,58 +43,26 @@ const Footer: React.FC = () => {
 							<ul className="space-y-2">
 								<li>
 									<Link
-										href="/sobre"
+										href="/"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Sobre
+										Página inicial
 									</Link>
 								</li>
 								<li>
 									<Link
-										href="/diretoria"
+										href="/artigos"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Diretoria
+										Artigos
 									</Link>
 								</li>
 								<li>
 									<Link
-										href="/conselho"
+										href="/contato"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Conselho
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/linha-do-tempo"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Linha do tempo
-									</Link>
-								</li>
-							</ul>
-						</div>
-
-						<div>
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
-								Revistas
-							</h4>
-							<ul className="space-y-2">
-								<li>
-									<Link
-										href="/beneficios"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Benefícios
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/inscricao"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Inscrição
+										Contato
 									</Link>
 								</li>
 							</ul>
@@ -107,97 +75,105 @@ const Footer: React.FC = () => {
 							<ul className="space-y-2">
 								<li>
 									<Link
-										href="/basico"
+										href="/"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Básico
+										Mensal
 									</Link>
 								</li>
 								<li>
 									<Link
-										href="/intermediario"
+										href="/"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Intermediário
+										Semestral
 									</Link>
 								</li>
 								<li>
 									<Link
-										href="/premium"
+										href="/"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Premium
+										Anual
 									</Link>
 								</li>
 							</ul>
 						</div>
 
-						<div>
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
-								Contato
-							</h4>
-							<ul className="space-y-2">
-								<li>
-									<Link
-										href="/servicos"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Serviços
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/formularios"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Formulários
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/convenios"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Convênios
-									</Link>
-								</li>
-								<li>
-									<Link
-										href="/cardeneta-de-obras"
-										className="text-h6 text-coagray transition-colors hover:text-primary"
-									>
-										Cardeneta de Obras
-									</Link>
-								</li>
-							</ul>
-						</div>
-
-						<div>
+						<div className="max-w-[174px]">
 							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
 								Listas
 							</h4>
 							<ul className="space-y-2">
 								<li>
 									<Link
-										href="/planejamento"
+										href="/artigos"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Planejamento
+										Mais acessado
 									</Link>
 								</li>
 								<li>
 									<Link
-										href="/gestao"
+										href="/artigos"
 										className="text-h6 text-coagray transition-colors hover:text-primary"
 									>
-										Gestão
+										Recente
+									</Link>
+								</li>
+							</ul>
+						</div>
+
+						<div className="max-w-[174px]">
+							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+								Artigos
+							</h4>
+							<ul className="space-y-5">
+								<li>
+									<Link
+										href="/artigos"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
+									>
+										Mais acessados da Semana
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/artigos"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
+									>
+										Mais acessados do Mês
+									</Link>
+								</li>
+							</ul>
+						</div>
+
+						<div>
+							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							Colunas
+							</h4>
+							<ul className="space-y-2">
+								<li>
+									<Link
+										href="/artigos"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
+									>
+										Recente
+									</Link>
+								</li>
+								<li>
+									<Link
+										href="/artigos"
+										className="text-h6 text-coagray transition-colors hover:text-primary"
+									>
+										Mais acessados
 									</Link>
 								</li>
 							</ul>
 						</div>
 					</div>
 
-					<div className="max-h-full border-r border-white lg_tablet:hidden"></div>
+					<div className="max-h-full border-r border-white/50 lg_tablet:hidden"></div>
 
 					<div
 						className="gradient-bg flex w-[258px] flex-col gap-[22px] rounded-3xl lg_phone:w-full lg_phone:items-center lg_phone:px-14 lg_phone:py-10 lg_phone:text-center"
