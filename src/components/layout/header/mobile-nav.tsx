@@ -9,7 +9,7 @@ import Link from "next/link";
 import closeIcon from "@/assets/icons/close-icon.svg";
 import menuIcon from "@/assets/icons/menu-icon.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import { Button } from "@/components/core/buttons/button";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import searchIcon from "@/assets/icons/search-icon.svg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import { Button } from "@/components/core/buttons/button";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
@@ -22,13 +22,7 @@ const Header: React.FC = () => {
 		<header className="fixed inset-0 z-header flex h-[110px] items-center bg-black">
 			<div className="flex w-full items-center justify-between wrapper">
 				<Link href="/" className="flex items-center">
-					<Image
-						src={logo || "/placeholder.svg"}
-						alt="Logo"
-						width={67}
-						height={62}
-						className="size-auto"
-					/>
+					<Image src={logo} alt="Logo" width={67} height={62} />
 				</Link>
 
 				<nav className="flex items-center gap-6 es_tablet:hidden">

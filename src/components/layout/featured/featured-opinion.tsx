@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import imgOpinion1 from "@/assets/opinion/1.png";
 import imgOpinion2 from "@/assets/opinion/2.png";
 import imgOpinion3 from "@/assets/opinion/3.png";

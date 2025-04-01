@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import socialIconOne from "@/assets/icons/social-1.svg";
 import socialIconTwo from "@/assets/icons/social-2.svg";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import ellipse2 from "@/assets/shapes/ellipse2.svg";
 import ellipse3 from "@/assets/shapes/ellipse3.svg";
 

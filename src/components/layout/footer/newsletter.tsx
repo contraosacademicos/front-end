@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import newsBg from "@/assets/newsletter-bg.jpg";
 
 import { ButtonFill } from "../../core/buttons/button-fill";

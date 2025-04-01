@@ -1,7 +1,7 @@
 import React from "react";
 
+import FeaturedArticles from "./featured-articles";
 import FeaturedOpinion from "./featured-opinion";
-import FeaturedPost from "./featured-post";
 
 const FeaturedSection = () => {
 	return (
@@ -13,7 +13,7 @@ const FeaturedSection = () => {
 				<div className="w-full border-b border-dashed border-primary"></div>
 			</div>
 			<div className="mt-[28px] flex flex-wrap justify-between gap-10 md_desktop:justify-center">
-				<FeaturedPost />
+				<FeaturedArticles />
 				<FeaturedOpinion />
 			</div>
 		</section>

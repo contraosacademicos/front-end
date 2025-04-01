@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.svg";
 import shape1 from "@/assets/shapes/1.png";
 
 import { Button } from "../core/buttons/button";
