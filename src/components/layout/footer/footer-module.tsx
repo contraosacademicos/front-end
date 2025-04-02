@@ -12,7 +12,7 @@ import imgModule2 from "@/assets/module/2.png";
 import { EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Button } from "../../core/buttons/button";
+import { ButtonCoa } from "../../core/buttons/button-coa";
 
 const FooterModule = () => {
 	return (
@@ -96,7 +96,7 @@ const FooterModule = () => {
 							<strong>Plataforma:</strong> Google Colaboratory
 						</p>
 						<div>
-							<Button>Quero me inscrever</Button>
+							<ButtonCoa>Quero me inscrever</ButtonCoa>
 						</div>
 					</div>
 				</div>

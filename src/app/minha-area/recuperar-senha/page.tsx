@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import logoBg from "@/assets/logo-bg.svg";
 import logo from "@/assets/logo.svg";
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -59,12 +60,9 @@ const UserAreaRecover = () => {
 						/>
 					</div>
 
-					<ButtonFill
-						type="submit"
-						className="w-full bg-white text-gray-900 hover:bg-gray-100"
-					>
+					<ButtonCoa type="submit" className="h-12 w-full">
 						Recuperar Senha
-					</ButtonFill>
+					</ButtonCoa>
 
 					<div className="text-center">
 						<span className="text-coagray">

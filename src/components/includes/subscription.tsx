@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo from "@/assets/logo.svg";
 import shape1 from "@/assets/shapes/1.png";
 
-import { Button } from "../core/buttons/button";
+import { ButtonCoa } from "../core/buttons/button-coa";
 import { ButtonFill } from "../core/buttons/button-fill";
 
 const Subscription = () => {
@@ -27,14 +27,12 @@ const Subscription = () => {
 						</h5>
 					</div>
 					<p className="text-p">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Praesent eros nisl, faucibus quis tortor et, congue
-						congue neque. Fusce ut sapien tempus, scelerisque nibh
-						eu, efficitur purus.
+						Sua doação nos permite continuar com o nosso trabalho e
+						a impactar vidas.
 					</p>
 					<div className="flex gap-4">
 						<ButtonFill>Assinar</ButtonFill>
-						<Button>Quero Apoiar</Button>
+						<ButtonCoa>Quero Apoiar</ButtonCoa>
 					</div>
 				</div>
 			</div>

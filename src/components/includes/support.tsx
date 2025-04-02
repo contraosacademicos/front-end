@@ -8,10 +8,11 @@ const Support = () => {
 	return (
 		<section className="wrapper" data-aos="fade-up">
 			<div className="flex flex-col items-center font-heading">
-				<h5 className="text-h5 text-primary">Junte-se a nós</h5>
+				<h5 className="text-h5 text-primary">
+					Junte-se a nós e apoie o projeto
+				</h5>
 				<h3 className="mt-0.5 max-w-[800px] text-center text-h3 es_tablet:text-center">
-					Sua doação nos permite continuar com o nosso trabalho e a
-					impactar vidas.
+					Planos para qualquer tipo de estudante
 				</h3>
 				<div className="w-[292px] border"></div>
 			</div>

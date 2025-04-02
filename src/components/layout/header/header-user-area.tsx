@@ -11,24 +11,15 @@ import gearIcon from "@/assets/icons/gear-icon.svg";
 import instagramIcon from "@/assets/icons/instagram-icon.svg";
 import spotifyIcon from "@/assets/icons/spotify-icon.svg";
 import youtubeIcon from "@/assets/icons/youtube-icon.svg";
-import logo from "@/assets/logo-primary.png";
-import { Button } from "@/components/core/buttons/button";
-
-import MobileNav from "./mobile-nav";
+import logo from "@/assets/logo-primary.svg";
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
 
 const HeaderUserArea: React.FC = () => {
-	const navLinks = [
-		{ href: "/", label: "Home" },
-		{ href: "/artigos", label: "Artigos" },
-		{ href: "/projeto", label: "Projeto" },
-		{ href: "/contato", label: "Contato" },
-	];
-
 	return (
 		<header className="fixed inset-0 z-header flex h-fit flex-col items-center border-b border-coagray bg-black">
 			<div className="w-full bg-primary text-black">
-				<div className="flex w-full justify-between py-2.5 wrapper">
-					<p>
+				<div className="flex w-full justify-between py-2.5 wrapper sm_tablet:justify-center">
+					<p className="sm_tablet:hidden">
 						Bem vindo ao <strong>COA</strong>, Já nos indicou para
 						um amigo hoje?
 					</p>
@@ -55,13 +46,13 @@ const HeaderUserArea: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="flex w-full items-center justify-between py-6 wrapper">
+			<div className="flex w-full items-center justify-between py-5 wrapper">
 				<Link href="/" className="flex items-center">
 					<Image src={logo} alt="Logo" width={67} height={62} />
 				</Link>
 
 				<div className="flex gap-7">
-					<Button>Assinar</Button>
+					<ButtonCoa>Assinar</ButtonCoa>
 					<Link
 						href="/"
 						className="flex items-center brightness-[1000%] duration-100 hover:brightness-100"
@@ -96,8 +87,6 @@ const HeaderUserArea: React.FC = () => {
 						/>
 					</div>
 				</div>
-
-				<MobileNav navLinks={navLinks} />
 			</div>
 		</header>
 	);

@@ -15,9 +15,7 @@ const CtaCourses = () => {
 			>
 				<div className="relative flex flex-wrap items-center justify-between gap-8">
 					<div className="text-center font-heading">
-						<h2 className="mb-2 text-h2/[50px]">
-							junte-se a a nós
-						</h2>
+						<h2 className="mb-2 text-h2/[50px]">junte-se a nós</h2>
 						<h2 className="text-h1/[97px] text-primary">
 							+ 42 cursos
 						</h2>

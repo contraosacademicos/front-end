@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
 
 						<div>
 							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
-							Colunas
+								Colunas
 							</h4>
 							<ul className="space-y-2">
 								<li>

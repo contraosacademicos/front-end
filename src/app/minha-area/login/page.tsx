@@ -8,6 +8,7 @@ import Link from "next/link";
 
 import logoBg from "@/assets/logo-bg.svg";
 import logo from "@/assets/logo.svg";
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,7 +66,7 @@ const UserAreaLogin = () => {
 					className="w-full max-w-[425px] space-y-6"
 				>
 					<div className="space-y-2">
-						<Label htmlFor="password" className="text-coagray">
+						<Label htmlFor="email" className="text-coagray">
 							E-mail
 						</Label>
 						<Input
@@ -114,12 +115,9 @@ const UserAreaLogin = () => {
 						</div>
 					</div>
 
-					<ButtonFill
-						type="submit"
-						className="w-full bg-white text-gray-900 hover:bg-gray-100"
-					>
+					<ButtonCoa type="submit" className="h-12 w-full">
 						Acessar a plataforma
-					</ButtonFill>
+					</ButtonCoa>
 
 					<div className="text-center">
 						<span className="text-coagray">

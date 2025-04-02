@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo.svg";
-import { Button } from "@/components/core/buttons/button";
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
 import MobileNav from "./mobile-nav";
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
 
 				<div className="flex gap-4">
 					<ButtonFill>Entrar</ButtonFill>
-					<Button>Assinar</Button>
+					<ButtonCoa>Assinar</ButtonCoa>
 				</div>
 
 				<MobileNav navLinks={navLinks} />

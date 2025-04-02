@@ -4,6 +4,7 @@ import HeaderUserArea from "@/components/layout/header/header-user-area";
 import { DEFINITION } from "@/constants";
 
 import FooterUserArea from "../components/footer-user-area";
+import MobileNavUserArea from "../components/mobile-nav-user-area";
 import NavUserArea from "../components/nav-user-area";
 
 export const metadata: Metadata = {
@@ -86,8 +87,9 @@ export default function UserAreaLayout({
 
 			<div className="mt-44"></div>
 
-			<div className="flex gap-8 wrapper">
+			<div className="flex gap-8 wrapper sm_tablet:flex-col">
 				<NavUserArea />
+				<MobileNavUserArea />
 				{children}
 			</div>
 

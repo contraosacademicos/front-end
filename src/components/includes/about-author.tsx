@@ -7,7 +7,7 @@ import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
 
-import { Button } from "../core/buttons/button";
+import { ButtonCoa } from "../core/buttons/button-coa";
 
 const AboutAuthor = () => {
 	return (
@@ -47,7 +47,7 @@ const AboutAuthor = () => {
 			</p>
 
 			<Link href={"/autor"}>
-				<Button className="w-fit">Mais do autor</Button>
+				<ButtonCoa className="w-fit">Mais do autor</ButtonCoa>
 			</Link>
 
 			<div className="border-b border-dashed border-[#9A9A9A]"></div>

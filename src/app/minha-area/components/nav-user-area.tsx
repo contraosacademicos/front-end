@@ -14,7 +14,7 @@ import supportIcon from "@/assets/icons/support-icon.svg";
 
 const NavUserArea = () => {
 	return (
-		<div className="h-full w-[282px] rounded-3xl bg-[#252525] p-2.5">
+		<div className="h-full w-[282px] rounded-3xl bg-[#252525] p-2.5 sm_tablet:hidden">
 			<nav className="flex flex-col gap-2.5 text-p es_tablet:hidden">
 				<Link
 					href={" "}

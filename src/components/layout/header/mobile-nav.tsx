@@ -10,7 +10,7 @@ import closeIcon from "@/assets/icons/close-icon.svg";
 import menuIcon from "@/assets/icons/menu-icon.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo.svg";
-import { Button } from "@/components/core/buttons/button";
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
 interface NavLink {
@@ -137,7 +137,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 
 					<div className="mt-auto flex flex-col gap-4">
 						<ButtonFill onClick={closeMenu}>Entrar</ButtonFill>
-						<Button onClick={closeMenu}>Assinar</Button>
+						<ButtonCoa onClick={closeMenu}>Assinar</ButtonCoa>
 					</div>
 				</div>
 			</div>
