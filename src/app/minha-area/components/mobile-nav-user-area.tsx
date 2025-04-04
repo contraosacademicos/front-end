@@ -39,12 +39,12 @@ const MobileNavUserArea = () => {
 			>
 				<button
 					onClick={() => setIsOpen(false)}
-					className="absolute right-4 top-4 text-white"
+					className="absolute right-4 top-4"
 				>
 					<X size={24} />
 				</button>
 
-				<nav className="mt-12 flex flex-col gap-2.5 text-white">
+				<nav className="mt-12 flex flex-col gap-2.5">
 					<Link
 						href={" "}
 						className="flex w-full justify-between gap-4 rounded-2xl bg-primary px-[15px] py-2 text-base font-bold duration-300 hover:bg-coagray"

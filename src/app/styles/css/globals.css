@@ -42,3 +42,19 @@ html {
 	}
 }
 
+/* Estilo para o ícone de calendário */
+input[type="date"]::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0;
+	padding: 0;
+}
+
+/* Ajuste para o input de data */
+input[type="date"] {
+	position: relative;
+	padding-right: 30px !important; /* Espaço para o ícone */
+}

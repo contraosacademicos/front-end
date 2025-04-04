@@ -25,7 +25,7 @@ const PostContent = () => {
 				className="max-h-[230px] rounded-3xl frame"
 			/>
 
-			<h3 className="font-heading text-h3 font-bold text-white es_tablet:text-h4">
+			<h3 className="font-heading text-h3 font-bold es_tablet:text-h4">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 				Pellentesque eleifend id lacus ut laoreet. Suspendisse a urna ac
 				lectus tempus faucibus.

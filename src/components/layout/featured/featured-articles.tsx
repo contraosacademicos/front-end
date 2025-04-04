@@ -36,7 +36,7 @@ const FeaturedArticles = () => {
 	const [mainArticle, ...otherArticles] = featuredArticles;
 	return (
 		<div className="flex justify-between sm_desktop:flex-col">
-			<div className="flex h-full flex-row gap-[52px] sm_desktop:justify-evenly sm_desktop:gap-[26px]">
+			<div className="flex h-full flex-row gap-[52px] sm_desktop:justify-evenly sm_desktop:gap-[26px] sm_tablet:flex-col">
 				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
 					<Image
 						src={mainArticle?.image}
@@ -45,7 +45,7 @@ const FeaturedArticles = () => {
 						alt="imgFeatured2"
 						className="h-full max-h-[469px] rounded-3xl object-cover"
 					/>
-					<h5 className="font-heading text-h5 font-medium text-limit-2">
+					<h5 className="font-heading text-h5 font-medium text-limit-2 sm_tablet:h-full">
 						{mainArticle?.title}
 					</h5>
 					<p className="text-xs">

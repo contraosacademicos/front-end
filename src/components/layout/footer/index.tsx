@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 				<div className="mx-auto flex justify-between gap-40 lg_tablet:flex-col lg_phone:gap-14">
 					<div className="flex flex-wrap justify-between gap-12 sm_tablet:justify-start">
 						<div>
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							<h4 className="mb-12 font-heading text-h4 font-bold">
 								Home
 							</h4>
 							<ul className="space-y-2">
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
 						</div>
 
 						<div>
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							<h4 className="mb-12 font-heading text-h4 font-bold">
 								Planos
 							</h4>
 							<ul className="space-y-2">
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
 						</div>
 
 						<div className="max-w-[174px]">
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							<h4 className="mb-12 font-heading text-h4 font-bold">
 								Listas
 							</h4>
 							<ul className="space-y-2">
@@ -125,7 +125,7 @@ const Footer: React.FC = () => {
 						</div>
 
 						<div className="max-w-[174px]">
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							<h4 className="mb-12 font-heading text-h4 font-bold">
 								Artigos
 							</h4>
 							<ul className="space-y-5">
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
 						</div>
 
 						<div>
-							<h4 className="mb-12 font-heading text-h4 font-bold text-white">
+							<h4 className="mb-12 font-heading text-h4 font-bold">
 								Colunas
 							</h4>
 							<ul className="space-y-2">
@@ -186,7 +186,7 @@ const Footer: React.FC = () => {
 							height={54}
 							className="opacity-20"
 						/>
-						<h4 className="lg:text-left mb-4 font-heading text-h4 font-bold text-primary lg_phone:text-white">
+						<h4 className="lg:text-left lg_phone: mb-4 font-heading text-h4 font-bold text-primary">
 							Acompanhe nossas redes sociais
 						</h4>
 						<div className="lg:justify-start mb-10 flex gap-2 lg_phone:mb-0">

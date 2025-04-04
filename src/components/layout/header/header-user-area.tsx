@@ -51,8 +51,8 @@ const HeaderUserArea: React.FC = () => {
 					<Image src={logo} alt="Logo" width={67} height={62} />
 				</Link>
 
-				<div className="flex gap-7">
-					<ButtonCoa>Assinar</ButtonCoa>
+				<div className="flex items-center gap-7">
+					<ButtonCoa className="h-full">Assinar</ButtonCoa>
 					<Link
 						href="/"
 						className="flex items-center brightness-[1000%] duration-100 hover:brightness-100"

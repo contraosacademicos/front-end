@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import searchIcon from "@/assets/icons/search-icon.svg";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo-primary.svg";
 import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 				</nav>
 
 				<div className="flex gap-4">
-					<ButtonFill>Entrar</ButtonFill>
+					<ButtonFill href="/minha-area/login">Entrar</ButtonFill>
 					<ButtonCoa>Assinar</ButtonCoa>
 				</div>
 

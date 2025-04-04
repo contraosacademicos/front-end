@@ -76,7 +76,7 @@ const UserAreaLogin = () => {
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							required
-							className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 text-white placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
+							className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
 						/>
 					</div>
 
@@ -92,13 +92,13 @@ const UserAreaLogin = () => {
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 								required
-								className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 text-white placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
+								className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
 							/>
 							<Button
 								type="button"
 								variant="ghost"
 								size="icon"
-								className="hover:bg-transparent absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-white"
+								className="hover:bg-transparent hover: absolute right-0 top-0 h-full px-3 text-gray-400"
 								onClick={togglePasswordVisibility}
 							>
 								{showPassword ? (
@@ -125,9 +125,20 @@ const UserAreaLogin = () => {
 						</span>
 						<Link
 							href="/minha-area/recuperar-senha"
-							className="text-white hover:underline"
+							className="hover:underline"
 						>
 							Clique aqui
+						</Link>
+					</div>
+					<div className="text-center">
+						<span className="text-coagray">
+							Não possui uma conta?{" "}
+						</span>
+						<Link
+							href="/minha-area/cadastro"
+							className="hover:underline"
+						>
+							Faça seu cadastro
 						</Link>
 					</div>
 				</form>

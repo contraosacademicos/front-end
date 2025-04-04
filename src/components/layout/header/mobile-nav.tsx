@@ -9,7 +9,7 @@ import Link from "next/link";
 import closeIcon from "@/assets/icons/close-icon.svg";
 import menuIcon from "@/assets/icons/menu-icon.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo-primary.svg";
 import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
@@ -73,11 +73,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 				aria-label="Toggle menu"
 				aria-expanded={isMenuOpen}
 			>
-				<Image
-					src={menuIcon || "/placeholder.svg"}
-					alt="Menu"
-					className="size-auto"
-				/>
+				<Image src={menuIcon} alt="Menu" className="size-auto" />
 			</button>
 
 			<div
@@ -94,7 +90,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 							onClick={closeMenu}
 						>
 							<Image
-								src={logo || "/placeholder.svg"}
+								src={logo}
 								alt="Logo"
 								width={50}
 								height={46}
@@ -106,10 +102,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 							className="rounded-full p-2 transition-colors hover:bg-gray-800"
 							aria-label="Close menu"
 						>
-							<Image
-								src={closeIcon || "/placeholder.svg"}
-								alt="Close"
-							/>
+							<Image src={closeIcon} alt="Close" />
 						</button>
 					</div>
 
@@ -126,7 +119,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 						))}
 						<button className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50">
 							<Image
-								src={searchIcon || "/placeholder.svg"}
+								src={searchIcon}
 								alt="searchIcon"
 								width={67}
 								height={62}

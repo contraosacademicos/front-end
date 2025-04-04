@@ -56,7 +56,7 @@ const UserAreaRecover = () => {
 							type="email"
 							placeholder="Digite seu e-mail"
 							required
-							className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 text-white placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
+							className="h-12 w-full border-coagray bg-[#1E1E1E] pr-10 placeholder:text-coagray focus:border-primary focus:ring-primary focus-visible:ring-primary"
 						/>
 					</div>
 
@@ -70,7 +70,7 @@ const UserAreaRecover = () => {
 						</span>
 						<Link
 							href="/minha-area/login"
-							className="text-white hover:underline"
+							className="hover:underline"
 						>
 							Clique aqui
 						</Link>
