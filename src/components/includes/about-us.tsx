@@ -15,7 +15,7 @@ const AboutUs = () => {
 						<h4 className="text-h4 font-bold text-primary">
 							Quem somos
 						</h4>
-						<p className="text-p">
+						<p className="text-base">
 							O Contra os Acadêmicos é um projeto educacional de
 							ensino-aprendizagem independente voltado para o
 							estudo de Filosofia e temas afins. Surgiu da união
@@ -24,7 +24,7 @@ const AboutUs = () => {
 							fornecimento de bibliografias, guias de estudo e
 							conteúdos de qualidade em geral.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							O CoA – sigla pela qual é também conhecido – foi
 							criado em 29 de outubro de 2014, inicialmente por um
 							estudante inquietado com a forma com que a Filosofia
@@ -34,13 +34,13 @@ const AboutUs = () => {
 							egoístas, alimentar sonhos niilistas e deturpar
 							massivamente aforismos nietzschianos.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Tudo começou com uma página no Facebook administrada
 							por quatro amigos. Em seguida, o projeto alcançou o
 							Instagram e o Twitter, tomando, finalmente, a forma
 							de um website.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Em nosso site, fornecemos um programa de estudos
 							abrangente com bibliografia básica em filosofia e
 							pelo menos mais oito áreas, todas interligadas de
@@ -49,7 +49,7 @@ const AboutUs = () => {
 							da educação pública – nosso único interesse é ajudar
 							e incentivar aqueles que desejam educar a si mesmos.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							O nome Contra os Acadêmicos vem do livro homônimo de
 							Santo Agostinho de Hipona, o qual critica duramente
 							os céticos da Nova Academia. Seguimos o espírito de
@@ -65,7 +65,7 @@ const AboutUs = () => {
 							pregamos a queima de livros, mas a leitura
 							consciente.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Desprezamos as ideologias na forma descrita por Eric
 							Voegelin. Somos abertamente contra ideologias e não
 							cremos que o termo seja sinônimo de “ideário” ou
@@ -83,7 +83,7 @@ const AboutUs = () => {
 							como demonstrado por Eric Voegelin. Assim, fides
 							quaerens intellectum.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Não cremos na relatividade da verdade; isto decorre
 							da nossa posição, que embora anticética, é não
 							dogmática; com efeito, acreditamos que a dicotomia
@@ -93,7 +93,7 @@ const AboutUs = () => {
 							nosso nome, insistimos, refere-se à Nova Academia de
 							Carnéades a qual simboliza o ceticismo da época.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Nosso símbolo é composto pela letra grega “phi”,
 							inicial de Φιλοσοφία (filosofia), abaixo da Flor de
 							Lis, que é símbolo de poder, soberania, honra e
@@ -108,7 +108,7 @@ const AboutUs = () => {
 							nobreza do objetivo e o triunfo da alma humana sobre
 							o vazio da modernidade.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Ao contrário do que parece, não desprezamos a
 							filosofia moderna e contemporânea; acreditamos que o
 							termo moderno se tornou pejorativo por conta de
@@ -116,12 +116,12 @@ const AboutUs = () => {
 							sombra.
 						</p>
 
-						<p className="text-p">
+						<p className="text-base">
 							Estamos sempre abertos a sugestões quanto à
 							bibliografia oferecida e novos artigos para
 							publicação.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Contudo, não temos controle sobre esses sites e não
 							podemos nos responsabilizar por suas políticas de
 							privacidade, conteúdo, práticas de segurança ou

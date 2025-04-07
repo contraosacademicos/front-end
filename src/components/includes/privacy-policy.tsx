@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
 					</div>
 
 					<div className="flex flex-col gap-3 px-24 pb-24 pt-10 text-white/60">
-						<p className="text-p">
+						<p className="text-base">
 							A sua privacidade é importante para nós. É política
 							do Contra os Acadêmicos respeitar a sua privacidade
 							em relação a qualquer informação sua que possamos
@@ -30,7 +30,7 @@ const PrivacyPolicy = () => {
 						<h4 className="text-h4 text-primary">
 							Coleta de informações
 						</h4>
-						<p className="text-p">
+						<p className="text-base">
 							Coletamos informações pessoais apenas quando
 							necessário para oferecer produtos, serviços ou
 							conteúdo de forma eficaz e personalizada. Essa
@@ -38,7 +38,7 @@ const PrivacyPolicy = () => {
 							telefone, endereço de entrega, preferências de
 							navegação, dados de compra e feedbacks.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							A coleta pode ocorrer por meio de formulários de
 							contato, inscrição em newsletters, participação em
 							promoções, compras realizadas em nossa livraria ou
@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
 							do usuário de forma anônima e estatística, nunca
 							individualizada.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Todos os dados são coletados de forma ética, com
 							consentimento explícito do usuário e em conformidade
 							com a Lei Geral de Proteção de Dados (LGPD).
@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
 						<h4 className="text-h4 text-primary">
 							Uso das informações
 						</h4>
-						<p className="text-p">
+						<p className="text-base">
 							As informações que coletamos têm o objetivo
 							principal de melhorar a sua experiência com o Contra
 							os Acadêmicos. Utilizamos esses dados para
@@ -66,14 +66,14 @@ const PrivacyPolicy = () => {
 							fiscais, realizar envios e oferecer suporte ao
 							cliente.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Além disso, com o seu consentimento, podemos enviar
 							e-mails com novidades, lançamentos, artigos,
 							promoções e convites para eventos relacionados à
 							nossa proposta editorial. Você pode cancelar a
 							inscrição desses e-mails a qualquer momento.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Em nenhuma circunstância compartilhamos ou vendemos
 							suas informações pessoais a terceiros para fins
 							comerciais. Apenas em casos de exigência legal,
@@ -85,7 +85,7 @@ const PrivacyPolicy = () => {
 						<div className="mb-4"></div>
 
 						<h4 className="text-h4 text-primary">Cookies</h4>
-						<p className="text-p">
+						<p className="text-base">
 							Cookies são pequenos arquivos que armazenam
 							informações temporárias no seu navegador para
 							melhorar a navegação. Utilizamos cookies para
@@ -93,7 +93,7 @@ const PrivacyPolicy = () => {
 							logado, medir o desempenho do site e oferecer
 							conteúdos mais relevantes.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Os tipos de cookies que usamos incluem: cookies de
 							sessão (expiram ao fechar o navegador), cookies
 							persistentes (permitem lembrar preferências) e
@@ -102,7 +102,7 @@ const PrivacyPolicy = () => {
 							usamos cookies para armazenar dados sensíveis, como
 							senhas ou informações financeiras.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Você tem total controle sobre os cookies: pode
 							apagá-los ou bloqueá-los nas configurações do seu
 							navegador. Porém, ao desabilitar cookies, algumas
@@ -114,14 +114,14 @@ const PrivacyPolicy = () => {
 						<h4 className="text-h4 text-primary">
 							Links para sites externos
 						</h4>
-						<p className="text-p">
+						<p className="text-base">
 							O Contra os Acadêmicos pode conter links para sites
 							externos de parceiros, referências acadêmicas ou
 							plataformas de terceiros. Esses links são inseridos
 							com a intenção de enriquecer a experiência do
 							usuário e ampliar o acesso a conteúdos de interesse.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Contudo, não temos controle sobre esses sites e não
 							podemos nos responsabilizar por suas políticas de
 							privacidade, conteúdo, práticas de segurança ou
@@ -132,7 +132,7 @@ const PrivacyPolicy = () => {
 						<div className="mb-4"></div>
 
 						<h4 className="text-h4 text-primary">Seus direitos</h4>
-						<p className="text-p">
+						<p className="text-base">
 							Você tem o direito de acessar, corrigir, atualizar,
 							portar ou solicitar a exclusão de suas informações
 							pessoais armazenadas por nós. Pode ainda revogar o
@@ -140,7 +140,7 @@ const PrivacyPolicy = () => {
 							limitar o tratamento ou apresentar objeções,
 							conforme previsto pela LGPD.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Se desejar exercer esses direitos, entre em contato
 							conosco e atenderemos sua solicitação de maneira
 							clara, transparente e segura. Prezamos pelo respeito
@@ -152,14 +152,14 @@ const PrivacyPolicy = () => {
 						<h4 className="text-h4 text-primary">
 							Alterações nesta política
 						</h4>
-						<p className="text-p">
+						<p className="text-base">
 							Podemos atualizar nossa Política de Privacidade
 							sempre que necessário para refletir alterações
 							legislativas, operacionais ou tecnológicas. Toda
 							mudança será publicada nesta página com data de
 							atualização.
 						</p>
-						<p className="text-p">
+						<p className="text-base">
 							Recomendamos que você consulte esta página
 							periodicamente para estar ciente de quaisquer
 							alterações. Caso as mudanças sejam significativas,
@@ -169,7 +169,7 @@ const PrivacyPolicy = () => {
 						</p>
 						<div className="mb-4"></div>
 
-						<p className="text-p">
+						<p className="text-base">
 							Se tiver qualquer dúvida sobre esta Política de
 							Privacidade, sobre seus direitos ou sobre como seus
 							dados são utilizados, entre em contato conosco pelo
