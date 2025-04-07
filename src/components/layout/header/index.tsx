@@ -14,12 +14,12 @@ const Header: React.FC = () => {
 	const navLinks = [
 		{ href: "/", label: "Home" },
 		{ href: "/artigos", label: "Artigos" },
-		{ href: "/projeto", label: "Projeto" },
+		{ href: "/sobre", label: "Projeto" },
 		{ href: "/contato", label: "Contato" },
 	];
 
 	return (
-		<header className="fixed inset-0 z-header flex h-[110px] items-center bg-black">
+		<header className="fixed inset-0 z-header flex h-[110px] items-center border-b border-coagray/20 bg-black">
 			<div className="flex w-full items-center justify-between wrapper">
 				<Link href="/" className="flex items-center">
 					<Image src={logo} alt="Logo" width={67} height={62} />

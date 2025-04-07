@@ -14,8 +14,12 @@ const FooterCopyBar = () => {
 			>
 				<div className="flex h-full items-center justify-between wrapper lg_tablet:flex-col lg_tablet:justify-evenly">
 					<div className="flex gap-12 text-coagray lg_phone:flex-col lg_phone:gap-1">
-						<Link href="/">Políticas de Direitos Autorais</Link>
-						<Link href="/">Política de Privacidade</Link>
+						<Link href="/politica-de-privacidade">
+							Políticas de Direitos Autorais
+						</Link>
+						<Link href="/politica-de-privacidade">
+							Política de Privacidade
+						</Link>
 					</div>
 					<h6>
 						© Contra os Acadêmicos - Todos os Direitos Reservados -
