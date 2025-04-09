@@ -13,10 +13,10 @@ const Columns = () => {
 	return (
 		<section className="flex w-full max-w-[969px] flex-col gap-8">
 			<div className="flex items-center justify-between">
-				<h6 className="font-heading text-h6">
+				<h6 className="whitespace-nowrap font-heading text-h6">
 					<strong>Principais colunas de</strong> $name_writer
 				</h6>
-				<div className="w-full max-w-[608px] border-b border-dashed border-primary"></div>
+				<div className="max-w-[608px] flex-1 border-b border-dashed border-primary"></div>
 			</div>
 
 			<div className="flex flex-wrap justify-between gap-y-[26px] es_desktop:justify-center">

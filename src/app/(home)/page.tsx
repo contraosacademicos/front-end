@@ -6,6 +6,7 @@ import Columnists from "@/components/includes/columnists";
 import Columns from "@/components/includes/columns";
 import CtaCourses from "@/components/includes/cta-courses";
 import HeroSlider from "@/components/includes/hero-slide";
+import MostRead from "@/components/includes/most-read";
 import Subscription from "@/components/includes/subscription";
 import Support from "@/components/includes/support";
 import Articles from "@/components/layout/articles";
@@ -49,10 +50,13 @@ const Home: NextPage = () => {
 				<Columns />
 			</div>
 
-			<div className="mt-16"></div>
+			<div className="mt-20"></div>
+			<MostRead />
+
+			<div className="mt-28"></div>
 			<Support />
 
-			<div className="mt-9"></div>
+			<div className="mt-12"></div>
 			<Footer />
 		</main>
 	);

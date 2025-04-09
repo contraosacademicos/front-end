@@ -31,11 +31,11 @@ const ContactForm = () => {
 		setMessage("");
 	}
 	return (
-		<div className="flex justify-center wrapper">
+		<div className="flex justify-center gap-10 wrapper sm_tablet:flex-col sm_tablet:items-center">
 			<Image
 				src={contactImg}
 				alt="Contact"
-				className="w-full max-w-[600px] rounded-3xl object-cover"
+				className="w-full max-w-[600px] rounded-3xl object-cover md_tablet:w-1/2 sm_tablet:w-full"
 			/>
 
 			<div className="flex w-full flex-col items-center justify-center gap-9">

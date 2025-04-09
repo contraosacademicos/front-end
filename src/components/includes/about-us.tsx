@@ -5,13 +5,13 @@ const AboutUs = () => {
 		<>
 			<div className="flex justify-center wrapper">
 				<div className="mt-6 flex w-full max-w-[1000px] flex-col items-center rounded-3xl border border-[#716F6F] bg-[#252525]">
-					<div className="w-full border-b border-[#716F6F] py-6 text-center">
+					<div className="w-full border-b border-[#716F6F] px-10 py-6 text-center">
 						<h2 className="font-heading text-h2 font-bold text-primary">
 							Contra os acadêmicos
 						</h2>
 					</div>
 
-					<div className="flex flex-col gap-6 px-24 pb-24 pt-10 text-white/60">
+					<div className="flex flex-col gap-3 px-24 pb-24 pt-10 text-white/60 es_tablet:px-10 es_tablet:pb-10">
 						<h4 className="text-h4 font-bold text-primary">
 							Quem somos
 						</h4>

@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import gemPlan from "@/assets/icons/gem-icon.svg";
 
+import { ButtonCoa } from "../core/buttons/button-coa";
+
 const Support = () => {
 	return (
 		<section className="wrapper" data-aos="fade-up">
@@ -36,10 +38,10 @@ const Support = () => {
 						height={132}
 						className="py-8"
 					/>
-					<p className="w-[176px] text-xs">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Integer vel cursus mauris.{" "}
-					</p>
+					<h6 className="text-h6 text-primary">
+						Valor total: R$ 238,80
+					</h6>
+					<ButtonCoa className="mt-10">Assinar</ButtonCoa>
 				</div>
 
 				<div
@@ -64,13 +66,11 @@ const Support = () => {
 						height={132}
 						className="py-8"
 					/>
-					<p className="mb-4 w-[176px] text-p">
+					<h6 className="text-h6 text-primary">
 						Valor total: R$ 130,80
-					</p>
-					<p className="w-[176px] text-xs">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Integer vel cursus mauris.{" "}
-					</p>
+					</h6>
+					<p className="m-2 text-p">Você economiza: R$ 107,20</p>
+					<ButtonCoa className="mt-4">Assinar</ButtonCoa>
 				</div>
 
 				<div
@@ -91,13 +91,11 @@ const Support = () => {
 						height={132}
 						className="py-8"
 					/>
-					<p className="mb-4 w-[176px] text-p">
+					<h6 className="text-h6 text-primary">
 						Valor total: R$ 178,80
-					</p>
-					<p className="w-[176px] text-xs">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Integer vel cursus mauris.{" "}
-					</p>
+					</h6>
+					<p className="m-2 text-p">Você economiza: R$ 59,20</p>
+					<ButtonCoa className="mt-4">Assinar</ButtonCoa>
 				</div>
 			</div>
 		</section>
