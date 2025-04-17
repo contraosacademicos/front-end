@@ -1,11 +1,10 @@
 import React from "react";
 
-import { BannerCreateAcc } from "@/app/(home)/actions";
 import ctaBg from "@/assets/bg/cta-bg.png";
 
 import { ButtonBanner } from "../core/buttons/button-banner";
 
-const CtaCourses = ({ data }: { data: BannerCreateAcc | null }) => {
+const CtaCourses = () => {
 	return (
 		<section className="wrapper es_tablet:hidden" data-aos="fade-up">
 			<div

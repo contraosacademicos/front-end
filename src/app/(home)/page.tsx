@@ -16,14 +16,12 @@ import Header from "@/components/layout/header";
 
 import {
 	getAuthorArticles,
-	getBannerCreateAcc,
 	getFeaturedArticles,
 	getLatestArticles,
 	getTopAuthors,
 } from "./actions";
 
 const Home: NextPage = async () => {
-	const bannerCreateAcc = await getBannerCreateAcc();
 	const topAuthors = await getTopAuthors();
 	const authorArticles = await getAuthorArticles();
 	const featuredArticles = await getFeaturedArticles();
@@ -40,7 +38,7 @@ const Home: NextPage = async () => {
 			<FeaturedSection data={featuredArticles} />
 
 			<div className="mt-20"></div>
-			<CtaCourses data={bannerCreateAcc} />
+			<CtaCourses />
 
 			<div className="mt-20"></div>
 			<LatestArticlesPost data={latestArticles} />

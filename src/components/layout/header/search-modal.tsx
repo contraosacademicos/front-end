@@ -89,7 +89,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 							<input
 								ref={inputRef}
 								type="text"
-								placeholder="Pesquisar em Cadastrar nova empresa..."
+								placeholder="Pesquisar por Artigos ou Autores"
 								className="flex-1 bg-[#252525] p-2 text-white outline-none placeholder:text-coagray"
 								value={searchQuery}
 								onChange={(e) => setSearchQuery(e.target.value)}
