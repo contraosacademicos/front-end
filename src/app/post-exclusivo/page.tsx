@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 
+import SubscriptionModal from "@/components/includes/subscription-modal";
 import Support from "@/components/includes/support";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
@@ -13,6 +14,7 @@ const Post: NextPage = async () => {
 	return (
 		<main>
 			<Header />
+			<SubscriptionModal />
 
 			<div className="mt-40"></div>
 			<PostDetail />

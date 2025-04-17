@@ -69,8 +69,6 @@ export const metadata: Metadata = {
 			url: "https://github.com/qneves",
 		},
 	],
-
-	appleWebApp: true,
 };
 
 export const viewport: Viewport = {

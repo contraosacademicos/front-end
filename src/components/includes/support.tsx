@@ -14,7 +14,7 @@ const Support = () => {
 					Junte-se a nós e apoie o projeto
 				</h5>
 				<h3 className="mt-0.5 max-w-[800px] text-center text-h3 es_tablet:text-center">
-					Planos para qualquer tipo de estudante
+					Planos para o conteúdo exclusivo do blog
 				</h3>
 				<div className="w-[292px] border"></div>
 			</div>

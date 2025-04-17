@@ -10,7 +10,6 @@ import messagesIcon from "@/assets/icons/messages-icon.svg";
 import shareIcon from "@/assets/icons/share-icon.svg";
 
 import { ButtonFill } from "../core/buttons/button-fill";
-import SubscriptionBox from "./subscription-box";
 
 const PostContent = () => {
 	return (
@@ -83,8 +82,6 @@ const PostContent = () => {
 				uma ilusão, uma narrativa que construímos para dar sentido às
 				nossas vidas.
 			</p>
-
-			<SubscriptionBox />
 
 			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">
 				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">

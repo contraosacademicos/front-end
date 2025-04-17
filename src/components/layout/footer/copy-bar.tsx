@@ -21,9 +21,9 @@ const FooterCopyBar = () => {
 							Política de Privacidade
 						</Link>
 					</div>
-					<h6>
+					<h6 className="text-white/70">
 						© Contra os Acadêmicos - Todos os Direitos Reservados -
-						2024
+						2025
 					</h6>
 				</div>
 			</div>
@@ -32,7 +32,7 @@ const FooterCopyBar = () => {
 				<div className="flex h-full items-center justify-between wrapper lg_tablet:flex-col lg_tablet:justify-evenly">
 					<h6>
 						© Contra os Acadêmicos - Todos os Direitos Reservados -
-						2024
+						2025
 					</h6>
 				</div>
 			</div>

@@ -2,18 +2,18 @@ import React, { Fragment } from "react";
 
 import Image from "next/image";
 
-import { TopAuthor } from "@/app/(home)/actions";
+import { Articles } from "@/app/artigos/actions";
 import imgColumnist1 from "@/assets/columnist/1.png";
 
-const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
+const ColumnistsArticles = ({ data }: { data: Articles | null }) => {
 	return (
 		<section className="size-full max-w-[436px] rounded-lg bg-[#232323] p-4">
 			<h6 className="font-heading text-h6">Principais colunistas</h6>
 
 			<div className="mt-4 flex flex-col gap-1">
-				{Array.from(data || [])
-					.slice(0, 7)
-					?.map((author, index, list) => {
+				{Array.from(data?.columnists || [])
+					.slice(0, 8)
+					.map((data, index, list) => {
 						return (
 							<Fragment key={index}>
 								<div
@@ -30,7 +30,7 @@ const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
 									<div className="flex gap-8 p-6">
 										<Image
 											src={
-												author.profilePicture ||
+												data.profilePicture ||
 												imgColumnist1
 											}
 											width={48}
@@ -40,11 +40,10 @@ const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
 										/>
 										<div>
 											<p className="text-base text-primary">
-												{author.name}
+												{data.name}
 											</p>
 											<p className="mt-2 text-xs">
-												{author.articlesPosted}{" "}
-												postagens
+												{data.posts} postagens
 											</p>
 										</div>
 									</div>
@@ -63,4 +62,4 @@ const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
 	);
 };
 
-export default Columnists;
+export default ColumnistsArticles;

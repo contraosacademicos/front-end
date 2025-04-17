@@ -2,46 +2,57 @@
 
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-import contactImg from "@/assets/bg/subscription.jpg";
 import {
 	Dialog,
 	DialogContent,
-	DialogDescription,
 	DialogHeader,
+	DialogOverlay,
 } from "@/components/ui/dialog";
 
 import { ButtonCoa } from "../core/buttons/button-coa";
+import { ButtonFill } from "../core/buttons/button-fill";
 
 const SubscriptionModal = () => {
 	const [open, setOpen] = useState(false);
+	const router = useRouter();
 
 	useEffect(() => {
 		setOpen(true);
+		document.body.style.overflow = "hidden";
+		return () => {
+			document.body.style.overflow = "";
+		};
 	}, []);
 
 	return (
-		<Dialog open={open} onOpenChange={setOpen}>
-			<DialogContent className="border-[#343434] bg-[#232323] text-white">
+		<Dialog open={open}>
+			<DialogOverlay className="bg-black/50 backdrop-blur-sm" />{" "}
+			<DialogContent
+				className="max-w-[50rem] border-[#343434] bg-[#232323] p-10 text-white [&>button]:hidden"
+				onInteractOutside={(e) => e.preventDefault()}
+				onEscapeKeyDown={(e) => e.preventDefault()}
+			>
 				<DialogHeader>
-					<h4 className="text-center font-heading text-h4 font-bold text-primary">
-						Conteúdo exclusivo para assinantes
-					</h4>
+					<h2 className="text-center font-heading text-h2 font-bold text-primary es_tablet:text-h4">
+						Conteúdo exclusivo <br /> para assinantes
+					</h2>
 				</DialogHeader>
 
-				<Image
-					src={contactImg}
-					alt="Contact"
-					className="rounded-3xl py-6 frame sm_tablet:w-full"
-				/>
-				<DialogDescription className="text-center text-coagray">
+				<h5 className="text-center text-h5 text-coagray es_tablet:text-h6">
 					Este conteúdo está disponível apenas para assinantes. Para
 					continuar a leitura e ter acesso completo a materiais
 					exclusivos, faça sua assinatura agora mesmo.
-				</DialogDescription>
-				<div className="mt-4 flex justify-center">
-					<ButtonCoa>Assinar agora</ButtonCoa>
+				</h5>
+
+				<div className="mt-4 flex justify-center gap-6">
+					<ButtonFill onClick={() => router.back()}>
+						<h6 className="text-h6">Voltar</h6>
+					</ButtonFill>
+					<ButtonCoa>
+						<h6 className="text-h6">Assinar agora</h6>
+					</ButtonCoa>
 				</div>
 			</DialogContent>
 		</Dialog>

@@ -23,7 +23,7 @@ const HeaderUserArea: React.FC = () => {
 						Bem vindo ao <strong>COA</strong>, Já nos indicou para
 						um amigo hoje?
 					</p>
-					<div className="flex gap-6">
+					<div className="flex items-center gap-6">
 						<p>Siga nossas redes:</p>
 						<div className="flex gap-5">
 							<Link href="/">
@@ -52,7 +52,9 @@ const HeaderUserArea: React.FC = () => {
 				</Link>
 
 				<div className="flex items-center gap-7">
-					<ButtonCoa className="h-full">Assinar</ButtonCoa>
+					<ButtonCoa className="h-full sm_phone:hidden">
+						Assinar
+					</ButtonCoa>
 					<Link
 						href="/"
 						className="flex items-center brightness-[1000%] duration-100 hover:brightness-100"

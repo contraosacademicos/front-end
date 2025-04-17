@@ -73,7 +73,7 @@ const UserAreaRegister = () => {
 
 	return (
 		<div className="overflow-hidden">
-			<div className="flex min-h-screen flex-col items-center justify-center gap-9 wrapper">
+			<div className="flex min-h-screen flex-col items-center justify-center gap-9 py-24 wrapper">
 				<Image
 					className="pointer-events-none absolute top-0 -z-elements size-full overflow-hidden opacity-5"
 					src={logoBg}

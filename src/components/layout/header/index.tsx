@@ -1,4 +1,7 @@
+"use client";
+
 import type React from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -9,14 +12,20 @@ import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
 import MobileNav from "./mobile-nav";
+import SearchOverlay from "./search-modal";
 
 const Header: React.FC = () => {
 	const navLinks = [
 		{ href: "/", label: "Home" },
 		{ href: "/artigos", label: "Artigos" },
+		{
+			href: "http://www.livrariacontraosacademicos.com.br",
+			label: "Livraria",
+		},
 		{ href: "/sobre", label: "Projeto" },
 		{ href: "/contato", label: "Contato" },
 	];
+	const [searchOpen, setSearchOpen] = useState(false);
 
 	return (
 		<header className="fixed inset-0 z-header flex h-[110px] items-center border-b border-coagray/20 bg-black">
@@ -35,7 +44,10 @@ const Header: React.FC = () => {
 							{link.label}
 						</Link>
 					))}
-					<button className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50">
+					<button
+						className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50"
+						onClick={() => setSearchOpen(true)}
+					>
 						<Image
 							src={searchIcon || "/placeholder.svg"}
 							alt="searchIcon"
@@ -52,6 +64,10 @@ const Header: React.FC = () => {
 				</div>
 
 				<MobileNav navLinks={navLinks} />
+				<SearchOverlay
+					isOpen={searchOpen}
+					onClose={() => setSearchOpen(false)}
+				/>
 			</div>
 		</header>
 	);

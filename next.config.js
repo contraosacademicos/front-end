@@ -9,6 +9,50 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "picsum.photos",
 			},
+			{
+				protocol: "https",
+				hostname: "example.com",
+			},
+			{
+				protocol: "https",
+				hostname: "s2.static.brasilescola.uol.com.br",
+			},
+			{
+				protocol: "https",
+				hostname: "encrypted-tbn0.gstatic.com",
+			},
+			{
+				protocol: "https",
+				hostname: "contraosacademicos.com.br",
+			},
+			{
+				protocol: "https",
+				hostname: "upload.wikimedia.org",
+			},
+			{
+				protocol: "https",
+				hostname: "i.ytimg.com",
+			},
+			{
+				protocol: "https",
+				hostname: "www.devotudoaocinema.com.br",
+			},
+			{
+				protocol: "https",
+				hostname: "www.planocritico.com",
+			},
+			{
+				protocol: "https",
+				hostname: "razaoinadequada.com",
+			},
+			{
+				protocol: "https",
+				hostname: "via.placeholder.com",
+			},
+			{
+				protocol: "https",
+				hostname: "static.vecteezy.com",
+			},
 		],
 	},
 

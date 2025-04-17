@@ -4,7 +4,7 @@ const UserAreaHome = () => {
 	return (
 		<div className="flex w-full flex-col sm_tablet:items-center">
 			<p className="text-p">HOME</p>
-			<h3 className="font-heading text-h3 text-primary">
+			<h3 className="text-center font-heading text-h3 text-primary">
 				Boas vindas, <strong>Gabriel</strong>
 			</h3>
 
@@ -13,7 +13,7 @@ const UserAreaHome = () => {
 					<h4 className="font-heading text-h4 text-primary">Feed</h4>
 				</div>
 
-				<div className="flex flex-col items-center gap-3 px-24 pb-24 pt-10 es_tablet:px-8">
+				<div className="flex flex-col items-center gap-3 px-24 pb-24 pt-10 es_tablet:px-6 es_phone:px-2">
 					<div className="rounded-full bg-primary px-5 py-3">
 						<h5 className="text-h5 font-semibold text-black">
 							HOJE
@@ -34,7 +34,7 @@ const UserAreaHome = () => {
 							Eu discordo, mas também concordo em partes
 						</h5>
 
-						<div className="flex justify-center gap-5">
+						<div className="flex flex-wrap justify-center gap-5">
 							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
 								Filosofia
 							</button>

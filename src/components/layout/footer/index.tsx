@@ -2,6 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
+import { getNewsletter } from "@/app/(home)/actions";
 import ellipse2 from "@/assets/shapes/ellipse2.svg";
 import ellipse3 from "@/assets/shapes/ellipse3.svg";
 
@@ -10,7 +11,8 @@ import FooterLinks from "./footer-links";
 import FooterModule from "./footer-module";
 import FooterNewsletter from "./newsletter";
 
-const Footer: React.FC = () => {
+const Footer: React.FC = async () => {
+	const newsletter = await getNewsletter();
 	return (
 		<>
 			<div className="relative">
@@ -28,7 +30,7 @@ const Footer: React.FC = () => {
 				<FooterModule />
 			</div>
 
-			<FooterNewsletter />
+			<FooterNewsletter data={newsletter} />
 
 			<FooterLinks />
 

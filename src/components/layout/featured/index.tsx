@@ -1,9 +1,13 @@
 import React from "react";
 
+import { FeaturedArticles as FeaturedArticlesType } from "@/app/(home)/actions";
+
 import FeaturedArticles from "./featured-articles";
 import FeaturedOpinion from "./featured-opinion";
 
-const FeaturedSection = () => {
+[];
+
+const FeaturedSection = ({ data }: { data: FeaturedArticlesType[] | null }) => {
 	return (
 		<section className="wrapper">
 			<div className="flex items-center justify-between">
@@ -14,7 +18,7 @@ const FeaturedSection = () => {
 			</div>
 
 			<div className="mt-[28px] flex flex-wrap justify-between gap-10 md_desktop:justify-center">
-				<FeaturedArticles />
+				<FeaturedArticles data={data || []} />
 				<FeaturedOpinion />
 			</div>
 		</section>

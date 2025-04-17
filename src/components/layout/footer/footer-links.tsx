@@ -3,8 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import socialIconOne from "@/assets/icons/social-1.svg";
-import socialIconTwo from "@/assets/icons/social-2.svg";
+import socialIcon1 from "@/assets/icons/social-1.svg";
+import socialIcon2 from "@/assets/icons/social-2.svg";
+import socialIcon3 from "@/assets/icons/social-3.svg";
+import socialIcon4 from "@/assets/icons/social-4.svg";
 import logo from "@/assets/logo.svg";
 
 const FooterLinks = () => {
@@ -31,6 +33,22 @@ const FooterLinks = () => {
 									className="text-h6 text-coagray transition-colors hover:text-primary"
 								>
 									Artigos
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="https://livrariacontraosacademicos.com.br"
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Livraria
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/sobre"
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Projeto
 								</Link>
 							</li>
 							<li>
@@ -167,12 +185,36 @@ const FooterLinks = () => {
 					</h4>
 					<div className="lg:justify-start mb-10 flex gap-2 lg_phone:mb-0">
 						<a
-							href="#"
+							href="https://www.facebook.com/contraosacademicos"
 							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
 						>
 							<Image
-								src={socialIconOne}
-								alt="socialIconOne"
+								src={socialIcon1}
+								alt="socialIcon1"
+								width={32}
+								height={32}
+								className="size-auto"
+							/>
+						</a>
+						<a
+							href="https://www.instagram.com/contraosacademicos/#"
+							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
+						>
+							<Image
+								src={socialIcon2}
+								alt="socialIcon2"
+								width={32}
+								height={32}
+								className="size-auto"
+							/>
+						</a>
+						<a
+							href="https://www.youtube.com/@ContraosAcademicos"
+							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
+						>
+							<Image
+								src={socialIcon3}
+								alt="socialIcon3"
 								width={32}
 								height={32}
 								className="size-auto"
@@ -183,32 +225,8 @@ const FooterLinks = () => {
 							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
 						>
 							<Image
-								src={socialIconTwo}
-								alt="socialIconTwo"
-								width={32}
-								height={32}
-								className="size-auto"
-							/>
-						</a>
-						<a
-							href="#"
-							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
-						>
-							<Image
-								src={socialIconOne}
-								alt="socialIconOne"
-								width={32}
-								height={32}
-								className="size-auto"
-							/>
-						</a>
-						<a
-							href="#"
-							className="rounded-full bg-[#1A1A1A] transition-colors hover:bg-primary"
-						>
-							<Image
-								src={socialIconTwo}
-								alt="socialIconTwo"
+								src={socialIcon4}
+								alt="socialIcon4"
 								width={32}
 								height={32}
 								className="size-auto"

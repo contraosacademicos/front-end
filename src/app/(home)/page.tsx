@@ -9,12 +9,26 @@ import HeroSlider from "@/components/includes/hero-slide";
 import MostRead from "@/components/includes/most-read";
 import Subscription from "@/components/includes/subscription";
 import Support from "@/components/includes/support";
-import Articles from "@/components/layout/articles";
+import LatestArticlesPost from "@/components/layout/articles/latest-articles";
 import FeaturedSection from "@/components/layout/featured";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-const Home: NextPage = () => {
+import {
+	getAuthorArticles,
+	getBannerCreateAcc,
+	getFeaturedArticles,
+	getLatestArticles,
+	getTopAuthors,
+} from "./actions";
+
+const Home: NextPage = async () => {
+	const bannerCreateAcc = await getBannerCreateAcc();
+	const topAuthors = await getTopAuthors();
+	const authorArticles = await getAuthorArticles();
+	const featuredArticles = await getFeaturedArticles();
+	const latestArticles = await getLatestArticles();
+
 	return (
 		<main>
 			<Header />
@@ -23,13 +37,13 @@ const Home: NextPage = () => {
 			<HeroSlider />
 
 			<div className="mt-20"></div>
-			<FeaturedSection />
+			<FeaturedSection data={featuredArticles} />
 
 			<div className="mt-20"></div>
-			<CtaCourses />
+			<CtaCourses data={bannerCreateAcc} />
 
 			<div className="mt-20"></div>
-			<Articles />
+			<LatestArticlesPost data={latestArticles} />
 
 			<div className="mt-20"></div>
 			<div className="relative" data-aos="fade-up">
@@ -46,8 +60,8 @@ const Home: NextPage = () => {
 				className="flex justify-between wrapper lg_tablet:hidden"
 				data-aos="fade-up"
 			>
-				<Columnists />
-				<Columns />
+				<Columnists data={topAuthors} />
+				<Columns data={authorArticles} />
 			</div>
 
 			<div className="mt-20"></div>
