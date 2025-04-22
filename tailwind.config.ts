@@ -107,6 +107,13 @@ const config: Config = {
 					overflow: "hidden",
 					textOverflow: "ellipsis",
 				},
+				".text-limit-1": {
+					display: "-webkit-box",
+					WebkitBoxOrient: "vertical",
+					WebkitLineClamp: "1",
+					overflow: "hidden",
+					textOverflow: "ellipsis",
+				},
 			});
 		},
 	],

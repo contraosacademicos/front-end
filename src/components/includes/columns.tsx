@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { AuthorArticles } from "@/app/(home)/actions";
 import imgColumn1 from "@/assets/columns/1.png";
@@ -20,9 +21,10 @@ const Columns = ({ data }: { data: AuthorArticles[] | null }) => {
 					.slice(0, 6)
 					?.map((post, index) => {
 						return (
-							<div
-								className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2"
+							<Link
+								href={post.slug}
 								key={index}
+								className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2"
 							>
 								<Image
 									src={post.image || imgColumn1}
@@ -37,7 +39,7 @@ const Columns = ({ data }: { data: AuthorArticles[] | null }) => {
 								<p className="text-xs">
 									Por: <strong>{post.author.name}</strong>
 								</p>
-							</div>
+							</Link>
 						);
 					})}
 			</div>

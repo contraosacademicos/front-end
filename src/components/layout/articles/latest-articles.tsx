@@ -33,22 +33,24 @@ const LatestArticlesPost = async ({
 
 				<div className="flex flex-wrap gap-x-[43px] gap-y-[26px] sm_desktop:justify-evenly">
 					{mainArticles.map((article: LatestArticles, index) => (
-						<Link href={"/post"} key={index}>
-							<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-								<Image
-									src={article.image || imgArticle1}
-									width={451}
-									height={188}
-									alt="imgArticle"
-									className="max-h-[188px] rounded-3xl object-cover"
-								/>
-								<h5 className="font-heading text-h5 font-medium text-limit-2">
-									{article.title}
-								</h5>
-								<p className="text-xs">
-									Por: <strong>{article.author.name}</strong>
-								</p>
-							</div>
+						<Link
+							href={article.slug}
+							key={index}
+							className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
+						>
+							<Image
+								src={article.image || imgArticle1}
+								width={451}
+								height={188}
+								alt="imgArticle"
+								className="max-h-[188px] rounded-3xl object-cover"
+							/>
+							<h5 className="font-heading text-h5 font-medium text-limit-2">
+								{article.title}
+							</h5>
+							<p className="text-xs">
+								Por: <strong>{article.author.name}</strong>
+							</p>
 						</Link>
 					))}
 				</div>
@@ -58,9 +60,10 @@ const LatestArticlesPost = async ({
 				<div className="flex flex-col flex-wrap justify-between gap-y-[26px] sm_desktop:mb-[26px] sm_desktop:flex-row sm_desktop:justify-evenly">
 					{otherArticles.map(
 						(article: LatestArticles, index: number) => (
-							<div
-								className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
+							<Link
+								href={article.slug}
 								key={index}
+								className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 							>
 								<Image
 									src={article.image || imgArticle7}
@@ -72,7 +75,7 @@ const LatestArticlesPost = async ({
 								<p className="text-xs">
 									Por: <strong>{article.author.name}</strong>
 								</p>
-							</div>
+							</Link>
 						),
 					)}
 				</div>

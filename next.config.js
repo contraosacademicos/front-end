@@ -53,6 +53,10 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "static.vecteezy.com",
 			},
+			{
+				protocol: "https",
+				hostname: "contra-os-academicos-bucket.s3.us-east-2.amazonaws.com",
+			},
 		],
 	},
 

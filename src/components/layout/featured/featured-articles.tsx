@@ -1,8 +1,10 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { FeaturedArticles as FeaturedArticlesType } from "@/app/(home)/actions";
+import imgFeatured from "@/assets/featured/1.png";
 
 const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 	if (data.length <= 1) return null;
@@ -11,13 +13,16 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 	return (
 		<div className="flex justify-between sm_desktop:flex-col">
 			<div className="flex h-full flex-row gap-[52px] sm_desktop:justify-evenly sm_desktop:gap-[26px] sm_tablet:flex-col">
-				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
+				<Link
+					href={mainArticle.slug}
+					className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
+				>
 					<Image
-						src={mainArticle?.image || ""}
+						src={mainArticle?.image || imgFeatured}
 						width={451}
 						height={469}
 						alt="imgFeatured2"
-						className="h-full max-h-[469px] rounded-3xl object-cover"
+						className="h-[469px] rounded-3xl object-cover"
 					/>
 					<h5 className="font-heading text-h5 font-medium text-limit-2 sm_tablet:h-full">
 						{mainArticle?.title}
@@ -25,19 +30,20 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 					<p className="text-xs">
 						Por: <strong>{mainArticle?.author?.name}</strong>
 					</p>
-				</div>
+				</Link>
 
 				<div>
 					{Array.from(otherArticles)
 						.slice(0, 2)
 						.map((article) => {
 							return (
-								<div
+								<Link
+									href={article.slug}
 									key={article.id}
 									className="mb-[26px] flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 								>
 									<Image
-										src={article.image || ""}
+										src={article.image || imgFeatured}
 										width={451}
 										height={175}
 										alt="imgFeatured2"
@@ -50,7 +56,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 										Por:{" "}
 										<strong>{article?.author?.name}</strong>
 									</p>
-								</div>
+								</Link>
 							);
 						})}
 				</div>

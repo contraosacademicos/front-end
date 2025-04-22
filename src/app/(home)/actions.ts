@@ -7,7 +7,12 @@ import { fetcher } from "@/lib/fetcher";
 // MainBanner
 export type MainBanner = {
 	title: string;
+	secondaryText: string;
+	buttonText: string;
+	linkButton: string;
+	resume: string;
 	backgroundImage: string | null;
+	tags: string[];
 };
 
 export async function getMainBanner() {
@@ -17,6 +22,7 @@ export async function getMainBanner() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -35,6 +41,7 @@ export type FeaturedArticles = {
 	id: number;
 	title: string;
 	image: string | null;
+	slug: string;
 	author: {
 		id: number;
 		name: string;
@@ -48,6 +55,7 @@ export async function getFeaturedArticles() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -63,7 +71,10 @@ export async function getFeaturedArticles() {
 // BannerCreateAcc
 export type BannerCreateAcc = {
 	message: string;
+	secondaryText: string;
 	backgroundImage: string | null;
+	buttonText: string;
+	linkButton: string;
 };
 
 export async function getBannerCreateAcc() {
@@ -73,6 +84,7 @@ export async function getBannerCreateAcc() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -100,6 +112,7 @@ export async function getPricingTable() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -125,6 +138,7 @@ export async function getNewsletter() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -142,6 +156,7 @@ export type LatestArticles = {
 	id: number;
 	title: string;
 	image: string | null;
+	slug: string;
 	author: {
 		id: number;
 		name: string;
@@ -155,6 +170,7 @@ export async function getLatestArticles() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -171,7 +187,8 @@ export async function getLatestArticles() {
 export type TrendingArticle = {
 	id: number;
 	title: string;
-	backgroundImage: string | null;
+	image: string | null;
+	slug: string;
 	shortDescription: string;
 };
 
@@ -182,10 +199,12 @@ export async function getTrendingArticle() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
+
 		return response.data as TrendingArticle;
 	} catch (error) {
 		console.error("Error fetching main banner:", error);
@@ -199,6 +218,7 @@ export type TopAuthor = {
 	id: number;
 	articlesPosted: number;
 	name: string;
+	slug: string;
 	profilePicture: string | null;
 };
 
@@ -209,10 +229,12 @@ export async function getTopAuthors() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
+
 		return response.data as TopAuthor[];
 	} catch (error) {
 		console.error("Error fetching top authors:", error);
@@ -226,8 +248,12 @@ export type AuthorArticles = {
 	id: number;
 	title: string;
 	image: string | null;
+	slug: string;
 	author: {
+		id: number;
 		name: string;
+		slug: string;
+		profilePicture: string | null;
 	};
 };
 
@@ -238,6 +264,7 @@ export async function getAuthorArticles() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { TrendingArticle } from "@/app/(home)/actions";
 import starIcon from "@/assets/icons/star-icon.svg";
@@ -10,9 +11,12 @@ import { ButtonFill } from "@/components/core/buttons/button-fill";
 const ArticlesTrendingPost = ({ data }: { data: TrendingArticle | null }) => {
 	return (
 		<>
-			<div className="relative h-[567px] w-full max-w-[924px] cursor-pointer sm_desktop:m-auto sm_tablet:hidden">
+			<Link
+				href={data?.slug || ""}
+				className="relative h-[567px] w-full max-w-[924px] cursor-pointer sm_desktop:m-auto sm_tablet:hidden"
+			>
 				<Image
-					src={data?.backgroundImage || " "}
+					src={data?.image || ""}
 					alt={`Imagem do artigo`}
 					className="absolute rounded-3xl"
 					fill
@@ -39,7 +43,7 @@ const ArticlesTrendingPost = ({ data }: { data: TrendingArticle | null }) => {
 
 					<p className="text-xs/6">{data?.shortDescription}</p>
 				</div>
-			</div>
+			</Link>
 
 			<ButtonFill className="hidden h-16 text-base sm_tablet:block">
 				Ver todos os artigos

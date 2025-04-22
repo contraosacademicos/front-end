@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { TopAuthor } from "@/app/(home)/actions";
 import imgColumnist1 from "@/assets/columnist/1.png";
@@ -15,7 +16,7 @@ const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
 					.slice(0, 7)
 					?.map((author, index, list) => {
 						return (
-							<Fragment key={index}>
+							<Link href={author.slug} key={index}>
 								<div
 									className="cursor-pointer rounded-3xl hover:bg-black"
 									style={
@@ -55,7 +56,7 @@ const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
 								) && (
 									<div className="border-b border-dashed border-[#9A9A9A]"></div>
 								)}
-							</Fragment>
+							</Link>
 						);
 					})}
 			</div>

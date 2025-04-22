@@ -5,8 +5,6 @@ import { FeaturedArticles as FeaturedArticlesType } from "@/app/(home)/actions";
 import FeaturedArticles from "./featured-articles";
 import FeaturedOpinion from "./featured-opinion";
 
-[];
-
 const FeaturedSection = ({ data }: { data: FeaturedArticlesType[] | null }) => {
 	return (
 		<section className="wrapper">

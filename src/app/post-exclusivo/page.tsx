@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { notFound } from "next/navigation";
 
 import SubscriptionModal from "@/components/includes/subscription-modal";
 import Support from "@/components/includes/support";
@@ -7,17 +7,24 @@ import Header from "@/components/layout/header";
 import PostDetail from "@/components/layout/post-details";
 
 import { getLatestArticles } from "../(home)/actions";
+import { getPost } from "../post/actions";
 import LatestArticlesPage from "./components/latest-articles-page";
 
-const Post: NextPage = async () => {
+const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	const latestArticles = await getLatestArticles();
+
+	const post = await getPost((await params).slug);
+	if (!post || !post.original.slug) {
+		return notFound();
+	}
+
 	return (
 		<main>
 			<Header />
 			<SubscriptionModal />
 
 			<div className="mt-40"></div>
-			<PostDetail />
+			<PostDetail data={post} />
 
 			<div className="mt-20"></div>
 			<LatestArticlesPage data={latestArticles} />

@@ -17,6 +17,7 @@ export async function getMainBanner() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -39,6 +40,7 @@ export type Articles = {
 		date: string;
 		image: string | null;
 		excerpt: string;
+		slug: string;
 		tags: string[];
 		comments: number;
 		likes: number;
@@ -61,6 +63,7 @@ export async function getArticles() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -89,6 +92,7 @@ export async function getFeaturedColumnists() {
 			headers: {
 				"Content-Type": "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
