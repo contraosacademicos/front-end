@@ -1,12 +1,12 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { Articles } from "@/app/artigos/actions";
 import imgArticleList1 from "@/assets/articles/list-1.jpg";
 import favoriteIcon from "@/assets/icons/favorite-icon.svg";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
-import Link from "next/link";
 
 const ArticlesList = ({ data }: { data: Articles | null }) => {
 	return (

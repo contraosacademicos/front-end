@@ -27,7 +27,7 @@ const PostContent = ({ data }: { data: Post }) => {
 			</div>
 
 			<Image
-				src={imgPost}
+				src={data.original.banner || imgPost}
 				alt="imgFeatured3"
 				className="max-h-[230px] rounded-3xl frame"
 			/>

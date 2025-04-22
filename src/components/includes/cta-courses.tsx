@@ -15,10 +15,10 @@ const CtaCourses = ({ data }: { data: BannerCreateAcc | null }) => {
 			>
 				<div className="relative flex items-center justify-between gap-8">
 					<div className="w-3/4 text-center font-heading">
-						<h2 className="text-limit-1 mb-2 text-h2/[50px]">
+						<h2 className="mb-2 text-h2/[50px] text-limit-1">
 							{data?.message}
 						</h2>
-						<h2 className="text-limit-1 text-h1/[97px] text-primary">
+						<h2 className="text-h1/[97px] text-primary text-limit-1">
 							{data?.secondaryText}
 						</h2>
 					</div>
