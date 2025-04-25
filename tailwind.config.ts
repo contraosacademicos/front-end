@@ -85,21 +85,19 @@ const config: Config = {
 	},
 
 	plugins: [
+		require("tailwind-scrollbar"),
 		({ addUtilities }: PluginAPI) => {
 			addUtilities({
 				".wrapper": {
 					maxWidth: "calc(1440px + 48px)",
 					"@apply mx-auto px-6": {},
 				},
-
 				".frame": {
 					"@apply h-full w-full object-cover": {},
 				},
-
 				".center": {
 					"@apply grid place-items-center": {},
 				},
-
 				".text-limit-2": {
 					display: "-webkit-box",
 					WebkitBoxOrient: "vertical",

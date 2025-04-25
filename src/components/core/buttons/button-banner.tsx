@@ -6,7 +6,7 @@ interface ButtonProps extends ComponentProps<"button"> {
 
 export function ButtonBanner({ href, ...props }: ButtonProps) {
 	const className =
-		"cursor-pointer rounded-full border px-6 py-4 text-base duration-300 hover:bg-primary hover:text-gray-900";
+		"inline-flex items-center justify-center cursor-pointer rounded-full border px-6 py-4 text-base duration-300 hover:bg-primary hover:text-gray-900";
 
 	if (href) {
 		return (

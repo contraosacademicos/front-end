@@ -2,15 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { Categories } from "@/app/(home)/actions";
 import Filter from "@/components/includes/filters";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Search, X } from "lucide-react";
-
-interface SearchModalProps {
-	isOpen: boolean;
-	onClose: () => void;
-}
 
 const backdropVariants = {
 	hidden: { opacity: 0 },
@@ -22,7 +18,15 @@ const modalVariants = {
 	visible: { opacity: 1, y: 0 },
 };
 
-export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
+export default function SearchModal({
+	isOpen,
+	onClose,
+	data,
+}: {
+	isOpen: boolean;
+	onClose: () => void;
+	data: Categories | null;
+}) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const modalRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -103,7 +107,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 						</div>
 
 						<div className="border-b border-coagray p-4">
-							<Filter />
+							<Filter data={data} />
 						</div>
 
 						<div className="max-h-[60vh] overflow-y-auto">

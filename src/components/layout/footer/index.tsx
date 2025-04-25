@@ -2,16 +2,16 @@ import React from "react";
 
 import Image from "next/image";
 
-import { getNewsletter } from "@/app/(home)/actions";
+import { FooterLinks, getNewsletter } from "@/app/(home)/actions";
 import ellipse2 from "@/assets/shapes/ellipse2.svg";
 import ellipse3 from "@/assets/shapes/ellipse3.svg";
 
 import FooterCopyBar from "./copy-bar";
-import FooterLinks from "./footer-links";
+import FooterNavigation from "./footer-links";
 import FooterModule from "./footer-module";
 import FooterNewsletter from "./newsletter";
 
-const Footer: React.FC = async () => {
+const Footer = async ({ data }: { data: FooterLinks[] | null }) => {
 	const newsletter = await getNewsletter();
 	return (
 		<>
@@ -32,7 +32,7 @@ const Footer: React.FC = async () => {
 
 			<FooterNewsletter data={newsletter} />
 
-			<FooterLinks />
+			<FooterNavigation data={data} />
 
 			<FooterCopyBar />
 		</>

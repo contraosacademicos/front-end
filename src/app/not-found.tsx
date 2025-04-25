@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/navigation";
 
-import FooterLinks from "@/components/layout/footer/footer-links";
-import Header from "@/components/layout/header";
-
 const NotFound: NextPage = () => {
 	const router = useRouter();
 	const REDIRECT_SECONDS = 7;
@@ -29,12 +26,8 @@ const NotFound: NextPage = () => {
 	}, [router]);
 
 	return (
-		<main>
-			<Header />
-
-			<div className="mt-40"></div>
-
-			<div className="flex flex-col items-center justify-center py-40 text-center wrapper">
+		<main className="flex min-h-screen items-center justify-center">
+			<div className="flex flex-col items-center justify-center text-center wrapper">
 				<h3 className="font-heading text-h2 font-bold text-primary">
 					Página não encontrada
 				</h3>
@@ -46,9 +39,6 @@ const NotFound: NextPage = () => {
 					</strong>
 				</h5>
 			</div>
-
-			<div className="mt-12"></div>
-			<FooterLinks />
 		</main>
 	);
 };

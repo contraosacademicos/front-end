@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { Articles } from "@/app/artigos/actions";
 import imgArticleList1 from "@/assets/articles/list-1.jpg";
+import eyeIcon from "@/assets/icons/eye-icon.svg";
 import favoriteIcon from "@/assets/icons/favorite-icon.svg";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
 
@@ -57,6 +58,15 @@ const ArticlesList = ({ data }: { data: Articles | null }) => {
 							</div>
 
 							<div className="flex items-center gap-2">
+								<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+									<Image
+										src={eyeIcon}
+										width={18}
+										height={14.5}
+										alt="messagesIcon"
+									/>
+									12345
+								</div>
 								<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
 									<Image
 										src={messagesIcon}

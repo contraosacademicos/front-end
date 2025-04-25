@@ -6,12 +6,13 @@ import { fetcher } from "@/lib/fetcher";
 // MainBanner
 // MainBanner
 export type MainBanner = {
-	title: string;
-	secondaryText: string;
-	buttonText: string;
-	linkButton: string;
+	title: string[];
 	resume: string;
 	backgroundImage: string | null;
+	button: {
+		text: string;
+		link: string;
+	};
 	tags: string[];
 };
 
@@ -21,8 +22,8 @@ export async function getMainBanner() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -54,8 +55,8 @@ export async function getFeaturedArticles() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -70,11 +71,12 @@ export async function getFeaturedArticles() {
 // BannerCreateAcc
 // BannerCreateAcc
 export type BannerCreateAcc = {
-	message: string;
-	secondaryText: string;
+	text: string[];
 	backgroundImage: string | null;
-	buttonText: string;
-	linkButton: string;
+	button: {
+		text: string;
+		link: string;
+	};
 };
 
 export async function getBannerCreateAcc() {
@@ -83,8 +85,8 @@ export async function getBannerCreateAcc() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -111,8 +113,8 @@ export async function getPricingTable() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -137,8 +139,8 @@ export async function getNewsletter() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -169,8 +171,8 @@ export async function getLatestArticles() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -198,8 +200,8 @@ export async function getTrendingArticle() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -228,8 +230,8 @@ export async function getTopAuthors() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -263,13 +265,72 @@ export async function getAuthorArticles() {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
+				Accept: "application/json",
 			},
-			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
 		return response.data as AuthorArticles[];
+	} catch (error) {
+		console.error("Error fetching author articles:", error);
+		return null;
+	}
+}
+
+// Categories
+// Categories
+export type Categories = {
+	id: number;
+	data: {
+		id: number;
+		nome: string;
+		ativo: boolean;
+	}[];
+};
+
+export async function getCategories() {
+	try {
+		const response = await fetcher("categories", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+		});
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+		return response.data as Categories;
+	} catch (error) {
+		console.error("Error fetching author articles:", error);
+		return null;
+	}
+}
+
+// FooterLinks
+// FooterLinks
+export type FooterLinks = {
+	title: string;
+	links: {
+		name: string;
+		url: string;
+	}[];
+};
+
+export async function getFooterLinks() {
+	try {
+		const response = await fetcher("footerLinks", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+		});
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+		return response.data as FooterLinks[];
 	} catch (error) {
 		console.error("Error fetching author articles:", error);
 		return null;

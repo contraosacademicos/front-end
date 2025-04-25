@@ -1,24 +1,21 @@
 /* eslint-disable no-comments/disallowComments */
-"use server";
 
 import { fetcher } from "@/lib/fetcher";
 
-// MainBanner
-// MainBanner
-export type MainBanner = {
-	title: string[];
-	resume: string;
-	backgroundImage: string | null;
-	button: {
-		text: string;
-		link: string;
-	};
-	tags: string[];
+// Categories
+// Categories
+export type Categories = {
+	id: number;
+	data: {
+		id: number;
+		nome: string;
+		ativo: boolean;
+	}[];
 };
 
-export async function getMainBanner() {
+export async function getCategories() {
 	try {
-		const response = await fetcher("main-banner", {
+		const response = await fetcher("categories", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -28,10 +25,9 @@ export async function getMainBanner() {
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
-
-		return response.data as MainBanner[];
+		return response.data as Categories;
 	} catch (error) {
-		console.error("Error fetching main banner:", error);
+		console.error("Error fetching author articles:", error);
 		return null;
 	}
 }
@@ -76,34 +72,6 @@ export async function getArticles() {
 		}
 
 		return response.data as Articles;
-	} catch (error) {
-		console.error("Error fetching top authors:", error);
-		return null;
-	}
-}
-
-// FeaturedColumnists
-// FeaturedColumnists
-export type FeaturedColumnists = {
-	id: number;
-	name: string;
-	image: string | null;
-	author: number;
-};
-
-export async function getFeaturedColumnists() {
-	try {
-		const response = await fetcher("featuredColumnists", {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-		});
-		if (!response.ok) {
-			throw new Error(`Error: ${response.statusText}`);
-		}
-		return response.data as FeaturedColumnists[];
 	} catch (error) {
 		console.error("Error fetching top authors:", error);
 		return null;

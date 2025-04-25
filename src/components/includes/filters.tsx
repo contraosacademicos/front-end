@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
-const Filter = () => {
+import { Categories } from "@/app/(home)/actions";
+
+const Filter = ({ data }: { data: Categories | null }) => {
 	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
 	const [filtroTipo, setFiltroTipo] = useState("Todas");
 	const [dropdownPostagensFechado, setDropdownPostagensFechado] =
@@ -14,7 +16,11 @@ const Filter = () => {
 		"Mais populares",
 		"Mais antigas",
 	];
-	const opcoesTipo = ["Todas", "Artigos", "Notícias", "Entrevistas"];
+	const opcoesTipo = [
+		"Todas",
+		...(data?.data.map((categoria: { nome: string }) => categoria.nome) ||
+			[]),
+	];
 
 	const toggleDropdownPostagens = () => {
 		setDropdownPostagensFechado(!dropdownPostagensFechado);
@@ -41,7 +47,7 @@ const Filter = () => {
 			<div className="relative">
 				<button
 					onClick={toggleDropdownPostagens}
-					className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
+					className="flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 				>
 					{filtroPostagens}
 					<svg
@@ -63,7 +69,7 @@ const Filter = () => {
 				</button>
 
 				{!dropdownPostagensFechado && (
-					<div className="bg-zinc-800 z-10 absolute left-0 top-full mt-1 w-full rounded-md bg-[#2C2C2D] shadow-lg">
+					<div className="absolute left-0 top-full mt-1 w-full rounded-md bg-[#2C2C2D] shadow-lg">
 						{opcoesPostagens.map((opcao) => (
 							<button
 								key={opcao}
@@ -80,7 +86,7 @@ const Filter = () => {
 			<div className="relative">
 				<button
 					onClick={toggleDropdownTipo}
-					className="bg-zinc-800 flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
+					className="flex items-center gap-6 rounded bg-[#2C2C2D] px-4 py-2.5 text-coagray"
 				>
 					{filtroTipo}
 					<svg
@@ -102,12 +108,12 @@ const Filter = () => {
 				</button>
 
 				{!dropdownTipoFechado && (
-					<div className="bg-zinc-800 z-10 absolute left-0 top-full mt-1 w-full rounded-md bg-[#2C2C2D] shadow-lg">
-						{opcoesTipo.map((opcao) => (
+					<div className="absolute left-0 top-full mt-1 max-h-60 w-auto min-w-full overflow-y-auto rounded-md bg-[#2C2C2D] shadow-lg scrollbar-thin scrollbar-track-[#2C2C2D] scrollbar-thumb-black hover:scrollbar-thumb-black">
+						{opcoesTipo.map((opcao, index) => (
 							<button
-								key={opcao}
+								key={index}
 								onClick={() => selecionarTipo(opcao)}
-								className="hover:bg-zinc-700 block w-full px-4 py-2.5 text-left text-coagray"
+								className="block w-full whitespace-nowrap px-4 py-2.5 text-left text-coagray hover:bg-black"
 							>
 								{opcao}
 							</button>

@@ -9,7 +9,7 @@ const Breadcrumb = ({ data }: { data: Post }) => {
 		<div className="mb-12 flex items-center text-p">
 			<Link href="/artigos">Artigos</Link>
 			<span className="mx-2">{">"}</span>
-			<span className="font-bold">{data.original.title}</span>
+			<span className="font-bold">{data.data.title}</span>
 		</div>
 	);
 };

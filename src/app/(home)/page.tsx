@@ -17,24 +17,30 @@ import Header from "@/components/layout/header";
 import {
 	getAuthorArticles,
 	getBannerCreateAcc,
+	getCategories,
 	getFeaturedArticles,
+	getFooterLinks,
 	getLatestArticles,
+	getMainBanner,
 	getTopAuthors,
 } from "./actions";
 
 const Home: NextPage = async () => {
+	const mainBanner = await getMainBanner();
+	const categories = await getCategories();
 	const bannerCreateAcc = await getBannerCreateAcc();
 	const topAuthors = await getTopAuthors();
 	const authorArticles = await getAuthorArticles();
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
+	const footerLinks = await getFooterLinks();
 
 	return (
 		<main>
-			<Header />
+			<Header data={categories} />
 
 			<div className="mt-40"></div>
-			<HeroSlider />
+			<HeroSlider data={mainBanner} />
 
 			<div className="mt-20"></div>
 			<FeaturedSection data={featuredArticles} />
@@ -71,7 +77,7 @@ const Home: NextPage = async () => {
 			<Support />
 
 			<div className="mt-12"></div>
-			<Footer />
+			<Footer data={footerLinks} />
 		</main>
 	);
 };

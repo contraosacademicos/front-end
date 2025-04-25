@@ -20,24 +20,22 @@ const PostContent = ({ data }: { data: Post }) => {
 			<div className="text-base text-coagray">
 				<p className="mb-2 font-bold">$name_writer</p>
 				<p>
-					{new Date(data.original.created_at).toLocaleDateString(
-						"pt-BR",
-					)}
+					{new Date(data.data.created_at).toLocaleDateString("pt-BR")}
 				</p>
 			</div>
 
 			<Image
-				src={data.original.banner || imgPost}
+				src={data.data.banner || imgPost}
 				alt="imgFeatured3"
 				className="max-h-[230px] rounded-3xl frame"
 			/>
 
 			<h3 className="font-heading text-h3 font-bold es_tablet:text-h4">
-				{data.original.title}
+				{data.data.title}
 			</h3>
 
 			<div className="text-base/6 text-coagray">
-				{parse(data.original.content)}
+				{parse(data.data.content)}
 			</div>
 
 			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">

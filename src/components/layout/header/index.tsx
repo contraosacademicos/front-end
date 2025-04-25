@@ -6,15 +6,16 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Categories } from "@/app/(home)/actions";
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo-primary.svg";
 import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
 import MobileNav from "./mobile-nav";
-import SearchOverlay from "./search-modal";
+import SearchModal from "./search-modal";
 
-const Header: React.FC = () => {
+const Header = ({ data }: { data: Categories | null }) => {
 	const navLinks = [
 		{ href: "/", label: "Home" },
 		{ href: "/artigos", label: "Artigos" },
@@ -64,9 +65,10 @@ const Header: React.FC = () => {
 				</div>
 
 				<MobileNav navLinks={navLinks} />
-				<SearchOverlay
+				<SearchModal
 					isOpen={searchOpen}
 					onClose={() => setSearchOpen(false)}
+					data={data}
 				/>
 			</div>
 		</header>

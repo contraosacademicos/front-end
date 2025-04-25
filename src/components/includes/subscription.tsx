@@ -6,7 +6,6 @@ import logo from "@/assets/logo.svg";
 import shape1 from "@/assets/shapes/1.png";
 
 import { ButtonCoa } from "../core/buttons/button-coa";
-import { ButtonFill } from "../core/buttons/button-fill";
 
 const Subscription = () => {
 	return (
@@ -31,7 +30,6 @@ const Subscription = () => {
 						a impactar vidas.
 					</p>
 					<div className="flex gap-4">
-						<ButtonFill>Assinar</ButtonFill>
 						<ButtonCoa>Quero Apoiar</ButtonCoa>
 					</div>
 				</div>

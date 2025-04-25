@@ -13,13 +13,16 @@ import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-import { getArticles } from "../artigos/actions";
+import { getArticles, getCategories, getFooterLinks } from "./actions";
 
 const Autor: NextPage = async () => {
 	const articles = await getArticles();
+	const categories = await getCategories();
+	const footerLinks = await getFooterLinks();
+
 	return (
 		<main>
-			<Header />
+			<Header data={categories} />
 
 			<div className="mt-40"></div>
 
@@ -199,7 +202,7 @@ const Autor: NextPage = async () => {
 								</h3>
 								<div className="w-full border-b border-dashed border-primary"></div>
 							</div>
-							<Filter />
+							<Filter data={categories} />
 						</div>
 
 						<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
@@ -213,7 +216,7 @@ const Autor: NextPage = async () => {
 			<Support />
 
 			<div className="mt-9"></div>
-			<Footer />
+			<Footer data={footerLinks} />
 		</main>
 	);
 };

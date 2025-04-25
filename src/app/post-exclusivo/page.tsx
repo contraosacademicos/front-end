@@ -6,7 +6,11 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import PostDetail from "@/components/layout/post-details";
 
-import { getLatestArticles } from "../(home)/actions";
+import {
+	getCategories,
+	getFooterLinks,
+	getLatestArticles,
+} from "../(home)/actions";
 import { getPost } from "../post/actions";
 import LatestArticlesPage from "./components/latest-articles-page";
 
@@ -14,13 +18,16 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	const latestArticles = await getLatestArticles();
 
 	const post = await getPost((await params).slug);
-	if (!post || !post.original.slug) {
+	if (!post || !post.data.slug) {
 		return notFound();
 	}
 
+	const categories = await getCategories();
+	const footerLinks = await getFooterLinks();
+
 	return (
 		<main>
-			<Header />
+			<Header data={categories} />
 			<SubscriptionModal />
 
 			<div className="mt-40"></div>
@@ -33,7 +40,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 			<Support />
 
 			<div className="mt-9"></div>
-			<Footer />
+			<Footer data={footerLinks} />
 		</main>
 	);
 };
