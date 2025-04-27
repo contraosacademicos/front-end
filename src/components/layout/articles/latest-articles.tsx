@@ -44,6 +44,7 @@ const LatestArticlesPost = async ({
 								height={188}
 								alt="imgArticle"
 								className="max-h-[188px] rounded-3xl object-cover"
+								priority
 							/>
 							<h5 className="font-heading text-h5 font-medium text-limit-2">
 								{article.title}

@@ -13,10 +13,10 @@ import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-import { getArticles, getCategories, getFooterLinks } from "./actions";
+import { getCategories, getFooterLinks, getPost } from "./actions";
 
 const Autor: NextPage = async () => {
-	const articles = await getArticles();
+	const posts = await getPost();
 	const categories = await getCategories();
 	const footerLinks = await getFooterLinks();
 
@@ -206,7 +206,7 @@ const Autor: NextPage = async () => {
 						</div>
 
 						<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
-							<ArticlesList data={articles} />
+							<ArticlesList data={posts} />
 						</div>
 					</div>
 				</div>

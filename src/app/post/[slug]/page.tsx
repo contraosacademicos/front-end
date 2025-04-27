@@ -20,8 +20,6 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 		return notFound();
 	}
 
-	console.log(post.data.exclusive_content);
-
 	return (
 		<main>
 			<Header data={categories} />

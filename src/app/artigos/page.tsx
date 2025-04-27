@@ -10,12 +10,13 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
 import { getCategories } from "../(home)/actions";
-import { getArticles, getFooterLinks, getMainBanner } from "./actions";
+import { getArticles, getFooterLinks, getMainBanner, getPost } from "./actions";
 
 const Artigos: NextPage = async () => {
 	const mainBanner = await getMainBanner();
 	const categories = await getCategories();
 	const articles = await getArticles();
+	const posts = await getPost();
 	const footerLinks = await getFooterLinks();
 
 	return (
@@ -39,7 +40,7 @@ const Artigos: NextPage = async () => {
 				</div>
 
 				<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
-					<ArticlesList data={articles} />
+					<ArticlesList data={posts} />
 					<div className="flex h-full flex-wrap justify-center gap-10 es_desktop:w-full">
 						<ColumnistsArticles data={articles} />
 						<FeaturedOpinion />
