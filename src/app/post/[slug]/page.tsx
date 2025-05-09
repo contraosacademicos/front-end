@@ -7,7 +7,12 @@ import Header from "@/components/layout/header";
 import PostDetail from "@/components/layout/post-details";
 
 import { getLatestArticles } from "../../(home)/actions";
-import { getCategories, getFooterLinks, getPost } from "../actions";
+import {
+	getCategories,
+	getFooterLinks,
+	getPost,
+	getPricingTable,
+} from "../actions";
 import LatestArticlesPage from "../components/latest-articles-page";
 
 const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
@@ -15,6 +20,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 	const footerLinks = await getFooterLinks();
 	const post = await getPost((await params).slug);
 	const latestArticles = await getLatestArticles();
+	const pricingTable = await getPricingTable();
 
 	if (!post || !post.data.slug) {
 		return notFound();
@@ -32,7 +38,7 @@ const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
 			<LatestArticlesPage data={latestArticles} />
 
 			<div className="mt-20"></div>
-			<Support />
+			<Support data={pricingTable} />
 
 			<div className="mt-9"></div>
 			<Footer data={footerLinks} />

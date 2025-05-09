@@ -252,7 +252,7 @@ export async function getFeaturedColumnists() {
 
 		return response.data as FeaturedColumnists[];
 	} catch (error) {
-		console.error("Error fetching top authors:", error);
+		console.error("Error fetching featuredColumnists:", error);
 		return null;
 	}
 }

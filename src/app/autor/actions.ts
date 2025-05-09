@@ -74,7 +74,7 @@ export async function getPost() {
 		}
 		return response.data as Post;
 	} catch (error) {
-		console.error("Error fetching top authors:", error);
+		console.error("Error fetching featuredColumnists:", error);
 		return null;
 	}
 }
@@ -105,6 +105,40 @@ export async function getFooterLinks() {
 		return response.data as FooterLinks[];
 	} catch (error) {
 		console.error("Error fetching author articles:", error);
+		return null;
+	}
+}
+
+// PricingTable
+// PricingTable
+export type PricingTable = {
+	id: number;
+	name: string;
+	recurring: string;
+	price: string;
+	discount: string | null;
+	best_value: number;
+	url: string;
+	total_price: string;
+	description: string | null;
+};
+
+export async function getPricingTable() {
+	try {
+		const response = await fetcher("pricingTable", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			cache: "no-store",
+		});
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+		return response.data as PricingTable[];
+	} catch (error) {
+		console.error("Error fetching main banner:", error);
 		return null;
 	}
 }

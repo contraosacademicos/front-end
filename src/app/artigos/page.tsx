@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import ColumnistsArticles from "@/components/includes/columnists-articles";
+import Columnists from "@/components/includes/columnists";
 import Filter from "@/components/includes/filters";
 import HeroSlider from "@/components/includes/hero-slide";
 import Support from "@/components/includes/support";
@@ -10,14 +10,21 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
 import { getCategories } from "../(home)/actions";
-import { getArticles, getFooterLinks, getMainBanner, getPost } from "./actions";
+import {
+	getFeaturedColumnists,
+	getFooterLinks,
+	getMainBanner,
+	getPost,
+	getPricingTable,
+} from "./actions";
 
 const Artigos: NextPage = async () => {
 	const mainBanner = await getMainBanner();
 	const categories = await getCategories();
-	const articles = await getArticles();
 	const posts = await getPost();
 	const footerLinks = await getFooterLinks();
+	const pricingTable = await getPricingTable();
+	const featuredColumnists = await getFeaturedColumnists();
 
 	return (
 		<main>
@@ -42,14 +49,14 @@ const Artigos: NextPage = async () => {
 				<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
 					<ArticlesList data={posts} />
 					<div className="flex h-full flex-wrap justify-center gap-10 es_desktop:w-full">
-						<ColumnistsArticles data={articles} />
+						<Columnists data={featuredColumnists} />
 						<FeaturedOpinion />
 					</div>
 				</div>
 			</div>
 
 			<div className="mt-28"></div>
-			<Support />
+			<Support data={pricingTable} />
 
 			<div className="mt-9"></div>
 			<Footer data={footerLinks} />

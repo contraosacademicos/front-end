@@ -13,12 +13,18 @@ import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-import { getCategories, getFooterLinks, getPost } from "./actions";
+import {
+	getCategories,
+	getFooterLinks,
+	getPost,
+	getPricingTable,
+} from "./actions";
 
 const Autor: NextPage = async () => {
 	const posts = await getPost();
 	const categories = await getCategories();
 	const footerLinks = await getFooterLinks();
+	const pricingTable = await getPricingTable();
 
 	return (
 		<main>
@@ -213,7 +219,7 @@ const Autor: NextPage = async () => {
 			</section>
 
 			<div className="mt-28"></div>
-			<Support />
+			<Support data={pricingTable} />
 
 			<div className="mt-9"></div>
 			<Footer data={footerLinks} />
