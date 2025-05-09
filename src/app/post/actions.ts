@@ -37,7 +37,9 @@ export async function getPost(slug: string) {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
+
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
@@ -68,6 +70,7 @@ export async function getCategories() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -97,6 +100,7 @@ export async function getFooterLinks() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);

@@ -3,10 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { TopAuthor } from "@/app/(home)/actions";
+import { FeaturedColumnists } from "@/app/(home)/actions";
 import imgColumnist1 from "@/assets/columnist/1.png";
 
-const Columnists = ({ data }: { data: TopAuthor[] | null }) => {
+const Columnists = ({ data }: { data: FeaturedColumnists[] | null }) => {
 	return (
 		<section className="size-full max-w-[436px] rounded-lg bg-[#232323] p-4">
 			<h6 className="font-heading text-h6">Principais colunistas</h6>

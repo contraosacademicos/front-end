@@ -24,6 +24,7 @@ export async function getMainBanner() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -70,6 +71,7 @@ export async function getArticles() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -116,6 +118,7 @@ export async function getPost() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -144,6 +147,7 @@ export async function getFeaturedColumnists() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -173,6 +177,7 @@ export async function getFooterLinks() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);

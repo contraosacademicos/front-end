@@ -2,11 +2,12 @@ import React from "react";
 
 import Image from "next/image";
 
+import { PricingTable } from "@/app/(home)/actions";
 import gemPlan from "@/assets/icons/gem-icon.svg";
 
 import { ButtonCoa } from "../core/buttons/button-coa";
 
-const Support = () => {
+const Support = ({ data }: { data: PricingTable[] | null }) => {
 	return (
 		<section className="wrapper" data-aos="fade-up">
 			<div className="flex flex-col items-center font-heading">
@@ -20,83 +21,64 @@ const Support = () => {
 			</div>
 
 			<div className="mt-12 flex justify-between lg_tablet:flex-col lg_tablet:items-center lg_tablet:gap-12">
-				<div
-					className="flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
-					style={{
-						background:
-							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
-					}}
-				>
-					<h5 className="font-heading text-h5">Mensal</h5>
-					<h2 className="font-heading text-h2 text-primary">
-						R$ 19,90
-					</h2>
-					<Image
-						src={gemPlan}
-						alt="gemPlan"
-						width={132}
-						height={132}
-						className="py-8"
-					/>
-					<h6 className="text-h6 text-primary">
-						Valor total: R$ 238,80
-					</h6>
-					<ButtonCoa className="mt-10">Assinar</ButtonCoa>
-				</div>
+				{Array.from(data || []).map((plan) => {
+					const isBestValue = plan.best_value === 1;
 
-				<div
-					className="relative flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
-					style={{
-						background:
-							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
-					}}
-				>
-					<div className="absolute -top-2 rounded-full bg-primary px-6 py-1.5 text-darkest">
-						<p className="font-bold">Melhor oferta</p>
-					</div>
+					return (
+						<div
+							key={plan.id}
+							className="relative flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
+							style={{
+								background:
+									"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
+							}}
+						>
+							{isBestValue && (
+								<div className="absolute -top-2 rounded-full bg-primary px-6 py-1.5 text-darkest">
+									<p className="font-bold">Melhor oferta</p>
+								</div>
+							)}
 
-					<h5 className="font-heading text-h5">Anual</h5>
-					<h2 className="font-heading text-h2 text-primary">
-						R$ 10,90
-					</h2>
-					<Image
-						src={gemPlan}
-						alt="gemPlan"
-						width={132}
-						height={132}
-						className="py-8"
-					/>
-					<h6 className="text-h6 text-primary">
-						Valor total: R$ 130,80
-					</h6>
-					<p className="m-2 text-p">Você economiza: R$ 107,20</p>
-					<ButtonCoa className="mt-4">Assinar</ButtonCoa>
-				</div>
+							<h5 className="font-heading text-h5">
+								{plan.name}
+							</h5>
+							<h2 className="font-heading text-h2 text-primary">
+								R${" "}
+								{Number(plan.price)
+									.toFixed(2)
+									.replace(".", ",")}
+							</h2>
 
-				<div
-					className="flex w-full max-w-[461px] flex-col items-center rounded-3xl border border-[#272727] px-12 py-[42px] text-center"
-					style={{
-						background:
-							"linear-gradient(180deg, #201F1F 0%, #141414 100%)",
-					}}
-				>
-					<h5 className="font-heading text-h5">Semestral</h5>
-					<h2 className="font-heading text-h2 text-primary">
-						R$ 14,90
-					</h2>
-					<Image
-						src={gemPlan}
-						alt="gemPlan"
-						width={132}
-						height={132}
-						className="py-8"
-					/>
-					<h6 className="text-h6 text-primary">
-						Valor total: R$ 178,80
-					</h6>
-					<p className="m-2 text-p">Você economiza: R$ 59,20</p>
-					<ButtonCoa className="mt-4">Assinar</ButtonCoa>
-				</div>
+							<Image
+								src={gemPlan}
+								alt="gemPlan"
+								width={132}
+								height={132}
+								className="py-8"
+							/>
+
+							<h6 className="text-h6 text-primary">
+								Valor total: R${" "}
+								{Number(plan.total_price)
+									.toFixed(2)
+									.replace(".", ",")}
+							</h6>
+
+							{plan.discount !== null && (
+								<p className="m-2 text-p">
+									Você economiza: R${" "}
+									{Number(plan.discount)
+										.toFixed(2)
+										.replace(".", ",")}
+								</p>
+							)}
+
+							<ButtonCoa className="mt-4" href={plan.url}>
+								Assinar
+							</ButtonCoa>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);

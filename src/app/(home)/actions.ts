@@ -24,6 +24,7 @@ export async function getMainBanner() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -57,6 +58,7 @@ export async function getFeaturedArticles() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -87,6 +89,7 @@ export async function getBannerCreateAcc() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -102,9 +105,14 @@ export async function getBannerCreateAcc() {
 // PricingTable
 export type PricingTable = {
 	id: number;
-	planName: string;
+	name: string;
+	recurring: string;
 	price: string;
-	features: string[];
+	discount: string | null;
+	best_value: number;
+	url: string;
+	total_price: string;
+	description: string | null;
 };
 
 export async function getPricingTable() {
@@ -115,6 +123,7 @@ export async function getPricingTable() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -141,6 +150,7 @@ export async function getNewsletter() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -173,6 +183,7 @@ export async function getLatestArticles() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -202,6 +213,7 @@ export async function getTrendingArticle() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -214,30 +226,31 @@ export async function getTrendingArticle() {
 	}
 }
 
-// TopAuthor
-// TopAuthor
-export type TopAuthor = {
+// featuredColumnists
+// featuredColumnists
+export type FeaturedColumnists = {
 	id: number;
-	articlesPosted: number;
 	name: string;
 	slug: string;
 	profilePicture: string | null;
+	articlesPosted: number;
 };
 
-export async function getTopAuthors() {
+export async function getFeaturedColumnists() {
 	try {
-		const response = await fetcher("topAuthors", {
+		const response = await fetcher("featuredColumnists", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
 
-		return response.data as TopAuthor[];
+		return response.data as FeaturedColumnists[];
 	} catch (error) {
 		console.error("Error fetching top authors:", error);
 		return null;
@@ -267,6 +280,7 @@ export async function getAuthorArticles() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -297,6 +311,7 @@ export async function getCategories() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -326,6 +341,7 @@ export async function getFooterLinks() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
+			cache: "no-store",
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);

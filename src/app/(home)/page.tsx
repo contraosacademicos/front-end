@@ -19,21 +19,23 @@ import {
 	getBannerCreateAcc,
 	getCategories,
 	getFeaturedArticles,
+	getFeaturedColumnists,
 	getFooterLinks,
 	getLatestArticles,
 	getMainBanner,
-	getTopAuthors,
+	getPricingTable,
 } from "./actions";
 
 const Home: NextPage = async () => {
 	const mainBanner = await getMainBanner();
 	const categories = await getCategories();
 	const bannerCreateAcc = await getBannerCreateAcc();
-	const topAuthors = await getTopAuthors();
+	const featuredColumnists = await getFeaturedColumnists();
 	const authorArticles = await getAuthorArticles();
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
 	const footerLinks = await getFooterLinks();
+	const pricingTable = await getPricingTable();
 
 	return (
 		<main>
@@ -66,7 +68,7 @@ const Home: NextPage = async () => {
 				className="flex justify-between wrapper lg_tablet:hidden"
 				data-aos="fade-up"
 			>
-				<Columnists data={topAuthors} />
+				<Columnists data={featuredColumnists} />
 				<Columns data={authorArticles} />
 			</div>
 
@@ -74,7 +76,7 @@ const Home: NextPage = async () => {
 			<MostRead />
 
 			<div className="mt-28"></div>
-			<Support />
+			<Support data={pricingTable} />
 
 			<div className="mt-12"></div>
 			<Footer data={footerLinks} />

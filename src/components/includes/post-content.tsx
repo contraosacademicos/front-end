@@ -16,6 +16,7 @@ import parse from "html-react-parser";
 import { ButtonFill } from "../core/buttons/button-fill";
 
 const PostContent = ({ data }: { data: Post }) => {
+	console.log(data.data.banner);
 	return (
 		<div className="flex w-full max-w-[948px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
 			<div className="text-base text-coagray">
@@ -28,6 +29,8 @@ const PostContent = ({ data }: { data: Post }) => {
 			<Image
 				src={data.data.banner || imgPost}
 				alt="imgFeatured3"
+				height={230}
+				width={900}
 				className="max-h-[230px] rounded-3xl frame"
 			/>
 
