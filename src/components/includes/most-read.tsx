@@ -11,7 +11,7 @@ const MostRead = () => {
 	return (
 		<div className="flex flex-col gap-[49px] wrapper">
 			<div className="flex items-center justify-between">
-				<h3 className="mr-[26px] whitespace-nowrap font-heading text-h3 font-bold">
+				<h3 className="mr-[26px] whitespace-nowrap break-words font-heading text-h3 font-bold lg_phone:whitespace-normal">
 					Listas de leituras mais lidas.
 				</h3>
 				<div className="flex-1 border-b border-dashed border-primary"></div>

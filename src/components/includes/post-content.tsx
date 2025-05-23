@@ -31,7 +31,7 @@ const PostContent = ({ data }: { data: Post }) => {
 				alt="imgFeatured3"
 				height={230}
 				width={900}
-				className="max-h-[230px] rounded-3xl frame"
+				className="max-h-[350px] rounded-3xl frame"
 			/>
 
 			<h3 className="font-heading text-h3 font-bold es_tablet:text-h4">
