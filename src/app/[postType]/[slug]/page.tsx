@@ -15,14 +15,22 @@ import {
 } from "../actions";
 import LatestArticlesPage from "../components/latest-articles-page";
 
-const Post = async ({ params }: { params: Promise<{ slug: string }> }) => {
+const Post = async ({
+	params,
+}: {
+	params: { slug: string; postType: string };
+}) => {
 	const categories = await getCategories();
 	const footerLinks = await getFooterLinks();
-	const post = await getPost((await params).slug);
+	const post = await getPost(params.slug);
 	const latestArticles = await getLatestArticles();
 	const pricingTable = await getPricingTable();
 
 	if (!post || !post.data.slug) {
+		return notFound();
+	}
+
+	if (params.postType !== post.data.type) {
 		return notFound();
 	}
 

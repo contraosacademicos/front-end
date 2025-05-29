@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "next/link";
 
-import { Post } from "@/app/post/actions";
+import { Post } from "@/app/[postType]/actions";
 
 const Breadcrumb = ({ data }: { data: Post }) => {
 	return (

@@ -4,7 +4,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import { Post } from "@/app/post/actions";
+import { Post } from "@/app/[postType]/actions";
 import imgPost from "@/assets/details/post1.png";
 import eyeIcon from "@/assets/icons/eye-icon.svg";
 import favoriteIcon from "@/assets/icons/favorite-icon.svg";

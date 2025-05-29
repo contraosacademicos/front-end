@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Post } from "@/app/post/actions";
+import { Post } from "@/app/[postType]/actions";
 import AboutAuthor from "@/components/includes/about-author";
 import Comments from "@/components/includes/comments";
 import PostContent from "@/components/includes/post-content";

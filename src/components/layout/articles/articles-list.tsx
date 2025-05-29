@@ -17,7 +17,7 @@ const ArticlesList = ({ data }: { data: Post | null }) => {
 					<Link
 						className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6"
 						key={index}
-						href={`/post/${post?.slug}`}
+						href={`/${post?.type}/${post?.slug}`}
 					>
 						<div className="flex flex-col gap-2 text-base text-coagray">
 							<p className="font-bold">{post.author_id}</p>
