@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 
+import { getNewsletter } from "@/app/artigos/actions";
 import SubscriptionModal from "@/components/includes/subscription-modal";
 import Support from "@/components/includes/support";
 import Footer from "@/components/layout/footer";
@@ -25,6 +26,7 @@ const Post = async ({
 	const post = await getPost(params.slug);
 	const latestArticles = await getLatestArticles();
 	const pricingTable = await getPricingTable();
+	const newsletter = await getNewsletter();
 
 	if (!post || !post.data.slug) {
 		return notFound();
@@ -49,7 +51,7 @@ const Post = async ({
 			<Support data={pricingTable} />
 
 			<div className="mt-9"></div>
-			<Footer data={footerLinks} />
+			<Footer data={footerLinks} newsletter={newsletter} />
 		</main>
 	);
 };

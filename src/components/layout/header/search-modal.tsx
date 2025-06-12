@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 
 import { Categories } from "@/app/(home)/actions";
-import Filter from "@/components/includes/filters";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Search, X } from "lucide-react";
@@ -21,7 +20,6 @@ const modalVariants = {
 export default function SearchModal({
 	isOpen,
 	onClose,
-	data,
 }: {
 	isOpen: boolean;
 	onClose: () => void;
@@ -106,9 +104,7 @@ export default function SearchModal({
 							</button>
 						</div>
 
-						<div className="border-b border-coagray p-4">
-							<Filter data={data} />
-						</div>
+						<div className="border-b border-coagray p-4"></div>
 
 						<div className="max-h-[60vh] overflow-y-auto">
 							<div className="p-2">

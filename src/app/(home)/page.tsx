@@ -23,6 +23,7 @@ import {
 	getFooterLinks,
 	getLatestArticles,
 	getMainBanner,
+	getNewsletter,
 	getPricingTable,
 } from "./actions";
 
@@ -36,6 +37,7 @@ const Home: NextPage = async () => {
 	const latestArticles = await getLatestArticles();
 	const footerLinks = await getFooterLinks();
 	const pricingTable = await getPricingTable();
+	const newsletter = await getNewsletter();
 
 	return (
 		<main>
@@ -79,7 +81,7 @@ const Home: NextPage = async () => {
 			<Support data={pricingTable} />
 
 			<div className="mt-12"></div>
-			<Footer data={footerLinks} />
+			<Footer data={footerLinks} newsletter={newsletter} />
 		</main>
 	);
 };

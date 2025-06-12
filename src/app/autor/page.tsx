@@ -7,24 +7,18 @@ import Link from "next/link";
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
-import Filter from "@/components/includes/filters";
 import Support from "@/components/includes/support";
-import ArticlesList from "@/components/layout/articles/articles-list";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-import {
-	getCategories,
-	getFooterLinks,
-	getPost,
-	getPricingTable,
-} from "./actions";
+import { getNewsletter } from "../(home)/actions";
+import { getCategories, getFooterLinks, getPricingTable } from "./actions";
 
 const Autor: NextPage = async () => {
-	const posts = await getPost();
 	const categories = await getCategories();
 	const footerLinks = await getFooterLinks();
 	const pricingTable = await getPricingTable();
+	const newsletter = await getNewsletter();
 
 	return (
 		<main>
@@ -208,12 +202,9 @@ const Autor: NextPage = async () => {
 								</h3>
 								<div className="w-full border-b border-dashed border-primary"></div>
 							</div>
-							<Filter data={categories} />
 						</div>
 
-						<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
-							<ArticlesList data={posts} />
-						</div>
+						<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center"></div>
 					</div>
 				</div>
 			</section>
@@ -222,7 +213,7 @@ const Autor: NextPage = async () => {
 			<Support data={pricingTable} />
 
 			<div className="mt-9"></div>
-			<Footer data={footerLinks} />
+			<Footer data={footerLinks} newsletter={newsletter} />
 		</main>
 	);
 };

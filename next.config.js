@@ -57,6 +57,14 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "contra-os-academicos-bucket.s3.us-east-2.amazonaws.com",
 			},
+            {
+				protocol: "https",
+				hostname: "cmscoa.com.br",
+			},
+            {
+				protocol: "http",
+				hostname: "cmscoa.com.br",
+			},
 		],
 	},
 

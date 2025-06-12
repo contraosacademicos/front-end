@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 
 import Image from "next/image";
 
-import { FooterLinks, getNewsletter } from "@/app/(home)/actions";
+import { FooterLinks, Newsletter } from "@/app/artigos/types";
 import ellipse2 from "@/assets/shapes/ellipse2.svg";
 import ellipse3 from "@/assets/shapes/ellipse3.svg";
 
@@ -11,8 +13,12 @@ import FooterNavigation from "./footer-links";
 import FooterModule from "./footer-module";
 import FooterNewsletter from "./newsletter";
 
-const Footer = async ({ data }: { data: FooterLinks[] | null }) => {
-	const newsletter = await getNewsletter();
+type FooterProps = {
+	data: FooterLinks[] | null;
+	newsletter: Newsletter | null;
+};
+
+const Footer = ({ data, newsletter }: FooterProps) => {
 	return (
 		<>
 			<div className="relative">

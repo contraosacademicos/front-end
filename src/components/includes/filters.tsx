@@ -4,9 +4,23 @@ import { useState } from "react";
 
 import { Categories } from "@/app/(home)/actions";
 
-const Filter = ({ data }: { data: Categories | null }) => {
-	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
-	const [filtroTipo, setFiltroTipo] = useState("Todas");
+const Filter = ({
+	data,
+	filtroPostagens,
+	setFiltroPostagens,
+	filtroTipo,
+	setFiltroTipo,
+	filtroTipoPost,
+	setFiltroTipoPost,
+}: {
+	data: Categories | null;
+	filtroPostagens: string;
+	setFiltroPostagens: (value: string) => void;
+	filtroTipo: string;
+	setFiltroTipo: (value: string) => void;
+	filtroTipoPost: string;
+	setFiltroTipoPost: (value: string) => void;
+}) => {
 	const [dropdownPostagensFechado, setDropdownPostagensFechado] =
 		useState(true);
 	const [dropdownTipoFechado, setDropdownTipoFechado] = useState(true);
@@ -41,6 +55,8 @@ const Filter = ({ data }: { data: Categories | null }) => {
 		setFiltroTipo(opcao);
 		setDropdownTipoFechado(true);
 	};
+
+	const tiposPost = ["Todos", "Lista", "Blog", "Coluna", "Novidade"];
 
 	return (
 		<div className="flex flex-wrap items-center gap-2 sm_tablet:gap-4">
@@ -123,12 +139,17 @@ const Filter = ({ data }: { data: Categories | null }) => {
 			</div>
 
 			<div className="flex flex-wrap gap-2">
-				{["Listas", "Blog", "Colunas", "Novidades"].map((categoria) => (
+				{tiposPost.map((tipo) => (
 					<button
-						key={categoria}
-						className="bg-transparent rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 hover:bg-coagray hover:text-white"
+						key={tipo}
+						onClick={() => setFiltroTipoPost(tipo)}
+						className={`rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 ${
+							filtroTipoPost === tipo
+								? "bg-coagray text-white"
+								: "bg-transparent hover:bg-coagray hover:text-white"
+						}`}
 					>
-						{categoria}
+						{tipo}
 					</button>
 				))}
 			</div>
