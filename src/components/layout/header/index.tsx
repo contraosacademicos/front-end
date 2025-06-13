@@ -64,7 +64,7 @@ const Header = ({ data }: { data: Categories | null }) => {
 					<ButtonCoa>Assinar</ButtonCoa>
 				</div>
 
-				<MobileNav navLinks={navLinks} />
+				<MobileNav navLinks={navLinks} data={data} />
 				<SearchModal
 					isOpen={searchOpen}
 					onClose={() => setSearchOpen(false)}

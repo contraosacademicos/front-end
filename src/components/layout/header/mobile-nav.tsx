@@ -6,12 +6,15 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Categories } from "@/app/(home)/actions";
 import closeIcon from "@/assets/icons/close-icon.svg";
 import menuIcon from "@/assets/icons/menu-icon.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo-primary.svg";
 import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
+
+import SearchModal from "./search-modal";
 
 interface NavLink {
 	href: string;
@@ -20,12 +23,18 @@ interface NavLink {
 
 interface MobileNavProps {
 	navLinks: NavLink[];
+	data: Categories | null;
 	className?: string;
 }
 
-const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
+const MobileNav: React.FC<MobileNavProps> = ({
+	navLinks,
+	data,
+	className = "",
+}) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const menuRef = useRef<HTMLDivElement>(null);
+	const [searchOpen, setSearchOpen] = useState(false);
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -117,9 +126,15 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 								{link.label}
 							</Link>
 						))}
-						<button className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50">
+						<button
+							className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50"
+							onClick={() => {
+								setSearchOpen(true);
+								closeMenu();
+							}}
+						>
 							<Image
-								src={searchIcon}
+								src={searchIcon || "/placeholder.svg"}
 								alt="searchIcon"
 								width={67}
 								height={62}
@@ -134,6 +149,12 @@ const MobileNav: React.FC<MobileNavProps> = ({ navLinks, className = "" }) => {
 					</div>
 				</div>
 			</div>
+
+			<SearchModal
+				isOpen={searchOpen}
+				onClose={() => setSearchOpen(false)}
+				data={data}
+			/>
 
 			{isMenuOpen && (
 				<div

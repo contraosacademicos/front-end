@@ -38,6 +38,7 @@ export default function SearchModal({
 
 	const [posts, setPosts] = useState<Post | null>(null);
 	const [hasInteracted, setHasInteracted] = useState(false);
+	const [showNoResultsMessage, setShowNoResultsMessage] = useState(false);
 
 	const [currentPage, setCurrentPage] = useState(1);
 	const postsPerPage = 6;
@@ -150,8 +151,6 @@ export default function SearchModal({
 		hasInteracted,
 	]);
 
-	const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-
 	const currentPosts = useMemo(() => {
 		const startIndex = (currentPage - 1) * postsPerPage;
 		return filteredPosts.slice(startIndex, startIndex + postsPerPage);
@@ -163,6 +162,18 @@ export default function SearchModal({
 			setCurrentPage(1);
 		}
 	};
+
+	useEffect(() => {
+		if (hasInteracted) {
+			if (filteredPosts.length === 0) {
+				setShowNoResultsMessage(true);
+			} else {
+				setShowNoResultsMessage(false);
+			}
+		} else {
+			setShowNoResultsMessage(false);
+		}
+	}, [filteredPosts, hasInteracted]);
 
 	return (
 		<AnimatePresence>
@@ -193,6 +204,7 @@ export default function SearchModal({
 								value={searchQuery}
 								onChange={(e) => {
 									setSearchQuery(e.target.value);
+									setCurrentPage(1);
 									handleInteraction();
 								}}
 							/>
@@ -210,16 +222,19 @@ export default function SearchModal({
 								filtroPostagens={filtroPostagens}
 								setFiltroPostagens={(value) => {
 									setFiltroPostagens(value);
+									setCurrentPage(1);
 									handleInteraction();
 								}}
 								filtroTipo={filtroTipo}
 								setFiltroTipo={(value) => {
 									setFiltroTipo(value);
+									setCurrentPage(1);
 									handleInteraction();
 								}}
 								filtroTipoPost={filtroTipoPost}
 								setFiltroTipoPost={(value) => {
 									setFiltroTipoPost(value);
+									setCurrentPage(1);
 									handleInteraction();
 								}}
 								hasInteracted={hasInteracted}
@@ -252,29 +267,27 @@ export default function SearchModal({
 										</motion.p>
 									)}
 
-									{hasInteracted &&
-										searchQuery.trim() !== "" &&
-										currentPosts.length === 0 && (
-											<motion.div
-												key="no-results"
-												initial={{
-													opacity: 0,
-													y: 10,
-												}}
-												animate={{
-													opacity: 1,
-													y: 0,
-												}}
-												exit={{
-													opacity: 0,
-													y: 10,
-												}}
-												className="rounded border border-dashed border-coagray p-6 py-8 text-center text-coagray"
-											>
-												Nenhum resultado encontrado para
-												sua busca.
-											</motion.div>
-										)}
+									{hasInteracted && showNoResultsMessage && (
+										<motion.div
+											key="no-results"
+											initial={{
+												opacity: 0,
+												y: 10,
+											}}
+											animate={{
+												opacity: 1,
+												y: 0,
+											}}
+											exit={{
+												opacity: 0,
+												y: 10,
+											}}
+											className="rounded border border-dashed border-coagray p-6 py-8 text-center text-coagray"
+										>
+											Nenhum resultado encontrado para sua
+											busca.
+										</motion.div>
+									)}
 
 									{hasInteracted &&
 										currentPosts.length > 0 && (
@@ -330,97 +343,6 @@ export default function SearchModal({
 												)}
 											</motion.div>
 										)}
-								</AnimatePresence>
-
-								<AnimatePresence mode="wait">
-									{hasInteracted && totalPages > 1 && (
-										<motion.div
-											key="pagination"
-											layout
-											initial={{
-												opacity: 0,
-												y: 10,
-											}}
-											animate={{
-												opacity: 1,
-												y: 0,
-											}}
-											exit={{
-												opacity: 0,
-												y: 10,
-											}}
-											transition={{
-												duration: 0.3,
-												ease: "easeInOut",
-											}}
-											className="mt-4 flex justify-center gap-2"
-										>
-											{(() => {
-												const visiblePages: number[] =
-													[];
-												if (totalPages <= 3) {
-													for (
-														let i = 1;
-														i <= totalPages;
-														i++
-													) {
-														visiblePages.push(i);
-													}
-												} else {
-													if (currentPage <= 2) {
-														visiblePages.push(
-															1,
-															2,
-															3,
-														);
-													} else if (
-														currentPage >=
-														totalPages - 1
-													) {
-														visiblePages.push(
-															totalPages - 2,
-															totalPages - 1,
-															totalPages,
-														);
-													} else {
-														visiblePages.push(
-															currentPage - 1,
-															currentPage,
-															currentPage + 1,
-														);
-													}
-												}
-
-												return visiblePages.map(
-													(page) => (
-														<motion.button
-															layout
-															key={page}
-															onClick={() =>
-																setCurrentPage(
-																	page,
-																)
-															}
-															className={`rounded-md px-4 py-2 ${
-																page ===
-																currentPage
-																	? "bg-white font-bold text-black"
-																	: "bg-[#343434] text-white"
-															}`}
-															whileHover={{
-																scale: 1.05,
-															}}
-															whileTap={{
-																scale: 0.95,
-															}}
-														>
-															{page}
-														</motion.button>
-													),
-												);
-											})()}
-										</motion.div>
-									)}
 								</AnimatePresence>
 							</div>
 						</motion.div>

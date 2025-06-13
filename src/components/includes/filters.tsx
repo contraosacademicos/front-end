@@ -140,12 +140,12 @@ const Filter = ({
 				)}
 			</div>
 
-			<div className="flex flex-wrap gap-2">
+			<div className="scrollbar-track-transparent flex flex-nowrap gap-2 overflow-x-auto px-1 py-3 scrollbar-thin scrollbar-thumb-black sm_tablet:px-0">
 				{tiposPost.map((tipo) => (
 					<button
 						key={tipo}
 						onClick={() => setFiltroTipoPost(tipo)}
-						className={`rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 ${
+						className={`flex shrink-0 rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 ${
 							hasInteracted && filtroTipoPost === tipo
 								? "bg-coagray text-white"
 								: "bg-transparent hover:bg-coagray hover:text-white"
