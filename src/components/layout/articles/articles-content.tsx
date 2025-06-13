@@ -42,6 +42,7 @@ const ArtigosContent = ({
 	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
 	const [filtroTipo, setFiltroTipo] = useState("Todas");
 	const [filtroTipoPost, setFiltroTipoPost] = useState("");
+	const [hasInteracted] = useState(false);
 
 	const filteredPosts = useMemo(() => {
 		let filtered = posts?.data || [];
@@ -100,6 +101,7 @@ const ArtigosContent = ({
 						setFiltroTipo={setFiltroTipo}
 						filtroTipoPost={filtroTipoPost}
 						setFiltroTipoPost={setFiltroTipoPost}
+						hasInteracted={hasInteracted}
 					/>
 				</div>
 				<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">

@@ -3,13 +3,14 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Post } from "@/app/[postType]/actions";
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
 
 import { ButtonCoa } from "../core/buttons/button-coa";
 
-const AboutAuthor = () => {
+const AboutAuthor = ({ data }: { data: Post }) => {
 	return (
 		<div className="flex size-full max-w-[451px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
 			<h6 className="font-heading text-h6 font-bold">Sobre o autor</h6>
@@ -24,13 +25,28 @@ const AboutAuthor = () => {
 				>
 					<div className="flex gap-8 p-6">
 						<Image
-							src={imgColumnist1}
+							src={
+								data.data.author.profile_picture &&
+								(data.data.author.profile_picture.startsWith(
+									"http",
+								) ||
+									data.data.author.profile_picture.startsWith(
+										"/",
+									))
+									? data.data.author.profile_picture
+									: data.data.author.profile_picture
+										? `https://cmscoa.com.br/${data.data.author.profile_picture}`
+										: imgColumnist1
+							}
 							alt="imgColumnist1"
-							className="rounded-3xl object-cover"
+							width={48}
+							height={48}
+							className="aspect-square size-12 rounded-full object-cover"
 						/>
+
 						<div>
 							<p className="text-base text-primary">
-								$name_writer
+								{data.data.author.nome}
 							</p>
 							<p className="mt-2 text-xs">42 postagens</p>
 						</div>
@@ -38,15 +54,9 @@ const AboutAuthor = () => {
 				</div>
 			</div>
 
-			<p className="text-base text-coagray">
-				Pouco se sabe sobre a vida de Augusto de Lyra, um enigmático
-				filósofo que dedicou sua existência às profundezas da floresta
-				amazônica. Nascido em uma pequena aldeia indígena no coração da
-				selva, Lyra cresceu imerso nos mistérios da natureza e nas
-				tradições ancestrais de seu povo.
-			</p>
+			<p className="text-base text-coagray">{data.data.author.resumo}</p>
 
-			<Link href={"/autor"}>
+			<Link href={`/autor/${data.data.author.slug}`}>
 				<ButtonCoa className="w-fit">Mais do autor</ButtonCoa>
 			</Link>
 

@@ -12,6 +12,7 @@ const Filter = ({
 	setFiltroTipo,
 	filtroTipoPost,
 	setFiltroTipoPost,
+	hasInteracted,
 }: {
 	data: Categories | null;
 	filtroPostagens: string;
@@ -20,6 +21,7 @@ const Filter = ({
 	setFiltroTipo: (value: string) => void;
 	filtroTipoPost: string;
 	setFiltroTipoPost: (value: string) => void;
+	hasInteracted: boolean;
 }) => {
 	const [dropdownPostagensFechado, setDropdownPostagensFechado] =
 		useState(true);
@@ -144,7 +146,7 @@ const Filter = ({
 						key={tipo}
 						onClick={() => setFiltroTipoPost(tipo)}
 						className={`rounded-md border border-coagray px-3 py-2.5 text-coagray duration-300 ${
-							filtroTipoPost === tipo
+							hasInteracted && filtroTipoPost === tipo
 								? "bg-coagray text-white"
 								: "bg-transparent hover:bg-coagray hover:text-white"
 						}`}

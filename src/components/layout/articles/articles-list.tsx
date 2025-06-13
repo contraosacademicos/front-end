@@ -42,13 +42,24 @@ const ArticlesList = ({ data }: { data: Post | null }) => {
 						<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
 						<div className="flex items-center gap-4">
-							<Image
-								src={post.banner || imgArticleList1}
-								width={48}
-								height={43}
-								alt="imgArticleList1"
-								className="rounded-[4px] object-cover"
-							/>
+							<div
+								className="relative"
+								style={{ width: 48, height: 43 }}
+							>
+								<Image
+									src={
+										post.banner &&
+										post.banner !== "/" &&
+										post.banner !== ""
+											? post.banner
+											: imgArticleList1
+									}
+									fill
+									alt="imgArticleList1"
+									className="rounded-[4px] object-cover"
+								/>
+							</div>
+
 							<h5 className="font-heading text-h5 font-medium">
 								{post.title}
 							</h5>

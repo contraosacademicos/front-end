@@ -20,40 +20,47 @@ const PostContent = ({ data }: { data: Post }) => {
 	return (
 		<div className="flex w-full max-w-[948px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
 			<div className="text-base text-coagray">
-				<p className="mb-2 font-bold">$name_writer</p>
+				<p className="mb-2 font-bold">{data.data.author.nome}</p>
 				<p>
 					{new Date(data.data.created_at).toLocaleDateString("pt-BR")}
 				</p>
 			</div>
 
-			<Image
-				src={data.data.banner || imgPost}
-				alt="imgFeatured3"
-				height={230}
-				width={900}
-				className="max-h-[375px] rounded-3xl frame"
-			/>
+			<div
+				className="relative max-h-[375px] overflow-hidden rounded-3xl"
+				style={{ width: "100%", height: "375px" }}
+			>
+				<Image
+					src={
+						data.data.banner &&
+						data.data.banner !== "/" &&
+						data.data.banner !== ""
+							? data.data.banner
+							: imgPost
+					}
+					alt="imgFeatured3"
+					fill
+					className="object-cover"
+				/>
+			</div>
 
 			<h3 className="font-heading text-h3 font-bold es_tablet:text-h4">
 				{data.data.title}
 			</h3>
 
-			<div className="text-base/6 text-coagray">
+			<div className="content-html text-base/6 text-coagray">
 				{parse(data.data.content)}
 			</div>
 
 			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">
-				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
-					tag
-				</p>
-
-				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
-					tag
-				</p>
-
-				<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
-					tag
-				</p>
+				{Array.from([data.data.type]).map((tag, index) => (
+					<p
+						key={index}
+						className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black"
+					>
+						{tag}
+					</p>
+				))}
 			</div>
 
 			<div className="flex flex-wrap items-center justify-between gap-4">
@@ -87,7 +94,7 @@ const PostContent = ({ data }: { data: Post }) => {
 							height={14.5}
 							alt="messagesIcon"
 						/>
-						12345
+						{data.data.views}
 					</div>
 					<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
 						<Image
@@ -99,7 +106,7 @@ const PostContent = ({ data }: { data: Post }) => {
 						2
 					</div>
 					<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-						12
+						{data.data.likes}
 						<Image
 							src={favoriteIcon}
 							width={15}

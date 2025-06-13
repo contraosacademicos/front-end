@@ -58,3 +58,64 @@ input[type="date"] {
 	position: relative;
 	padding-right: 30px !important; /* Espaço para o ícone */
 }
+
+.content-html p {
+	margin: 12px 0 18px 0;
+	@apply text-base leading-relaxed text-coagray;
+}
+
+.content-html h2 {
+	@apply mb-6 mt-8 text-h3 font-bold text-white;
+}
+
+.content-html h3 {
+	@apply mb-4 mt-6 text-h4 font-semibold text-white;
+}
+
+.content-html h4 {
+	@apply mb-3 mt-5 text-h5 font-semibold text-white;
+}
+
+.content-html ol {
+	@apply mb-4 list-inside list-decimal pl-8 text-base text-coagray;
+}
+
+.content-html ul {
+	@apply mb-4 list-inside list-disc pl-5 text-base text-coagray;
+}
+
+.content-html li {
+	@apply mb-2 list-outside ;
+}
+
+.content-html a {
+	@apply break-words text-primary underline transition-colors hover:text-primary/80;
+}
+
+.content-html strong {
+	@apply font-semibold text-white;
+}
+
+.content-html em {
+	@apply italic;
+}
+
+.content-html blockquote {
+	@apply my-6 border-l-4 border-primary pl-4 text-base italic text-coagray;
+}
+
+.content-html pre {
+	@apply my-6 overflow-x-auto rounded bg-[#2C2C2D] p-4 text-white;
+}
+
+.content-html code {
+	@apply rounded bg-[#2C2C2D] px-1 py-0.5 text-primary;
+}
+
+.content-html br {
+	@apply my-2 block;
+}
+
+.content-html img {
+	@apply my-4 h-auto max-w-full rounded-md;
+}

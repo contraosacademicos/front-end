@@ -17,7 +17,7 @@ const PostDetail = ({ data }: { data: Post }) => {
 					<Comments />
 				</div>
 
-				<AboutAuthor />
+				<AboutAuthor data={data} />
 			</div>
 		</section>
 	);

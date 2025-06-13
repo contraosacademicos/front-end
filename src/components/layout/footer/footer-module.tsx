@@ -7,12 +7,9 @@ import Image from "next/image";
 import left_icon from "@/assets/icons/left-icon.svg";
 import right_icon from "@/assets/icons/right-icon.svg";
 import imgModule1 from "@/assets/module/1.png";
-import imgModule2 from "@/assets/module/2.png";
 
 import { EffectFade, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import { ButtonCoa } from "../../core/buttons/button-coa";
 
 const FooterModule = () => {
 	return (
@@ -51,9 +48,6 @@ const FooterModule = () => {
 							<SwiperSlide>
 								<Image src={imgModule1} alt="imgModule1" />
 							</SwiperSlide>
-							<SwiperSlide>
-								<Image src={imgModule2} alt="imgModule2" />
-							</SwiperSlide>
 						</Swiper>
 
 						<div className="absolute bottom-12 left-[44%] z-elements flex h-10 w-20 items-center justify-evenly rounded-full bg-primary lg_phone:left-[40%]">
@@ -68,36 +62,10 @@ const FooterModule = () => {
 
 					<div className="h-[357px] border-r border-primary lg_tablet:hidden"></div>
 
-					<div className="flex w-full flex-col gap-6 px-[124px] py-8 text-p lg_tablet:h-full lg_tablet:max-w-[646px] sm_tablet:px-6">
-						<p>
-							Neste módulo, você dará seus primeiros passos na
-							programação com a linguagem Python. Através de aulas
-							teóricas e práticas, você aprenderá a sintaxe básica
-							da linguagem, a manipular diferentes tipos de dados
-							e a utilizar estruturas de controle para criar
-							programas que tomem decisões e executem tarefas
-							repetitivas.
-						</p>
-						<p>
-							<strong>Tema:</strong> Introdução ao Python <br />
-							<strong>Público-alvo:</strong> Iniciantes em
-							programação <br />
-							<strong>Objetivos:</strong> Ao final do módulo, o
-							aluno será capaz de escrever pequenos programas em
-							Python, utilizando variáveis, operadores e
-							estruturas de controle básicas. <br />
-							<strong>Conteúdo:</strong> Sintaxe básica, tipos de
-							dados, operadores aritméticos e lógicos, estruturas
-							de controle (condicionais e repetição), funções.{" "}
-							<br />
-							<strong>Metodologia:</strong> Aulas teóricas com
-							exemplos práticos, exercícios propostos e resolução
-							de problemas. <br />
-							<strong>Plataforma:</strong> Google Colaboratory
-						</p>
-						<div>
-							<ButtonCoa>Quero me inscrever</ButtonCoa>
-						</div>
+					<div className="flex w-full max-w-[793px] flex-col gap-6 px-[124px] py-8 text-p lg_tablet:h-full lg_tablet:max-w-[646px] sm_tablet:px-6">
+						<h2 className="w-full max-w-[793px] font-heading text-h2">
+							EM BREVE
+						</h2>
 					</div>
 				</div>
 			</div>

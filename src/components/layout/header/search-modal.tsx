@@ -1,8 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+import Link from "next/link";
 
 import { Categories } from "@/app/(home)/actions";
+import { getPost } from "@/app/artigos/actions";
+import { Post } from "@/app/artigos/types";
+import Filter from "@/components/includes/filters";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Search, X } from "lucide-react";
@@ -20,12 +25,23 @@ const modalVariants = {
 export default function SearchModal({
 	isOpen,
 	onClose,
+	data,
 }: {
 	isOpen: boolean;
 	onClose: () => void;
 	data: Categories | null;
 }) {
 	const [searchQuery, setSearchQuery] = useState("");
+	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
+	const [filtroTipo, setFiltroTipo] = useState("Todas");
+	const [filtroTipoPost, setFiltroTipoPost] = useState("Todos");
+
+	const [posts, setPosts] = useState<Post | null>(null);
+	const [hasInteracted, setHasInteracted] = useState(false);
+
+	const [currentPage, setCurrentPage] = useState(1);
+	const postsPerPage = 6;
+
 	const modalRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -67,6 +83,87 @@ export default function SearchModal({
 		};
 	}, [isOpen, onClose]);
 
+	useEffect(() => {
+		if (!isOpen) return;
+
+		async function fetchPosts() {
+			try {
+				const result = await getPost();
+				setPosts(result);
+			} catch (error) {
+				console.error("Erro ao buscar posts no modal:", error);
+			}
+		}
+
+		fetchPosts();
+	}, [isOpen]);
+
+	const filteredPosts = useMemo(() => {
+		if (!hasInteracted) return [];
+
+		let filtered = posts?.data || [];
+
+		if (filtroTipo !== "Todas") {
+			filtered = filtered.filter(
+				(post) =>
+					post.category?.nome.toLowerCase() ===
+					filtroTipo.toLowerCase(),
+			);
+		}
+
+		if (filtroTipoPost !== "Todos") {
+			filtered = filtered.filter(
+				(post) =>
+					post.type.toLowerCase() === filtroTipoPost.toLowerCase(),
+			);
+		}
+
+		if (searchQuery.trim() !== "") {
+			filtered = filtered.filter((post) =>
+				post.title.toLowerCase().includes(searchQuery.toLowerCase()),
+			);
+		}
+
+		if (filtroPostagens === "Mais populares") {
+			filtered = [...filtered].sort((a, b) => b.views - a.views);
+		} else if (filtroPostagens === "Mais antigas") {
+			filtered = [...filtered].sort(
+				(a, b) =>
+					new Date(a.created_at).getTime() -
+					new Date(b.created_at).getTime(),
+			);
+		} else if (filtroPostagens === "Últimas postagens") {
+			filtered = [...filtered].sort(
+				(a, b) =>
+					new Date(b.created_at).getTime() -
+					new Date(a.created_at).getTime(),
+			);
+		}
+
+		return filtered;
+	}, [
+		posts,
+		filtroTipo,
+		filtroTipoPost,
+		filtroPostagens,
+		searchQuery,
+		hasInteracted,
+	]);
+
+	const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+	const currentPosts = useMemo(() => {
+		const startIndex = (currentPage - 1) * postsPerPage;
+		return filteredPosts.slice(startIndex, startIndex + postsPerPage);
+	}, [filteredPosts, currentPage]);
+
+	const handleInteraction = () => {
+		if (!hasInteracted) {
+			setHasInteracted(true);
+			setCurrentPage(1);
+		}
+	};
+
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -94,7 +191,10 @@ export default function SearchModal({
 								placeholder="Pesquisar por Artigos ou Autores"
 								className="flex-1 bg-[#252525] p-2 text-white outline-none placeholder:text-coagray"
 								value={searchQuery}
-								onChange={(e) => setSearchQuery(e.target.value)}
+								onChange={(e) => {
+									setSearchQuery(e.target.value);
+									handleInteraction();
+								}}
 							/>
 							<button
 								onClick={onClose}
@@ -104,20 +204,226 @@ export default function SearchModal({
 							</button>
 						</div>
 
-						<div className="border-b border-coagray p-4"></div>
+						<div className="border-b border-coagray p-4">
+							<Filter
+								data={data}
+								filtroPostagens={filtroPostagens}
+								setFiltroPostagens={(value) => {
+									setFiltroPostagens(value);
+									handleInteraction();
+								}}
+								filtroTipo={filtroTipo}
+								setFiltroTipo={(value) => {
+									setFiltroTipo(value);
+									handleInteraction();
+								}}
+								filtroTipoPost={filtroTipoPost}
+								setFiltroTipoPost={(value) => {
+									setFiltroTipoPost(value);
+									handleInteraction();
+								}}
+								hasInteracted={hasInteracted}
+							/>
+						</div>
 
-						<div className="max-h-[60vh] overflow-y-auto">
+						<motion.div
+							layout
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							className="transition-all duration-300 ease-in-out"
+						>
 							<div className="p-2">
 								<div className="text-sm px-2 py-1 text-coagray">
 									Resultados
 								</div>
 
-								<button className="flex w-full items-center gap-2 rounded p-2 text-white hover:bg-black">
-									<FileText className="size-5 text-coagray" />
-									<span>O Simbolismo de Se7en</span>
-								</button>
+								<AnimatePresence mode="wait">
+									{!hasInteracted && (
+										<motion.p
+											key="no-interaction"
+											initial={{ opacity: 0, y: 10 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 10 }}
+											className="py-8 text-center text-coagray"
+										>
+											Use a busca ou os filtros para
+											encontrar artigos.
+										</motion.p>
+									)}
+
+									{hasInteracted &&
+										searchQuery.trim() !== "" &&
+										currentPosts.length === 0 && (
+											<motion.div
+												key="no-results"
+												initial={{
+													opacity: 0,
+													y: 10,
+												}}
+												animate={{
+													opacity: 1,
+													y: 0,
+												}}
+												exit={{
+													opacity: 0,
+													y: 10,
+												}}
+												className="rounded border border-dashed border-coagray p-6 py-8 text-center text-coagray"
+											>
+												Nenhum resultado encontrado para
+												sua busca.
+											</motion.div>
+										)}
+
+									{hasInteracted &&
+										currentPosts.length > 0 && (
+											<motion.div
+												key="results"
+												layout
+												initial={{
+													opacity: 0,
+												}}
+												animate={{
+													opacity: 1,
+												}}
+												exit={{
+													opacity: 0,
+												}}
+												className="flex flex-col gap-2 pt-2"
+											>
+												{currentPosts.map(
+													(post, index) => (
+														<motion.div
+															key={post.id}
+															layout
+															initial={{
+																opacity: 0,
+																y: 10,
+															}}
+															animate={{
+																opacity: 1,
+																y: 0,
+															}}
+															exit={{
+																opacity: 0,
+																y: 10,
+															}}
+															transition={{
+																duration: 0.2,
+																delay:
+																	index *
+																	0.03,
+															}}
+														>
+															<Link
+																href={`/${post?.type}/${post?.slug}`}
+																className="flex w-full items-center gap-2 rounded p-2 text-white hover:bg-black"
+															>
+																<FileText className="size-5 text-coagray" />
+																<span>
+																	{post.title}
+																</span>
+															</Link>
+														</motion.div>
+													),
+												)}
+											</motion.div>
+										)}
+								</AnimatePresence>
+
+								<AnimatePresence mode="wait">
+									{hasInteracted && totalPages > 1 && (
+										<motion.div
+											key="pagination"
+											layout
+											initial={{
+												opacity: 0,
+												y: 10,
+											}}
+											animate={{
+												opacity: 1,
+												y: 0,
+											}}
+											exit={{
+												opacity: 0,
+												y: 10,
+											}}
+											transition={{
+												duration: 0.3,
+												ease: "easeInOut",
+											}}
+											className="mt-4 flex justify-center gap-2"
+										>
+											{(() => {
+												const visiblePages: number[] =
+													[];
+												if (totalPages <= 3) {
+													for (
+														let i = 1;
+														i <= totalPages;
+														i++
+													) {
+														visiblePages.push(i);
+													}
+												} else {
+													if (currentPage <= 2) {
+														visiblePages.push(
+															1,
+															2,
+															3,
+														);
+													} else if (
+														currentPage >=
+														totalPages - 1
+													) {
+														visiblePages.push(
+															totalPages - 2,
+															totalPages - 1,
+															totalPages,
+														);
+													} else {
+														visiblePages.push(
+															currentPage - 1,
+															currentPage,
+															currentPage + 1,
+														);
+													}
+												}
+
+												return visiblePages.map(
+													(page) => (
+														<motion.button
+															layout
+															key={page}
+															onClick={() =>
+																setCurrentPage(
+																	page,
+																)
+															}
+															className={`rounded-md px-4 py-2 ${
+																page ===
+																currentPage
+																	? "bg-white font-bold text-black"
+																	: "bg-[#343434] text-white"
+															}`}
+															whileHover={{
+																scale: 1.05,
+															}}
+															whileTap={{
+																scale: 0.95,
+															}}
+														>
+															{page}
+														</motion.button>
+													),
+												);
+											})()}
+										</motion.div>
+									)}
+								</AnimatePresence>
 							</div>
-						</div>
+						</motion.div>
 					</motion.div>
 				</motion.div>
 			)}
