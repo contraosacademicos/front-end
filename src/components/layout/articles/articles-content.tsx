@@ -105,7 +105,8 @@ const ArtigosContent = ({
 					/>
 				</div>
 				<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
-					<ArticlesList data={{ data: filteredPosts }} />
+					<ArticlesList posts={filteredPosts} />
+
 					<div className="flex h-full flex-wrap justify-center gap-10 es_desktop:w-full">
 						<Columnists data={featuredColumnists} />
 						<FeaturedOpinion />

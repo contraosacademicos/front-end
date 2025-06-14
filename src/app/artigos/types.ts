@@ -95,6 +95,16 @@ export type Post = {
 	}[];
 };
 
+export type PaginatedPostResponse = {
+	total: number;
+	per_page: number;
+	page: number;
+	next_page: number | null;
+	last_page: number;
+	previous_page: number | null;
+	data: Post["data"];
+};
+
 export type Categories = {
 	id: number;
 	data: {

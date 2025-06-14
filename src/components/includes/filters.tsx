@@ -34,8 +34,9 @@ const Filter = ({
 	];
 	const opcoesTipo = [
 		"Todas",
-		...(data?.data.map((categoria: { nome: string }) => categoria.nome) ||
-			[]),
+		...(Array.isArray(data?.data)
+			? data.data.map((categoria: { nome: string }) => categoria.nome)
+			: []),
 	];
 
 	const toggleDropdownPostagens = () => {

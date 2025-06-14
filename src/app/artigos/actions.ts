@@ -7,6 +7,7 @@ import {
 	FooterLinks,
 	MainBanner,
 	Newsletter,
+	PaginatedPostResponse,
 	Post,
 	PricingTable,
 } from "@/app/artigos/types";
@@ -33,22 +34,42 @@ export async function getMainBanner() {
 	}
 }
 
-export async function getPost() {
+export async function getPost(): Promise<Post | null> {
 	try {
-		const response = await fetcher("posts", {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-			cache: "no-store",
-		});
-		if (!response.ok) {
-			throw new Error(`Error: ${response.statusText}`);
+		let allPosts: Post["data"] = [];
+		let page = 1;
+		let hasNextPage = true;
+
+		while (hasNextPage) {
+			const response = await fetcher<PaginatedPostResponse>(
+				`posts?page=${page}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+					cache: "no-store",
+				},
+			);
+
+			if (!response.ok || !response.data) {
+				throw new Error(response.error || "Erro na API");
+			}
+
+			// Aqui agora acessa corretamente os dados
+			allPosts = [...allPosts, ...response.data.data];
+
+			if (response.data.next_page) {
+				page = response.data.next_page;
+			} else {
+				hasNextPage = false;
+			}
 		}
-		return response.data as Post;
+
+		return { data: allPosts };
 	} catch (error) {
-		console.error("Error fetching post:", error);
+		console.error("Erro ao buscar posts:", error);
 		return null;
 	}
 }
