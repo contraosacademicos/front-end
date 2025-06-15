@@ -11,7 +11,6 @@ import {
 	DialogOverlay,
 } from "@/components/ui/dialog";
 
-import { ButtonCoa } from "../core/buttons/button-coa";
 import { ButtonFill } from "../core/buttons/button-fill";
 
 const SubscriptionModal = () => {
@@ -30,29 +29,31 @@ const SubscriptionModal = () => {
 		<Dialog open={open}>
 			<DialogOverlay className="bg-black/50 backdrop-blur-sm" />{" "}
 			<DialogContent
-				className="max-w-[50rem] border-[#343434] bg-[#232323] p-10 text-white [&>button]:hidden"
+				className="max-w-[41rem] border-primary bg-[#232323] p-10 text-white [&>button]:hidden"
 				onInteractOutside={(e) => e.preventDefault()}
 				onEscapeKeyDown={(e) => e.preventDefault()}
 			>
 				<DialogHeader>
-					<h2 className="text-center font-heading text-h2 font-bold text-primary es_tablet:text-h4">
-						Conteúdo exclusivo <br /> para assinantes
-					</h2>
+					<h3 className="text-center font-heading text-h3 font-bold text-primary es_tablet:text-h4">
+						Conteúdo exclusivo para assinantes!
+					</h3>
 				</DialogHeader>
 
-				<h5 className="text-center text-h5 text-coagray es_tablet:text-h6">
+				<div className="w-full border-b"></div>
+
+				<h6 className="text-center text-h6 text-coagray es_tablet:text-h6">
 					Este conteúdo está disponível apenas para assinantes. Para
 					continuar a leitura e ter acesso completo a materiais
 					exclusivos, faça sua assinatura agora mesmo.
-				</h5>
+				</h6>
 
 				<div className="mt-4 flex justify-center gap-6">
 					<ButtonFill onClick={() => router.back()}>
 						<h6 className="text-h6">Voltar</h6>
 					</ButtonFill>
-					<ButtonCoa>
+					{/* NOTE <ButtonCoa>
 						<h6 className="text-h6">Assinar agora</h6>
-					</ButtonCoa>
+					</ButtonCoa> */}
 				</div>
 			</DialogContent>
 		</Dialog>

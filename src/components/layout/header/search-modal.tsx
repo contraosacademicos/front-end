@@ -4,9 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import Link from "next/link";
 
-import { Categories } from "@/app/(home)/actions";
 import { getPost } from "@/app/artigos/actions";
-import { Post } from "@/app/artigos/types";
+import { Category, Post } from "@/app/artigos/types";
 import Filter from "@/components/includes/filters";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -29,17 +28,15 @@ export default function SearchModal({
 }: {
 	isOpen: boolean;
 	onClose: () => void;
-	data: Categories | null;
+	data: Category[] | null;
 }) {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
 	const [filtroTipo, setFiltroTipo] = useState("Todas");
 	const [filtroTipoPost, setFiltroTipoPost] = useState("Todos");
-
 	const [posts, setPosts] = useState<Post | null>(null);
 	const [hasInteracted, setHasInteracted] = useState(false);
 	const [showNoResultsMessage, setShowNoResultsMessage] = useState(false);
-
 	const [currentPage, setCurrentPage] = useState(1);
 	const postsPerPage = 6;
 
@@ -101,7 +98,6 @@ export default function SearchModal({
 
 	const filteredPosts = useMemo(() => {
 		if (!hasInteracted) return [];
-
 		let filtered = posts?.data || [];
 
 		if (filtroTipo !== "Todas") {
@@ -111,20 +107,17 @@ export default function SearchModal({
 					filtroTipo.toLowerCase(),
 			);
 		}
-
 		if (filtroTipoPost !== "Todos") {
 			filtered = filtered.filter(
 				(post) =>
 					post.type.toLowerCase() === filtroTipoPost.toLowerCase(),
 			);
 		}
-
 		if (searchQuery.trim() !== "") {
 			filtered = filtered.filter((post) =>
 				post.title.toLowerCase().includes(searchQuery.toLowerCase()),
 			);
 		}
-
 		if (filtroPostagens === "Mais populares") {
 			filtered = [...filtered].sort((a, b) => b.views - a.views);
 		} else if (filtroPostagens === "Mais antigas") {
@@ -133,14 +126,13 @@ export default function SearchModal({
 					new Date(a.created_at).getTime() -
 					new Date(b.created_at).getTime(),
 			);
-		} else if (filtroPostagens === "Últimas postagens") {
+		} else {
 			filtered = [...filtered].sort(
 				(a, b) =>
 					new Date(b.created_at).getTime() -
 					new Date(a.created_at).getTime(),
 			);
 		}
-
 		return filtered;
 	}, [
 		posts,
@@ -151,6 +143,7 @@ export default function SearchModal({
 		hasInteracted,
 	]);
 
+	const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
 	const currentPosts = useMemo(() => {
 		const startIndex = (currentPage - 1) * postsPerPage;
 		return filteredPosts.slice(startIndex, startIndex + postsPerPage);
@@ -165,11 +158,7 @@ export default function SearchModal({
 
 	useEffect(() => {
 		if (hasInteracted) {
-			if (filteredPosts.length === 0) {
-				setShowNoResultsMessage(true);
-			} else {
-				setShowNoResultsMessage(false);
-			}
+			setShowNoResultsMessage(filteredPosts.length === 0);
 		} else {
 			setShowNoResultsMessage(false);
 		}
@@ -215,7 +204,6 @@ export default function SearchModal({
 								<X className="size-5" />
 							</button>
 						</div>
-
 						<div className="border-b border-coagray p-4">
 							<Filter
 								data={data}
@@ -240,7 +228,6 @@ export default function SearchModal({
 								hasInteracted={hasInteracted}
 							/>
 						</div>
-
 						<motion.div
 							layout
 							initial={{ opacity: 0 }}
@@ -252,7 +239,6 @@ export default function SearchModal({
 								<div className="text-sm px-2 py-1 text-coagray">
 									Resultados
 								</div>
-
 								<AnimatePresence mode="wait">
 									{!hasInteracted && (
 										<motion.p
@@ -266,43 +252,26 @@ export default function SearchModal({
 											encontrar artigos.
 										</motion.p>
 									)}
-
 									{hasInteracted && showNoResultsMessage && (
 										<motion.div
 											key="no-results"
-											initial={{
-												opacity: 0,
-												y: 10,
-											}}
-											animate={{
-												opacity: 1,
-												y: 0,
-											}}
-											exit={{
-												opacity: 0,
-												y: 10,
-											}}
+											initial={{ opacity: 0, y: 10 }}
+											animate={{ opacity: 1, y: 0 }}
+											exit={{ opacity: 0, y: 10 }}
 											className="rounded border border-dashed border-coagray p-6 py-8 text-center text-coagray"
 										>
 											Nenhum resultado encontrado para sua
 											busca.
 										</motion.div>
 									)}
-
 									{hasInteracted &&
 										currentPosts.length > 0 && (
 											<motion.div
 												key="results"
 												layout
-												initial={{
-													opacity: 0,
-												}}
-												animate={{
-													opacity: 1,
-												}}
-												exit={{
-													opacity: 0,
-												}}
+												initial={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												exit={{ opacity: 0 }}
 												className="flex flex-col gap-2 pt-2"
 											>
 												{currentPosts.map(
@@ -340,6 +309,79 @@ export default function SearchModal({
 															</Link>
 														</motion.div>
 													),
+												)}
+												{totalPages > 1 && (
+													<div className="mt-4 flex flex-wrap justify-center gap-2">
+														{[
+															...Array(
+																totalPages,
+															),
+														].map((_, index) => {
+															const page =
+																index + 1;
+
+															const isEdgePage =
+																page === 1 ||
+																page ===
+																	totalPages;
+															const isNearCurrent =
+																Math.abs(
+																	currentPage -
+																		page,
+																) <= 1;
+
+															if (
+																isEdgePage ||
+																isNearCurrent
+															) {
+																return (
+																	<button
+																		key={
+																			page
+																		}
+																		onClick={() =>
+																			setCurrentPage(
+																				page,
+																			)
+																		}
+																		className={`text-sm rounded-md px-3 py-1 ${
+																			page ===
+																			currentPage
+																				? "bg-white font-semibold text-black"
+																				: "bg-[#343434] text-white"
+																		}`}
+																	>
+																		{page}
+																	</button>
+																);
+															}
+
+															if (
+																(page === 2 &&
+																	currentPage >
+																		4) ||
+																(page ===
+																	totalPages -
+																		1 &&
+																	currentPage <
+																		totalPages -
+																			3)
+															) {
+																return (
+																	<span
+																		key={
+																			page
+																		}
+																		className="text-sm px-2 py-1 text-coagray"
+																	>
+																		...
+																	</span>
+																);
+															}
+
+															return null;
+														})}
+													</div>
 												)}
 											</motion.div>
 										)}

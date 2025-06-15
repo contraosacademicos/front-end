@@ -7,17 +7,16 @@ import Link from "next/link";
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
-import Support from "@/components/includes/support";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
 import { getNewsletter } from "../(home)/actions";
-import { getCategories, getFooterLinks, getPricingTable } from "./actions";
+import { getCategories, getFooterLinks } from "./actions";
 
 const Autor: NextPage = async () => {
 	const categories = await getCategories();
 	const footerLinks = await getFooterLinks();
-	const pricingTable = await getPricingTable();
+	// NOTE const pricingTable = await getPricingTable();
 	const newsletter = await getNewsletter();
 
 	return (
@@ -210,7 +209,7 @@ const Autor: NextPage = async () => {
 			</section>
 
 			<div className="mt-28"></div>
-			<Support data={pricingTable} />
+			{/* NOTE <Support data={pricingTable} /> */}
 
 			<div className="mt-9"></div>
 			<Footer data={footerLinks} newsletter={newsletter} />

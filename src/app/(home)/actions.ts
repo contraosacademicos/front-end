@@ -294,14 +294,15 @@ export async function getAuthorArticles() {
 
 // Categories
 // Categories
-export type Categories = {
+export type Category = {
 	id: number;
-	data: {
-		id: number;
-		nome: string;
-		ativo: boolean;
-	}[];
+	nome: string;
+	ativo: number;
+	created_at: string;
+	updated_at: string;
 };
+
+export type Categories = Category[];
 
 export async function getCategories() {
 	try {

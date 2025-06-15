@@ -12,7 +12,6 @@ import instagramIcon from "@/assets/icons/instagram-icon.svg";
 import spotifyIcon from "@/assets/icons/spotify-icon.svg";
 import youtubeIcon from "@/assets/icons/youtube-icon.svg";
 import logo from "@/assets/logo-primary.svg";
-import { ButtonCoa } from "@/components/core/buttons/button-coa";
 
 const HeaderUserArea: React.FC = () => {
 	return (
@@ -52,9 +51,9 @@ const HeaderUserArea: React.FC = () => {
 				</Link>
 
 				<div className="flex items-center gap-7">
-					<ButtonCoa className="h-full sm_phone:hidden">
+					{/* NOTE <ButtonCoa className="h-full sm_phone:hidden">
 						Assinar
-					</ButtonCoa>
+					</ButtonCoa> */}
 					<Link
 						href="/"
 						className="flex items-center brightness-[1000%] duration-100 hover:brightness-100"

@@ -5,8 +5,6 @@ import Image from "next/image";
 import { PricingTable } from "@/app/(home)/actions";
 import gemPlan from "@/assets/icons/gem-icon.svg";
 
-import { ButtonCoa } from "../core/buttons/button-coa";
-
 const Support = ({ data }: { data: PricingTable[] | null }) => {
 	return (
 		<section className="wrapper" data-aos="fade-up">
@@ -73,9 +71,9 @@ const Support = ({ data }: { data: PricingTable[] | null }) => {
 								</p>
 							)}
 
-							<ButtonCoa className="mt-4" href={plan.url}>
+							{/* NOTE <ButtonCoa className="mt-4" href={plan.url}>
 								Assinar
-							</ButtonCoa>
+							</ButtonCoa> */}
 						</div>
 					);
 				})}

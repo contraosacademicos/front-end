@@ -62,10 +62,11 @@ const FooterModule = () => {
 
 					<div className="h-[357px] border-r border-primary lg_tablet:hidden"></div>
 
-					<div className="flex w-full max-w-[793px] flex-col gap-6 px-[124px] py-8 text-p lg_tablet:h-full lg_tablet:max-w-[646px] sm_tablet:px-6">
-						<h2 className="w-full max-w-[793px] font-heading text-h2">
-							EM BREVE
+					<div className="flex w-full max-w-[793px] flex-col px-[124px] py-8 text-p lg_tablet:h-full lg_tablet:max-w-[646px] sm_tablet:px-6">
+						<h2 className="w-full max-w-[793px] text-center font-heading text-h2">
+							Em breve
 						</h2>
+						<div className="w-[292px] border-b"></div>
 					</div>
 				</div>
 			</div>

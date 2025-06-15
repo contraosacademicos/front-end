@@ -14,13 +14,12 @@ import {
 import Columnists from "@/components/includes/columnists";
 import Filter from "@/components/includes/filters";
 import HeroSlider from "@/components/includes/hero-slide";
-import Support from "@/components/includes/support";
 import ArticlesList from "@/components/layout/articles/articles-list";
 import FeaturedOpinion from "@/components/layout/featured/featured-opinion";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-type ArtigosContentProps = {
+type ArticlesContentProps = {
 	mainBanner: MainBanner[] | null;
 	categories: Categories | null;
 	posts: Post | null;
@@ -30,15 +29,14 @@ type ArtigosContentProps = {
 	newsletter: Newsletter | null;
 };
 
-const ArtigosContent = ({
+const ArticlesContent = ({
 	mainBanner,
 	categories,
 	posts,
 	footerLinks,
-	pricingTable,
 	featuredColumnists,
 	newsletter,
-}: ArtigosContentProps) => {
+}: ArticlesContentProps) => {
 	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
 	const [filtroTipo, setFiltroTipo] = useState("Todas");
 	const [filtroTipoPost, setFiltroTipoPost] = useState("");
@@ -114,11 +112,11 @@ const ArtigosContent = ({
 				</div>
 			</div>
 			<div className="mt-28"></div>
-			<Support data={pricingTable} />
+			{/* NOTE <Support data={pricingTable} /> */}
 			<div className="mt-9"></div>
 			<Footer data={footerLinks} newsletter={newsletter} />
 		</main>
 	);
 };
 
-export default ArtigosContent;
+export default ArticlesContent;

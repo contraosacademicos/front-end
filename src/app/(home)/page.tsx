@@ -8,7 +8,6 @@ import CtaCourses from "@/components/includes/cta-courses";
 import HeroSlider from "@/components/includes/hero-slide";
 import MostRead from "@/components/includes/most-read";
 import Subscription from "@/components/includes/subscription";
-import Support from "@/components/includes/support";
 import LatestArticlesPost from "@/components/layout/articles/latest-articles";
 import FeaturedSection from "@/components/layout/featured";
 import Footer from "@/components/layout/footer";
@@ -24,7 +23,6 @@ import {
 	getLatestArticles,
 	getMainBanner,
 	getNewsletter,
-	getPricingTable,
 } from "./actions";
 
 const Home: NextPage = async () => {
@@ -36,25 +34,20 @@ const Home: NextPage = async () => {
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
 	const footerLinks = await getFooterLinks();
-	const pricingTable = await getPricingTable();
+	// NOTE const pricingTable = await getPricingTable();
 	const newsletter = await getNewsletter();
 
 	return (
 		<main>
 			<Header data={categories} />
-
 			<div className="mt-40"></div>
 			<HeroSlider data={mainBanner} />
-
 			<div className="mt-20"></div>
 			<FeaturedSection data={featuredArticles} />
-
 			<div className="mt-20"></div>
 			<CtaCourses data={bannerCreateAcc} />
-
 			<div className="mt-20"></div>
 			<LatestArticlesPost data={latestArticles} />
-
 			<div className="mt-20"></div>
 			<div className="relative" data-aos="fade-up">
 				<Image
@@ -64,7 +57,6 @@ const Home: NextPage = async () => {
 				/>
 				<Subscription />
 			</div>
-
 			<div className="mt-20"></div>
 			<div
 				className="flex justify-between wrapper lg_tablet:hidden"
@@ -73,12 +65,10 @@ const Home: NextPage = async () => {
 				<Columnists data={featuredColumnists} />
 				<Columns data={authorArticles} />
 			</div>
-
 			<div className="mt-20"></div>
 			<MostRead />
-
 			<div className="mt-28"></div>
-			<Support data={pricingTable} />
+			{/* NOTE <Support data={pricingTable} /> */}
 
 			<div className="mt-12"></div>
 			<Footer data={footerLinks} newsletter={newsletter} />

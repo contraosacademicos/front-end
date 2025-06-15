@@ -6,12 +6,11 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Categories } from "@/app/(home)/actions";
+import { Category } from "@/app/artigos/types";
 import closeIcon from "@/assets/icons/close-icon.svg";
 import menuIcon from "@/assets/icons/menu-icon.svg";
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo-primary.svg";
-import { ButtonCoa } from "@/components/core/buttons/button-coa";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
 import SearchModal from "./search-modal";
@@ -23,7 +22,7 @@ interface NavLink {
 
 interface MobileNavProps {
 	navLinks: NavLink[];
-	data: Categories | null;
+	data: Category[] | null;
 	className?: string;
 }
 
@@ -145,7 +144,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
 
 					<div className="mt-auto flex flex-col gap-4">
 						<ButtonFill onClick={closeMenu}>Entrar</ButtonFill>
-						<ButtonCoa onClick={closeMenu}>Assinar</ButtonCoa>
+						{/* NOTE <ButtonCoa onClick={closeMenu}>Assinar</ButtonCoa> */}
 					</div>
 				</div>
 			</div>

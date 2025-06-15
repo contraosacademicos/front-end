@@ -113,50 +113,46 @@ const ArticlesList = ({ posts }: ArticlesListProps) => {
 			))}
 
 			{totalPages > 1 && (
-				<div className="mt-6 flex flex-wrap justify-center gap-2">
-					<button
-						disabled={currentPage === 1}
-						onClick={() =>
-							setCurrentPage((prev) => Math.max(prev - 1, 1))
-						}
-						className="rounded-md bg-[#343434] px-4 py-2 text-white disabled:opacity-50"
-					>
-						← Anterior
-					</button>
+				<div className="mt-4 flex flex-wrap justify-center gap-2">
+					{[...Array(totalPages)].map((_, index) => {
+						const page = index + 1;
 
-					{Array.from({ length: totalPages }, (_, i) => i + 1)
-						.filter((page) => {
-							if (totalPages <= 5) return true;
-							if (currentPage <= 3) return page <= 5;
-							if (currentPage >= totalPages - 2)
-								return page >= totalPages - 4;
-							return Math.abs(page - currentPage) <= 2;
-						})
-						.map((page) => (
-							<button
-								key={page}
-								onClick={() => setCurrentPage(page)}
-								className={`rounded-md px-4 py-2 ${
-									page === currentPage
-										? "bg-white font-bold text-black"
-										: "bg-[#343434] text-white"
-								}`}
-							>
-								{page}
-							</button>
-						))}
+						const isEdgePage = page === 1 || page === totalPages;
+						const isNearCurrent = Math.abs(currentPage - page) <= 1;
 
-					<button
-						disabled={currentPage === totalPages}
-						onClick={() =>
-							setCurrentPage((prev) =>
-								Math.min(prev + 1, totalPages),
-							)
+						if (isEdgePage || isNearCurrent) {
+							return (
+								<button
+									key={page}
+									onClick={() => setCurrentPage(page)}
+									className={`text-sm rounded-md px-3 py-1 ${
+										page === currentPage
+											? "bg-white font-semibold text-black"
+											: "bg-[#343434] text-white"
+									}`}
+								>
+									{page}
+								</button>
+							);
 						}
-						className="rounded-md bg-[#343434] px-4 py-2 text-white disabled:opacity-50"
-					>
-						Próximo →
-					</button>
+
+						if (
+							(page === 2 && currentPage > 4) ||
+							(page === totalPages - 1 &&
+								currentPage < totalPages - 3)
+						) {
+							return (
+								<span
+									key={page}
+									className="text-sm px-2 py-1 text-coagray"
+								>
+									...
+								</span>
+							);
+						}
+
+						return null;
+					})}
 				</div>
 			)}
 		</div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Categories } from "@/app/(home)/actions";
+import { Category } from "@/app/artigos/types";
 
 const Filter = ({
 	data,
@@ -14,7 +14,7 @@ const Filter = ({
 	setFiltroTipoPost,
 	hasInteracted,
 }: {
-	data: Categories | null;
+	data: Category[] | null;
 	filtroPostagens: string;
 	setFiltroPostagens: (value: string) => void;
 	filtroTipo: string;
@@ -34,9 +34,7 @@ const Filter = ({
 	];
 	const opcoesTipo = [
 		"Todas",
-		...(Array.isArray(data?.data)
-			? data.data.map((categoria: { nome: string }) => categoria.nome)
-			: []),
+		...(Array.isArray(data) ? data.map((categoria) => categoria.nome) : []),
 	];
 
 	const toggleDropdownPostagens = () => {
@@ -59,7 +57,7 @@ const Filter = ({
 		setDropdownTipoFechado(true);
 	};
 
-	const tiposPost = ["Todos", "Lista", "Blog", "Coluna", "Novidade"];
+	const tiposPost = ["Todos", "Lista", "Blog", "Coluna"];
 
 	return (
 		<div className="flex flex-wrap items-center gap-2 sm_tablet:gap-4">

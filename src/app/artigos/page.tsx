@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import ArtigosContent from "@/components/layout/articles/articles-content";
+import ArticlesContent from "@/components/layout/articles/articles-content";
 
 import {
 	getCategories,
@@ -22,7 +22,7 @@ const Artigos: NextPage = async () => {
 	const newsletter = await getNewsletter();
 
 	return (
-		<ArtigosContent
+		<ArticlesContent
 			mainBanner={mainBanner}
 			categories={categories}
 			posts={posts}
