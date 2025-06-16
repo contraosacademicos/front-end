@@ -11,7 +11,7 @@ const PostDetail = ({ data }: { data: Post }) => {
 			<Breadcrumb data={data} />
 
 			<div className="flex justify-between gap-4 md_tablet:flex-col md_tablet:items-center">
-				<div className="space-y-6">
+				<div className="w-full space-y-6">
 					<PostContent data={data} />
 					{/* NOTE <Comments /> */}
 				</div>

@@ -3,6 +3,7 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { Post } from "@/app/[postType]/actions";
 import imgPost from "@/assets/details/post1.png";
@@ -18,9 +19,28 @@ import { ButtonFill } from "../core/buttons/button-fill";
 const PostContent = ({ data }: { data: Post }) => {
 	console.log(data.data.banner);
 	return (
-		<div className="flex w-full max-w-[948px] flex-col gap-4 rounded-lg bg-[#232323] p-6">
+		<div className="flex w-full max-w-full flex-col gap-4 rounded-lg bg-[#232323] p-6">
 			<div className="text-base text-coagray">
-				<p className="mb-2 font-bold">{data.data.author.nome}</p>
+				<p className="mb-2">
+					{data.data.translator ? (
+						<>
+							Traduzido por:{" "}
+							<Link
+								href={`/autor/${data.data.translator.slug}`}
+								className="font-bold hover:underline"
+							>
+								{data.data.translator.name}
+							</Link>
+						</>
+					) : (
+						<Link
+							href={`/autor/${data.data.author?.slug}`}
+							className="font-bold hover:underline"
+						>
+							{data.data.author?.nome}
+						</Link>
+					)}
+				</p>
 				<p>
 					{new Date(data.data.created_at).toLocaleDateString("pt-BR")}
 				</p>

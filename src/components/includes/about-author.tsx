@@ -26,16 +26,16 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 					<div className="flex gap-8 p-6">
 						<Image
 							src={
-								data.data.author.profile_picture &&
-								(data.data.author.profile_picture.startsWith(
+								data.data.author?.profile_picture &&
+								(data.data.author?.profile_picture.startsWith(
 									"http",
 								) ||
-									data.data.author.profile_picture.startsWith(
+									data.data.author?.profile_picture.startsWith(
 										"/",
 									))
-									? data.data.author.profile_picture
-									: data.data.author.profile_picture
-										? `https://cmscoa.com.br/${data.data.author.profile_picture}`
+									? data.data.author?.profile_picture
+									: data.data.author?.profile_picture
+										? `https://cmscoa.com.br/${data.data.author?.profile_picture}`
 										: imgColumnist1
 							}
 							alt="imgColumnist1"
@@ -46,7 +46,7 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 
 						<div>
 							<p className="text-base text-primary">
-								{data.data.author.nome}
+								{data.data.author?.nome}
 							</p>
 							<p className="mt-2 text-xs">42 postagens</p>
 						</div>
@@ -54,9 +54,9 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 				</div>
 			</div>
 
-			<p className="text-base text-coagray">{data.data.author.resumo}</p>
+			<p className="text-base text-coagray">{data.data.author?.resumo}</p>
 
-			<Link href={`/autor/${data.data.author.slug}`}>
+			<Link href={`/autor/${data.data.author?.slug}`}>
 				<ButtonCoa className="w-fit">Mais do autor</ButtonCoa>
 			</Link>
 

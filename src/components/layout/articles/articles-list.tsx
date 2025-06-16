@@ -28,13 +28,16 @@ const ArticlesList = ({ posts }: ArticlesListProps) => {
 	return (
 		<div className="flex w-full max-w-[948px] flex-col gap-y-[26px] md_desktop:max-w-[840px] sm_desktop:justify-evenly">
 			{currentPosts.map((post) => (
-				<Link
-					className="flex w-full cursor-pointer flex-col gap-4 rounded-lg bg-[#232323] p-6"
+				<div
+					className="flex w-full flex-col gap-4 rounded-lg bg-[#232323] p-6"
 					key={post.id}
-					href={`/${post.type}/${post.slug}`}
 				>
 					<div className="flex flex-col gap-2 text-base text-coagray">
-						<p className="font-bold">{post.author.nome}</p>
+						<p className="font-bold">
+							<Link href={`/autor/${post.author?.slug}`}>
+								{post.author?.nome}
+							</Link>
+						</p>
 						<p className="font-medium">
 							{new Date(post.created_at).toLocaleDateString(
 								"pt-BR",
@@ -42,74 +45,82 @@ const ArticlesList = ({ posts }: ArticlesListProps) => {
 						</p>
 					</div>
 
-					<div className="border-b border-dashed border-[#9A9A9A]"></div>
+					<Link
+						href={`/${post.type}/${post.slug}`}
+						className="flex flex-col gap-4 text-coagray hover:text-coagray"
+					>
+						<div className="border-b border-dashed border-[#9A9A9A]"></div>
 
-					<div className="flex items-center gap-4">
-						<div
-							className="relative"
-							style={{ width: 48, height: 43 }}
-						>
-							<Image
-								src={
-									post.banner &&
-									post.banner !== "/" &&
-									post.banner !== ""
-										? post.banner
-										: imgArticleList1
-								}
-								fill
-								alt="Imagem do artigo"
-								className="rounded-[4px] object-cover"
-							/>
-						</div>
-
-						<h5 className="font-heading text-h5 font-medium">
-							{post.title}
-						</h5>
-					</div>
-
-					<p className="text-base font-medium text-coagray">
-						{post.short_description}
-					</p>
-
-					<div className="flex flex-wrap items-center justify-between gap-4">
-						<div className="flex flex-wrap gap-2">
-							<p className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black">
-								{post.type}
-							</p>
-						</div>
-
-						<div className="flex items-center gap-2">
-							<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+						<div className="flex items-center gap-4">
+							<div
+								className="relative"
+								style={{ width: 48, height: 43 }}
+							>
 								<Image
-									src={eyeIcon}
-									width={18}
-									height={14.5}
-									alt="Visualizações"
-								/>
-								{post.views}
-							</div>
-							<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-								<Image
-									src={messagesIcon}
-									width={18}
-									height={14.5}
-									alt="Comentários"
-								/>
-								12
-							</div>
-							<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-								{post.likes}
-								<Image
-									src={favoriteIcon}
-									width={15}
-									height={15}
-									alt="Curtidas"
+									src={
+										post.banner &&
+										post.banner !== "/" &&
+										post.banner !== ""
+											? post.banner
+											: imgArticleList1
+									}
+									fill
+									alt="Imagem do artigo"
+									className="rounded-[4px] object-cover"
 								/>
 							</div>
+
+							<h5 className="font-heading text-h5 font-medium text-white">
+								{post.title}
+							</h5>
 						</div>
-					</div>
-				</Link>
+
+						<p className="text-base font-medium text-limit-2">
+							{post.short_description}
+						</p>
+
+						<div className="flex flex-wrap items-center justify-between gap-4">
+							<div className="flex flex-wrap gap-2">
+								<p className="block rounded-full border px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
+									{post.type}
+								</p>
+								<p className="block border-b px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
+									{post.category.nome}
+								</p>
+							</div>
+
+							<div className="flex items-center gap-2 text-white">
+								<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+									<Image
+										src={eyeIcon}
+										width={18}
+										height={14.5}
+										alt="Visualizações"
+									/>
+									{post.views}
+								</div>
+								<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+									<Image
+										src={messagesIcon}
+										width={18}
+										height={14.5}
+										alt="Comentários"
+									/>
+									12
+								</div>
+								<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+									{post.likes}
+									<Image
+										src={favoriteIcon}
+										width={15}
+										height={15}
+										alt="Curtidas"
+									/>
+								</div>
+							</div>
+						</div>
+					</Link>
+				</div>
 			))}
 
 			{totalPages > 1 && (
