@@ -14,7 +14,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 		<div className="flex justify-between sm_desktop:flex-col">
 			<div className="flex h-full flex-row gap-[52px] sm_desktop:justify-evenly sm_desktop:gap-[26px] sm_tablet:flex-col">
 				<Link
-					href={mainArticle.slug}
+					href={`/${mainArticle.type}/${mainArticle.slug}`}
 					className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 				>
 					<Image
@@ -38,7 +38,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 						.map((article) => {
 							return (
 								<Link
-									href={article.slug}
+									href={`/${article.type}/${article.slug}`}
 									key={article.id}
 									className="mb-[26px] flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 								>
@@ -47,7 +47,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 										width={451}
 										height={175}
 										alt="imgFeatured2"
-										className="h-full max-h-[175px] rounded-3xl object-cover"
+										className="h-[175px] rounded-3xl object-cover"
 									/>
 									<h5 className="font-heading text-h5 font-medium text-limit-2">
 										{article?.title}

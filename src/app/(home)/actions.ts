@@ -44,6 +44,7 @@ export type FeaturedArticles = {
 	title: string;
 	image: string | null;
 	slug: string;
+	type: string;
 	author: {
 		id: number;
 		name: string;
@@ -52,7 +53,7 @@ export type FeaturedArticles = {
 
 export async function getFeaturedArticles() {
 	try {
-		const response = await fetcher("featuredArticles", {
+		const response = await fetcher("posts/featuredArticles", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",

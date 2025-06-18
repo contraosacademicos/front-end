@@ -180,3 +180,47 @@ export async function getPricingTable() {
 		return null;
 	}
 }
+
+export async function getRelatedPosts(type: string) {
+	try {
+		console.log("🔍 Buscando posts relacionados por tipo:", type);
+
+		const response = await fetcher(`posts?type=${type}`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			cache: "no-store",
+		});
+
+		console.log("📦 Status da resposta:", response.status);
+
+		if (!response.ok) {
+			throw new Error(`Erro: ${response.statusText}`);
+		}
+
+		// Tipando corretamente a resposta paginada
+		type PaginatedPostsResponse = {
+			data: Post[];
+			total: number;
+			per_page: number;
+			page: number;
+			next_page: number | null;
+			last_page: number;
+			previous_page: number | null;
+		};
+
+		const responseData = response.data as { data: PaginatedPostsResponse };
+		const allPosts = responseData.data.data;
+
+		console.log("✅ Total de posts recebidos:", allPosts.length);
+
+		// Embaralhar e retornar até 6 artigos aleatórios
+		const shuffled = allPosts.sort(() => 0.5 - Math.random());
+		return shuffled.slice(0, 6);
+	} catch (error) {
+		console.error("❌ Erro ao buscar posts relacionados:", error);
+		return [];
+	}
+}
