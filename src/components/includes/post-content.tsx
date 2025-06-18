@@ -76,14 +76,12 @@ const PostContent = ({ data }: { data: Post }) => {
 			</div>
 
 			<div className="flex flex-wrap gap-2 border-y border-dashed border-coagray py-6">
-				{Array.from([data.data.type]).map((tag, index) => (
-					<p
-						key={index}
-						className="block rounded-full border px-6 py-1 text-xs duration-300 hover:bg-white hover:text-black"
-					>
-						{tag}
-					</p>
-				))}
+				<p className="block rounded-full border px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
+					{data.data.type}
+				</p>
+				<p className="block rounded-full border border-primary px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
+					{data.data.category.nome}
+				</p>
 			</div>
 
 			<div className="flex flex-wrap items-center justify-between gap-4">
