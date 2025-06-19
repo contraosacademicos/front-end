@@ -60,7 +60,6 @@ input[type="date"] {
 }
 
 .content-html p {
-	margin: 12px 0 18px 0;
 	@apply text-base leading-relaxed text-coagray;
 }
 
