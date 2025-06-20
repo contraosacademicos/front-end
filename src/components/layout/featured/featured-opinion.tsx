@@ -10,7 +10,7 @@ import imgOpinion4 from "@/assets/opinion/4.png";
 
 const FeaturedOpinion = () => {
 	return (
-		<div className="h-full max-w-[445px] rounded-3xl border border-white/40 p-6">
+		<div className="min-h-[535px] max-w-[445px] rounded-3xl border border-white/40 p-6">
 			<div className="flex justify-between">
 				<h6 className="font-heading text-h6 font-bold">Opinião</h6>
 				<Image

@@ -32,7 +32,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 					</p>
 				</Link>
 
-				<div>
+				<div className="flex flex-col gap-[26px]">
 					{Array.from(otherArticles)
 						.slice(0, 2)
 						.map((article) => {
@@ -40,7 +40,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 								<Link
 									href={`/${article.type}/${article.slug}`}
 									key={article.id}
-									className="mb-[26px] flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
+									className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 								>
 									<Image
 										src={article.image || imgFeatured}
