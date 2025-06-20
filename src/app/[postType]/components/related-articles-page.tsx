@@ -23,7 +23,7 @@ const RelatedArticles = ({ data }: RelatedArticlesProps) => {
 
 			<div className="flex flex-wrap gap-x-[43px] gap-y-[26px] sm_desktop:justify-evenly">
 				{Array.from(data || [])
-					.slice(0, 3)
+					.slice(0, 6)
 					.map((article, index) => (
 						<Link
 							href={`/${article.type}/${article.slug}`}
