@@ -34,7 +34,7 @@ const LatestArticlesPost = async ({
 				<div className="flex flex-wrap gap-x-[43px] gap-y-[26px] sm_desktop:justify-evenly">
 					{mainArticles.map((article: LatestArticles, index) => (
 						<Link
-							href={article.slug}
+							href={`/${article.type}/${article.slug}`}
 							key={index}
 							className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 						>
@@ -43,7 +43,7 @@ const LatestArticlesPost = async ({
 								width={451}
 								height={188}
 								alt="imgArticle"
-								className="max-h-[188px] rounded-3xl object-cover"
+								className="h-[188px] rounded-3xl object-cover"
 								priority
 							/>
 							<h5 className="font-heading text-h5 font-medium text-limit-2">
@@ -62,13 +62,16 @@ const LatestArticlesPost = async ({
 					{otherArticles.map(
 						(article: LatestArticles, index: number) => (
 							<Link
-								href={article.slug}
+								href={`/${article.type}/${article.slug}`}
 								key={index}
 								className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5"
 							>
 								<Image
 									src={article.image || imgArticle7}
+									width={451}
+									height={188}
 									alt="imgArticle"
+									className="h-[188px] rounded-3xl object-cover"
 								/>
 								<h5 className="font-heading text-h5 font-medium text-limit-2">
 									{article.title}

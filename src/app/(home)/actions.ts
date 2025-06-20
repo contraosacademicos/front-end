@@ -170,6 +170,7 @@ export type LatestArticles = {
 	title: string;
 	image: string | null;
 	slug: string;
+	type: string;
 	author: {
 		id: number;
 		name: string;
@@ -203,6 +204,7 @@ export type TrendingArticle = {
 	title: string;
 	image: string | null;
 	slug: string;
+	type: string;
 	shortDescription: string;
 };
 
@@ -265,6 +267,7 @@ export type AuthorArticles = {
 	title: string;
 	image: string | null;
 	slug: string;
+	type: string;
 	author: {
 		id: number;
 		name: string;
@@ -289,6 +292,44 @@ export async function getAuthorArticles() {
 		return response.data as AuthorArticles[];
 	} catch (error) {
 		console.error("Error fetching author articles:", error);
+		return null;
+	}
+}
+
+// TrendingArticle
+// TrendingArticle
+export type TrendingLists = {
+	id: number;
+	title: string;
+	banner: string | null;
+	slug: string;
+	type: string;
+	shortDescription: string;
+	author: {
+		id: number;
+		name: string;
+		slug: string;
+		profilePicture: string | null;
+	};
+};
+
+export async function getTrendingLists() {
+	try {
+		const response = await fetcher("posts/trendingLists", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			cache: "no-store",
+		});
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+
+		return response.data as TrendingLists[];
+	} catch (error) {
+		console.error("Error fetching main banner:", error);
 		return null;
 	}
 }

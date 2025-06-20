@@ -3,11 +3,10 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { TrendingLists } from "@/app/(home)/actions";
 import imgArticle1 from "@/assets/articles/6.png";
-import imgArticle3 from "@/assets/articles/6.png";
-import imgArticle2 from "@/assets/articles/7.png";
 
-const MostRead = () => {
+const MostRead = ({ data }: { data: TrendingLists[] | null }) => {
 	return (
 		<div className="flex flex-col gap-[49px] wrapper">
 			<div className="flex items-center justify-between">
@@ -18,38 +17,27 @@ const MostRead = () => {
 			</div>
 
 			<div className="flex flex-wrap justify-between gap-y-[26px] sm_desktop:justify-evenly">
-				<Link href={"/post"}>
-					<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-						<Image src={imgArticle1} alt="imgArticle1" />
-						<h5 className="font-heading text-h5 font-medium text-limit-2">
-							Distúrbios emocionais na infância e alienação
-							parental
-						</h5>
-						<p className="text-xs">
-							Por: <strong>Frederico Mendonça de Oliveira</strong>
-						</p>
-					</div>
-				</Link>
-
-				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-					<Image src={imgArticle2} alt="imgArticle2" />
-					<h5 className="font-heading text-h5 font-medium text-limit-2">
-						Distúrbios emocionais na infância e alienação parental
-					</h5>
-					<p className="text-xs">
-						Por: <strong>Frederico Mendonça de Oliveira</strong>
-					</p>
-				</div>
-
-				<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-					<Image src={imgArticle3} alt="imgArticle3" />
-					<h5 className="font-heading text-h5 font-medium text-limit-2">
-						Distúrbios emocionais na infância e alienação parental
-					</h5>
-					<p className="text-xs">
-						Por: <strong>Frederico Mendonça de Oliveira</strong>
-					</p>
-				</div>
+				{Array.from(data || []).map((post, index) => {
+					return (
+						<Link href={`/${post.type}/${post.slug}`} key={index}>
+							<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
+								<Image
+									src={post.banner || imgArticle1}
+									width={451}
+									height={188}
+									alt="imgArticle1"
+									className="h-[188px] rounded-3xl object-cover"
+								/>
+								<h5 className="font-heading text-h5 font-medium text-limit-2">
+									{post.title}
+								</h5>
+								<p className="text-xs">
+									Por: <strong>{post.author.name}</strong>
+								</p>
+							</div>
+						</Link>
+					);
+				})}
 			</div>
 		</div>
 	);

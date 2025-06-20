@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import Image from "next/image";
@@ -10,7 +8,7 @@ import imgArticle1 from "@/assets/articles/1.png";
 import { Post } from "../actions";
 
 type RelatedArticlesProps = {
-	data: Post[];
+	data: Post["data"][];
 };
 
 const RelatedArticles = ({ data }: RelatedArticlesProps) => {
@@ -24,28 +22,30 @@ const RelatedArticles = ({ data }: RelatedArticlesProps) => {
 			</div>
 
 			<div className="flex flex-wrap gap-x-[43px] gap-y-[26px] sm_desktop:justify-evenly">
-				{data.map((article, index) => (
-					<Link
-						href={`/${article.data.type}/${article.data.slug}`}
-						key={index}
-					>
-						<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
-							<Image
-								src={article.data.banner || imgArticle1}
-								width={451}
-								height={188}
-								alt={article.data.title}
-								className="max-h-[188px] rounded-3xl object-cover"
-							/>
-							<h5 className="font-heading text-h5 font-medium text-white text-limit-2">
-								{article.data.title}
-							</h5>
-							<p className="text-xs text-white">
-								Por: <strong>{article.data.author.nome}</strong>
-							</p>
-						</div>
-					</Link>
-				))}
+				{Array.from(data || [])
+					.slice(0, 3)
+					.map((article, index) => (
+						<Link
+							href={`/${article.type}/${article.slug}`}
+							key={index}
+						>
+							<div className="flex w-full max-w-[451px] cursor-pointer flex-col gap-1.5">
+								<Image
+									src={article.banner || imgArticle1}
+									width={451}
+									height={188}
+									alt={article.title}
+									className="h-[188px] rounded-3xl object-cover"
+								/>
+								<h5 className="font-heading text-h5 font-medium text-white text-limit-2">
+									{article.title}
+								</h5>
+								<p className="text-xs text-white">
+									Por: <strong>{article.author.nome}</strong>
+								</p>
+							</div>
+						</Link>
+					))}
 			</div>
 		</div>
 	);

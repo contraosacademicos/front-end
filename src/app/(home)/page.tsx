@@ -23,6 +23,7 @@ import {
 	getLatestArticles,
 	getMainBanner,
 	getNewsletter,
+	getTrendingLists,
 } from "./actions";
 
 const Home: NextPage = async () => {
@@ -33,6 +34,7 @@ const Home: NextPage = async () => {
 	const authorArticles = await getAuthorArticles();
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
+	const trendingLists = await getTrendingLists();
 	const footerLinks = await getFooterLinks();
 	// NOTE const pricingTable = await getPricingTable();
 	const newsletter = await getNewsletter();
@@ -66,7 +68,7 @@ const Home: NextPage = async () => {
 				<Columns data={authorArticles} />
 			</div>
 			<div className="mt-20"></div>
-			<MostRead />
+			<MostRead data={trendingLists} />
 			<div className="mt-28"></div>
 			{/* NOTE <Support data={pricingTable} /> */}
 

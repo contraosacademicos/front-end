@@ -181,46 +181,41 @@ export async function getPricingTable() {
 	}
 }
 
+// Tipando corretamente a resposta paginada
+type PaginatedPostsResponse = {
+	data: Post["data"][];
+	total: number;
+	per_page: number;
+	page: number;
+	next_page: number | null;
+	last_page: number;
+	previous_page: number | null;
+};
+
 export async function getRelatedPosts(type: string) {
 	try {
-		console.log("🔍 Buscando posts relacionados por tipo:", type);
-
-		const response = await fetcher(`posts?type=${type}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
+		const response = await fetcher<PaginatedPostsResponse>(
+			`posts/filter?type=${type}`,
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				cache: "no-store",
 			},
-			cache: "no-store",
-		});
+		);
 
-		console.log("📦 Status da resposta:", response.status);
-
-		if (!response.ok) {
+		if (!response.ok || !response.data) {
 			throw new Error(`Erro: ${response.statusText}`);
 		}
 
-		// Tipando corretamente a resposta paginada
-		type PaginatedPostsResponse = {
-			data: Post[];
-			total: number;
-			per_page: number;
-			page: number;
-			next_page: number | null;
-			last_page: number;
-			previous_page: number | null;
-		};
+		const allPosts = response.data.data;
 
-		const responseData = response.data as { data: PaginatedPostsResponse };
-		const allPosts = responseData.data.data;
-
-		console.log("✅ Total de posts recebidos:", allPosts.length);
-
-		// Embaralhar e retornar até 6 artigos aleatórios
 		const shuffled = allPosts.sort(() => 0.5 - Math.random());
-		return shuffled.slice(0, 6);
+		return shuffled;
 	} catch (error) {
-		console.error("❌ Erro ao buscar posts relacionados:", error);
+		console.error("Error fetching main banner:", error);
 		return [];
 	}
 }

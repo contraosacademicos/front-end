@@ -22,7 +22,7 @@ const Columns = ({ data }: { data: AuthorArticles[] | null }) => {
 					?.map((post, index) => {
 						return (
 							<Link
-								href={post.slug}
+								href={`/${post.type}/${post.slug}`}
 								key={index}
 								className="flex w-full max-w-[467px] cursor-pointer flex-col gap-2"
 							>
@@ -31,7 +31,7 @@ const Columns = ({ data }: { data: AuthorArticles[] | null }) => {
 									width={451}
 									height={188}
 									alt="Cover Coluna"
-									className="max-h-[188px] rounded-3xl frame"
+									className="!h-[188px] rounded-3xl frame"
 								/>
 								<h5 className="font-heading text-h5 text-limit-2">
 									{post.title}

@@ -12,7 +12,7 @@ const ArticlesTrendingPost = ({ data }: { data: TrendingArticle | null }) => {
 	return (
 		<>
 			<Link
-				href={data?.slug || ""}
+				href={`/${data?.type}/${data?.slug}` || ""}
 				className="relative h-[567px] w-full max-w-[924px] cursor-pointer sm_desktop:m-auto sm_tablet:hidden"
 			>
 				<Image

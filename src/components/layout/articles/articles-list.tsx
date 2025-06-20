@@ -84,7 +84,7 @@ const ArticlesList = ({ posts }: ArticlesListProps) => {
 								<p className="block rounded-full border px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
 									{post.type}
 								</p>
-								<p className="block rounded-full border border-primary px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
+								<p className="block rounded-full border border-primary px-6 py-1 text-xs text-white duration-300 hover:bg-primary hover:text-black">
 									{post.category.nome}
 								</p>
 							</div>
