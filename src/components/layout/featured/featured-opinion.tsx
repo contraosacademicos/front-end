@@ -1,18 +1,17 @@
 import React from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 
+import { AuthorArticles } from "@/app/(home)/actions";
 import logo from "@/assets/logo.svg";
 import imgOpinion1 from "@/assets/opinion/1.png";
-import imgOpinion2 from "@/assets/opinion/2.png";
-import imgOpinion3 from "@/assets/opinion/3.png";
-import imgOpinion4 from "@/assets/opinion/4.png";
 
-const FeaturedOpinion = () => {
+const FeaturedOpinion = ({ data }: { data: AuthorArticles[] | null }) => {
 	return (
 		<div className="min-h-[535px] max-w-[445px] rounded-3xl border border-white/40 p-6">
 			<div className="flex justify-between">
-				<h6 className="font-heading text-h6 font-bold">Opinião</h6>
+				<h6 className="font-heading text-h6 font-bold">Colunas</h6>
 				<Image
 					src={logo}
 					alt="Logo"
@@ -21,45 +20,34 @@ const FeaturedOpinion = () => {
 					className="mr-8 opacity-20"
 				/>
 			</div>
-			<div className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6">
-				<Image src={imgOpinion1} alt="imgOpinion1" />
-				<div>
-					<p className="text-base text-primary">
-						O Padre Melchior e a religião em Machado de Assis
-					</p>
-					<p className="mt-1.5 text-xs">Lucas Ribeiro Fernandes</p>
-				</div>
-			</div>
 
-			<div className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6">
-				<Image src={imgOpinion2} alt="imgOpinion2" />
-				<div>
-					<p className="text-base text-primary">
-						O Padre Melchior e a religião em Machado de Assis
-					</p>
-					<p className="mt-1.5 text-xs">Lucas Ribeiro Fernandes</p>
-				</div>
-			</div>
-
-			<div className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6">
-				<Image src={imgOpinion3} alt="imgOpinion3" />
-				<div>
-					<p className="text-base text-primary">
-						O Padre Melchior e a religião em Machado de Assis
-					</p>
-					<p className="mt-1.5 text-xs">Lucas Ribeiro Fernandes</p>
-				</div>
-			</div>
-
-			<div className="flex items-center gap-8 p-6">
-				<Image src={imgOpinion4} alt="imgOpinion4" />
-				<div>
-					<p className="text-base text-primary">
-						O Padre Melchior e a religião em Machado de Assis
-					</p>
-					<p className="mt-1.5 text-xs">Lucas Ribeiro Fernandes</p>
-				</div>
-			</div>
+			{Array.from(data || [])
+				.slice(0, 4)
+				?.map((post, index) => {
+					return (
+						<Link
+							href={`/${post.type}/${post.slug}`}
+							key={index}
+							className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6"
+						>
+							<Image
+								width={100}
+								height={100}
+								src={post.image ?? imgOpinion1}
+								alt="imgOpinion1"
+								className="size-12 rounded-full object-cover"
+							/>
+							<div>
+								<p className="text-base text-primary">
+									{post.title}
+								</p>
+								<p className="mt-1.5 text-xs">
+									{post.author.name}
+								</p>
+							</div>
+						</Link>
+					);
+				})}
 		</div>
 	);
 };

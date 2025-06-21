@@ -14,13 +14,13 @@ const Columnists = ({ data }: { data: FeaturedColumnists[] | null }) => {
 			<div className="mt-4 flex flex-col gap-1">
 				{Array.from(data || [])
 					.slice(0, 7)
-					?.map((author, index, list) => {
+					.map((author, index, list) => {
 						return (
-							<Link href={author.slug} key={index}>
+							<Link href={`/${author.slug}`} key={author.id}>
 								<div
 									className="cursor-pointer rounded-3xl hover:bg-black"
 									style={
-										!index
+										index === 0
 											? {
 													background:
 														"conic-gradient(from 240deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
@@ -31,12 +31,13 @@ const Columnists = ({ data }: { data: FeaturedColumnists[] | null }) => {
 									<div className="flex gap-8 p-6">
 										<Image
 											src={
-												author.profilePicture ||
-												imgColumnist1
+												author.profile_picture
+													? author.profile_picture
+													: imgColumnist1
 											}
 											width={48}
 											height={48}
-											alt="imgColumnist1"
+											alt={author.name}
 											className="size-12 rounded-3xl border border-[#454545] object-cover"
 										/>
 										<div>
@@ -51,9 +52,7 @@ const Columnists = ({ data }: { data: FeaturedColumnists[] | null }) => {
 									</div>
 								</div>
 
-								{Boolean(
-									index && index !== list.length - 1,
-								) && (
+								{index !== 0 && index !== list.length - 1 && (
 									<div className="border-b border-dashed border-[#9A9A9A]"></div>
 								)}
 							</Link>

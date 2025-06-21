@@ -2,9 +2,9 @@ import { NextPage } from "next";
 
 import ArticlesContent from "@/components/layout/articles/articles-content";
 
+import { getAuthorArticles, getFeaturedColumnists } from "../(home)/actions";
 import {
 	getCategories,
-	getFeaturedColumnists,
 	getFooterLinks,
 	getMainBanner,
 	getNewsletter,
@@ -20,6 +20,7 @@ const Artigos: NextPage = async () => {
 	const pricingTable = await getPricingTable();
 	const featuredColumnists = await getFeaturedColumnists();
 	const newsletter = await getNewsletter();
+	const authorArticles = await getAuthorArticles();
 
 	return (
 		<ArticlesContent
@@ -30,6 +31,7 @@ const Artigos: NextPage = async () => {
 			pricingTable={pricingTable}
 			featuredColumnists={featuredColumnists}
 			newsletter={newsletter}
+			authorArticles={authorArticles}
 		/>
 	);
 };

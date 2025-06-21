@@ -234,26 +234,37 @@ export async function getTrendingArticle() {
 export type FeaturedColumnists = {
 	id: number;
 	name: string;
+	description: string;
+	user_id: number;
+	active: number;
+	created_at: string;
+	updated_at: string;
+	deleted_at: string | null;
+	profile_picture: string | null;
 	slug: string;
-	profilePicture: string | null;
+	posts_count: number;
 	articlesPosted: number;
 };
 
 export async function getFeaturedColumnists() {
 	try {
-		const response = await fetcher("featuredColumnists", {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
+		const response = await fetcher<{ data: FeaturedColumnists[] }>(
+			"featuredColumnists",
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				cache: "no-store",
 			},
-			cache: "no-store",
-		});
-		if (!response.ok) {
+		);
+
+		if (!response.ok || !response.data) {
 			throw new Error(`Error: ${response.statusText}`);
 		}
 
-		return response.data as FeaturedColumnists[];
+		return response.data.data;
 	} catch (error) {
 		console.error("Error fetching featuredColumnists:", error);
 		return null;
@@ -272,7 +283,7 @@ export type AuthorArticles = {
 		id: number;
 		name: string;
 		slug: string;
-		profilePicture: string | null;
+		profile_picture: string | null;
 	};
 };
 

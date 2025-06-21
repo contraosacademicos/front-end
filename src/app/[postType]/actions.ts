@@ -40,6 +40,7 @@ export type Post = {
 			user_id: number;
 			deleted_at: string | null;
 			slug: string | null;
+			posts_count: number;
 		};
 		translator: {
 			id: number;

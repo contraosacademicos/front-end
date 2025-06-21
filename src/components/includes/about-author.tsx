@@ -48,7 +48,9 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 							<p className="text-base text-primary">
 								{data.data.author?.nome}
 							</p>
-							<p className="mt-2 text-xs">42 postagens</p>
+							<p className="mt-2 text-xs">
+								{data.data.author.posts_count} postagens
+							</p>
 						</div>
 					</div>
 				</div>

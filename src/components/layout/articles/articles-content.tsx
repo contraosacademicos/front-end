@@ -2,9 +2,9 @@
 
 import { useMemo, useState } from "react";
 
+import { AuthorArticles, FeaturedColumnists } from "@/app/(home)/actions";
 import {
 	Categories,
-	FeaturedColumnists,
 	FooterLinks,
 	MainBanner,
 	Newsletter,
@@ -27,6 +27,7 @@ type ArticlesContentProps = {
 	pricingTable: PricingTable[] | null;
 	featuredColumnists: FeaturedColumnists[] | null;
 	newsletter: Newsletter | null;
+	authorArticles: AuthorArticles[] | null;
 };
 
 const ArticlesContent = ({
@@ -36,6 +37,7 @@ const ArticlesContent = ({
 	footerLinks,
 	featuredColumnists,
 	newsletter,
+	authorArticles,
 }: ArticlesContentProps) => {
 	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
 	const [filtroTipo, setFiltroTipo] = useState("Todas");
@@ -107,7 +109,7 @@ const ArticlesContent = ({
 
 					<div className="flex h-full flex-wrap justify-center gap-10 es_desktop:w-full">
 						<Columnists data={featuredColumnists} />
-						<FeaturedOpinion />
+						<FeaturedOpinion data={authorArticles} />
 					</div>
 				</div>
 			</div>
