@@ -45,7 +45,7 @@ const HeroSlider = ({ data }: { data: MainBanner[] | null }) => {
 						return (
 							<SwiperSlide key={index}>
 								<div
-									className="h-full min-h-[400px] rounded-3xl bg-cover bg-center px-[193px] py-[66px] sm_tablet:px-[40px] lg_phone:px-3"
+									className="h-[400px] rounded-3xl bg-cover bg-center px-[193px] py-[66px] sm_tablet:px-[40px] lg_phone:px-3"
 									style={{
 										backgroundImage: `url(${banner.backgroundImage || heroSlider1.src})`,
 									}}
@@ -61,18 +61,17 @@ const HeroSlider = ({ data }: { data: MainBanner[] | null }) => {
 												})}
 										</div>
 
-										<div className="w-full max-w-[450px]">
+										<div className="w-full">
 											<h1 className="flex h-[84px] items-center font-heading text-h1 font-bold es_tablet:h-full es_tablet:text-h2">
 												{banner.title[0]}
 											</h1>
 
-											<div className="flex items-center gap-8">
-												<h1 className="flex h-[105px] items-center font-heading text-h1 font-bold text-primary es_tablet:h-full es_tablet:text-h2">
+											<div className="mb-4 flex w-full items-center gap-8">
+												<h1 className="h-[105px] font-heading text-h1 font-bold text-primary es_tablet:h-full es_tablet:text-h2">
 													{banner.title[1]}
 												</h1>
-												<p className="text-base lg_phone:text-p">
-													O melhor lugar para você
-													começar seus estudos
+												<p className="w-[250px] text-base lg_phone:text-p">
+													{banner.resume}
 												</p>
 											</div>
 

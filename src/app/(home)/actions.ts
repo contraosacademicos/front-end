@@ -295,7 +295,7 @@ export async function getAuthorArticles() {
 				"Content-Type": "application/json",
 				Accept: "application/json",
 			},
-			cache: "no-store",
+			next: { revalidate: 30 },
 		});
 		if (!response.ok) {
 			throw new Error(`Error: ${response.statusText}`);
@@ -326,7 +326,7 @@ export type TrendingLists = {
 
 export async function getTrendingLists() {
 	try {
-		const response = await fetcher("posts/trendingLists", {
+		const response = await fetcher("posts/trendingLists?quantity=6", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
