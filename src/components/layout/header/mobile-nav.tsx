@@ -13,6 +13,8 @@ import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo-primary.svg";
 import { ButtonFill } from "@/components/core/buttons/button-fill";
 
+import { ebooks } from "./ebook";
+import EbooksMenu from "./ebook-menu";
 import SearchModal from "./search-modal";
 
 interface NavLink {
@@ -35,12 +37,16 @@ const MobileNav: React.FC<MobileNavProps> = ({
 	const menuRef = useRef<HTMLDivElement>(null);
 	const [searchOpen, setSearchOpen] = useState(false);
 
+	const [isEbooksOpen, setIsEbooksOpen] = useState(false);
+
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
+		if (isMenuOpen) setIsEbooksOpen(false);
 	};
 
 	const closeMenu = () => {
 		setIsMenuOpen(false);
+		setIsEbooksOpen(false);
 	};
 
 	useEffect(() => {
@@ -125,6 +131,18 @@ const MobileNav: React.FC<MobileNavProps> = ({
 								{link.label}
 							</Link>
 						))}
+
+						<button
+							onClick={() => setIsEbooksOpen((prev) => !prev)}
+							className="text-left font-medium underline-offset-8 duration-300 hover:underline"
+							aria-expanded={isEbooksOpen}
+							aria-controls="ebooks-submenu"
+						>
+							Ebooks
+						</button>
+
+						{isEbooksOpen && <EbooksMenu ebooks={ebooks} />}
+
 						<button
 							className="rounded bg-white px-3 py-2 duration-300 hover:bg-white/50"
 							onClick={() => {

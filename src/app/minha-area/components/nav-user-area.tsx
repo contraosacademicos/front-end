@@ -1,3 +1,4 @@
+/* eslint-disable no-comments/disallowComments */
 import React from "react";
 
 import Image from "next/image";
@@ -5,11 +6,8 @@ import Link from "next/link";
 
 import arrowRightIcon from "@/assets/icons/arrow-right.svg";
 import bookmarkIcon from "@/assets/icons/bookmark-icon.svg";
-import favoriteIcon from "@/assets/icons/favorite-star.svg";
-import gearIcon from "@/assets/icons/gear-icon.svg";
 import homeIcon from "@/assets/icons/home-icon.svg";
 import subscription from "@/assets/icons/subscription-icon.svg";
-import subscriptionIcon from "@/assets/icons/subscription.svg";
 import supportIcon from "@/assets/icons/support-icon.svg";
 
 const NavUserArea = () => {
@@ -27,7 +25,7 @@ const NavUserArea = () => {
 							className="size-auto"
 						/>
 						<div>
-							<p>Assinante COA</p>
+							<p>Usuário COA</p>
 							<span className="text-xs font-normal">
 								Desde 2022
 							</span>
@@ -52,7 +50,7 @@ const NavUserArea = () => {
 					Página Inicial
 				</Link>
 
-				<Link
+				{/* <Link
 					href={"/minha-area/favoritos"}
 					className="flex gap-5 p-5 font-medium brightness-[1000%] duration-300 hover:text-primary hover:brightness-100"
 				>
@@ -62,7 +60,7 @@ const NavUserArea = () => {
 						className="size-auto"
 					/>
 					Favoritos
-				</Link>
+				</Link> */}
 
 				<Link
 					href={"/minha-area/ultimas-leituras"}
@@ -76,7 +74,7 @@ const NavUserArea = () => {
 					Últimas Leituras
 				</Link>
 
-				<Link
+				{/* <Link
 					href={"/minha-area/assinaturas"}
 					className="flex gap-5 p-5 font-medium brightness-[1000%] duration-300 hover:text-primary hover:brightness-100"
 				>
@@ -86,7 +84,7 @@ const NavUserArea = () => {
 						className="size-auto"
 					/>
 					Assinaturas
-				</Link>
+				</Link> */}
 
 				<Link
 					href={"/minha-area/suporte-coa"}
@@ -100,7 +98,7 @@ const NavUserArea = () => {
 					Suporte COA
 				</Link>
 
-				<Link
+				{/* <Link
 					href={"/minha-area/configuracoes"}
 					className="flex gap-5 p-5 font-medium brightness-[1000%] duration-300 hover:text-primary hover:brightness-100"
 				>
@@ -110,7 +108,7 @@ const NavUserArea = () => {
 						className="size-auto"
 					/>
 					Configurações de Conta
-				</Link>
+				</Link> */}
 			</nav>
 		</div>
 	);

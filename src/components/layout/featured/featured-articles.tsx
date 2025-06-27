@@ -24,7 +24,7 @@ const FeaturedArticles = ({ data }: { data: FeaturedArticlesType[] }) => {
 						alt="imgFeatured2"
 						className="h-[469px] rounded-3xl object-cover"
 					/>
-					<h5 className="font-heading text-h5 font-medium text-limit-2 sm_tablet:h-full">
+					<h5 className="font-heading text-h5 font-medium text-limit-2">
 						{mainArticle?.title}
 					</h5>
 					<p className="text-xs">

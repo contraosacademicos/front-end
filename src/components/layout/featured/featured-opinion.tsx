@@ -30,7 +30,7 @@ const FeaturedOpinion = ({ data }: { data: AuthorArticles[] | null }) => {
 						<Link
 							href={`/${post.type}/${post.slug}`}
 							key={index}
-							className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6"
+							className="flex items-center gap-8 border-b border-dashed border-[#525252] p-6 last:border-none"
 						>
 							<Image
 								width={100}

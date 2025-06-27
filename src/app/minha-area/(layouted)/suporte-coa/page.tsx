@@ -1,98 +1,108 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
+
+import { ButtonCoa } from "@/components/core/buttons/button-coa";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 const UserAreaHome = () => {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [subject, setSubject] = useState("");
+	const [message, setMessage] = useState("");
+
+	function handleContactSubmit(e: React.FormEvent) {
+		e.preventDefault();
+
+		console.log({
+			name,
+			email,
+			subject,
+			message,
+		});
+
+		setName("");
+		setEmail("");
+		setSubject("");
+		setMessage("");
+	}
 	return (
-		<div className="w-full">
-			<p className="text-p">HOME</p>
-			<h3 className="font-heading text-h3 text-primary">
-				Boas vindas, <strong>Gabriel</strong>
-			</h3>
-
-			<div className="mt-6 flex flex-col items-center rounded-3xl border border-[#716F6F] bg-[#252525]">
-				<div className="w-full border-b border-[#716F6F] py-6 text-center">
-					<h4 className="font-heading text-h4 text-primary">Feed</h4>
-				</div>
-
-				<div className="flex flex-col items-center gap-3 px-24 pb-24 pt-10">
-					<div className="rounded-full bg-primary px-5 py-3">
-						<h5 className="text-h5 font-semibold text-black">
-							HOJE
-						</h5>
-					</div>
-
-					<div className="h-10 border-r border-white/50"></div>
-
-					<div className="flex cursor-pointer flex-col gap-5 rounded-3xl border border-[#716F6F] p-6">
-						<div className="text-center">
-							<p className="text-p">
-								Everaldo respondeu ao seu comentário
-							</p>
-							<p className="text-p text-coagray">Há 5 horas</p>
-						</div>
-
-						<h5 className="text-h5 font-semibold text-primary">
-							Eu discordo, mas também concordo em partes
-						</h5>
-
-						<div className="flex justify-center gap-5">
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Filosofia
-							</button>
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Contrapartida
-							</button>
-						</div>
-					</div>
-
-					<div className="h-10 border-r border-white/50"></div>
-
-					<div className="flex cursor-pointer flex-col gap-5 rounded-3xl border border-[#716F6F] p-6">
-						<div className="text-center">
-							<p className="text-p">
-								Everaldo respondeu ao seu comentário
-							</p>
-							<p className="text-p text-coagray">Há 5 horas</p>
-						</div>
-
-						<h5 className="text-h5 font-semibold text-primary">
-							Eu discordo, mas também concordo em partes
-						</h5>
-
-						<div className="flex justify-center gap-5">
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Filosofia
-							</button>
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Contrapartida
-							</button>
-						</div>
-					</div>
-
-					<div className="h-10 border-r border-white/50"></div>
-
-					<div className="flex cursor-pointer flex-col gap-5 rounded-3xl border border-[#716F6F] p-6">
-						<div className="text-center">
-							<p className="text-p">
-								Everaldo respondeu ao seu comentário
-							</p>
-							<p className="text-p text-coagray">Há 5 horas</p>
-						</div>
-
-						<h5 className="text-h5 font-semibold text-primary">
-							Eu discordo, mas também concordo em partes
-						</h5>
-
-						<div className="flex justify-center gap-5">
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Filosofia
-							</button>
-							<button className="cursor-pointer rounded-full border px-3 py-2 text-base duration-300 hover:bg-primary hover:text-gray-900">
-								Contrapartida
-							</button>
-						</div>
-					</div>
-				</div>
+		<div className="flex w-full flex-col items-center justify-center gap-8">
+			<div className="text-center">
+				<p className="text-p">SUPORTE COA</p>
+				<h3 className="font-heading text-h3 text-primary">
+					ENTRE EM CONTATO
+				</h3>
 			</div>
+
+			<form
+				onSubmit={handleContactSubmit}
+				className="w-full max-w-[500px] space-y-6"
+			>
+				<div className="space-y-2">
+					<Label htmlFor="name" className="text-coagray">
+						Nome
+					</Label>
+					<Input
+						id="name"
+						type="text"
+						placeholder="Digite seu nome"
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+						required
+						className="h-12 w-full border-coagray bg-[#1E1E1E] placeholder:text-coagray focus:border-primary focus:ring-primary"
+					/>
+				</div>
+
+				<div className="space-y-2">
+					<Label htmlFor="email" className="text-coagray">
+						E-mail
+					</Label>
+					<Input
+						id="email"
+						type="email"
+						placeholder="Digite seu e-mail"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+						className="h-12 w-full border-coagray bg-[#1E1E1E] placeholder:text-coagray focus:border-primary focus:ring-primary"
+					/>
+				</div>
+
+				<div className="space-y-2">
+					<Label htmlFor="subject" className="text-coagray">
+						Assunto
+					</Label>
+					<Input
+						id="subject"
+						type="text"
+						placeholder="Digite o assunto"
+						value={subject}
+						onChange={(e) => setSubject(e.target.value)}
+						required
+						className="h-12 w-full border-coagray bg-[#1E1E1E] placeholder:text-coagray focus:border-primary focus:ring-primary"
+					/>
+				</div>
+
+				<div className="space-y-2">
+					<Label htmlFor="message" className="text-coagray">
+						Mensagem
+					</Label>
+					<textarea
+						id="message"
+						placeholder="Digite sua mensagem"
+						value={message}
+						onChange={(e) => setMessage(e.target.value)}
+						required
+						className="text-sm min-h-[120px] w-full resize-none rounded-md border border-coagray bg-[#1E1E1E] p-3 placeholder:text-coagray focus:border-primary focus:ring-primary"
+					/>
+				</div>
+
+				<ButtonCoa type="submit" className="h-12 w-full">
+					Enviar mensagem
+				</ButtonCoa>
+			</form>
 		</div>
 	);
 };
