@@ -19,7 +19,6 @@ import {
 	getCategories,
 	getFeaturedArticles,
 	getFeaturedColumnists,
-	getFooterLinks,
 	getLatestArticles,
 	getMainBanner,
 	getNewsletter,
@@ -35,7 +34,7 @@ const Home: NextPage = async () => {
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
 	const trendingLists = await getTrendingLists();
-	const footerLinks = await getFooterLinks();
+
 	// NOTE const pricingTable = await getPricingTable();
 	const newsletter = await getNewsletter();
 
@@ -73,7 +72,7 @@ const Home: NextPage = async () => {
 			{/* NOTE <Support data={pricingTable} /> */}
 
 			<div className="mt-12"></div>
-			<Footer data={footerLinks} newsletter={newsletter} />
+			<Footer newsletter={newsletter} />
 		</main>
 	);
 };

@@ -30,7 +30,9 @@ const Subscription = () => {
 						a impactar vidas.
 					</p>
 					<div className="flex gap-4">
-						<ButtonCoa>Quero Apoiar</ButtonCoa>
+						<ButtonCoa href="https://buy.stripe.com/00weVccjRaNk64H3hU87K04">
+							Quero Apoiar
+						</ButtonCoa>
 					</div>
 				</div>
 			</div>

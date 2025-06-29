@@ -5,11 +5,10 @@ import FooterCopyBar from "@/components/layout/footer/copy-bar";
 import FooterNavigation from "@/components/layout/footer/footer-links";
 import Header from "@/components/layout/header";
 
-import { getCategories, getFooterLinks } from "./actions";
+import { getCategories } from "./actions";
 
 const Policy: NextPage = async () => {
 	const categories = await getCategories();
-	const footerLinks = await getFooterLinks();
 
 	return (
 		<main>
@@ -19,7 +18,7 @@ const Policy: NextPage = async () => {
 			<PrivacyPolicy />
 
 			<div className="mt-20"></div>
-			<FooterNavigation data={footerLinks} />
+			<FooterNavigation />
 			<FooterCopyBar />
 		</main>
 	);

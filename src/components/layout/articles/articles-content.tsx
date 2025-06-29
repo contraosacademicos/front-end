@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from "react";
 
+import { useSearchParams } from "next/navigation";
+
 import { AuthorArticles, FeaturedColumnists } from "@/app/(home)/actions";
 import {
 	Categories,
-	FooterLinks,
 	MainBanner,
 	Newsletter,
 	Post,
@@ -23,7 +24,6 @@ type ArticlesContentProps = {
 	mainBanner: MainBanner[] | null;
 	categories: Categories | null;
 	posts: Post | null;
-	footerLinks: FooterLinks[] | null;
 	pricingTable: PricingTable[] | null;
 	featuredColumnists: FeaturedColumnists[] | null;
 	newsletter: Newsletter | null;
@@ -34,14 +34,22 @@ const ArticlesContent = ({
 	mainBanner,
 	categories,
 	posts,
-	footerLinks,
 	featuredColumnists,
 	newsletter,
 	authorArticles,
 }: ArticlesContentProps) => {
-	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
-	const [filtroTipo, setFiltroTipo] = useState("Todas");
-	const [filtroTipoPost, setFiltroTipoPost] = useState("");
+	const searchParams = useSearchParams();
+
+	const [filtroPostagens, setFiltroPostagens] = useState(
+		searchParams.get("filtroPostagens") || "Últimas postagens",
+	);
+	const [filtroTipo, setFiltroTipo] = useState(
+		searchParams.get("filtroTipo") || "Todas",
+	);
+	const [filtroTipoPost, setFiltroTipoPost] = useState(
+		searchParams.get("filtroTipoPost") || "Todas",
+	);
+
 	const [hasInteracted] = useState(false);
 
 	const filteredPosts = useMemo(() => {
@@ -116,7 +124,7 @@ const ArticlesContent = ({
 			<div className="mt-28"></div>
 			{/* NOTE <Support data={pricingTable} /> */}
 			<div className="mt-9"></div>
-			<Footer data={footerLinks} newsletter={newsletter} />
+			<Footer newsletter={newsletter} />
 		</main>
 	);
 };

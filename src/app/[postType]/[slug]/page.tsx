@@ -6,12 +6,7 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import PostDetail from "@/components/layout/post-details";
 
-import {
-	getCategories,
-	getFooterLinks,
-	getPost,
-	getRelatedPosts,
-} from "../actions";
+import { getCategories, getPost, getRelatedPosts } from "../actions";
 import RelatedArticles from "../components/related-articles-page";
 
 const Post = async ({
@@ -20,7 +15,7 @@ const Post = async ({
 	params: { slug: string; postType: string };
 }) => {
 	const categories = await getCategories();
-	const footerLinks = await getFooterLinks();
+
 	const post = await getPost(params.slug);
 	const relatedPosts = post?.data?.type
 		? await getRelatedPosts(post.data.type)
@@ -51,7 +46,7 @@ const Post = async ({
 			{/* NOTE <Support data={pricingTable} /> */}
 
 			<div className="mt-9"></div>
-			<Footer data={footerLinks} newsletter={newsletter} />
+			<Footer newsletter={newsletter} />
 		</main>
 	);
 };

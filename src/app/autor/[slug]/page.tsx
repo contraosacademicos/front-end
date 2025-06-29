@@ -12,12 +12,12 @@ import messagesIcon from "@/assets/icons/messages-icon.svg";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
-import { getAuthorBySlugOrId, getCategories, getFooterLinks } from "../actions";
+import { getAuthorBySlugOrId, getCategories } from "../actions";
 
 const AuthorPage = async ({ params }: { params: { slug: string } }) => {
 	const author = await getAuthorBySlugOrId(params.slug);
 	const categories = await getCategories();
-	const footerLinks = await getFooterLinks();
+
 	const newsletter = await getNewsletter();
 
 	if (!author) return notFound();
@@ -248,7 +248,7 @@ const AuthorPage = async ({ params }: { params: { slug: string } }) => {
 			</section>
 
 			<div className="mt-28"></div>
-			<Footer data={footerLinks} newsletter={newsletter} />
+			<Footer newsletter={newsletter} />
 		</main>
 	);
 };

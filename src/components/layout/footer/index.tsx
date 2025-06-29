@@ -4,7 +4,7 @@ import React from "react";
 
 import Image from "next/image";
 
-import { FooterLinks, Newsletter } from "@/app/artigos/types";
+import { Newsletter } from "@/app/artigos/types";
 import ellipse2 from "@/assets/shapes/ellipse2.svg";
 import ellipse3 from "@/assets/shapes/ellipse3.svg";
 
@@ -14,11 +14,10 @@ import FooterModule from "./footer-module";
 import FooterNewsletter from "./newsletter";
 
 type FooterProps = {
-	data: FooterLinks[] | null;
 	newsletter: Newsletter | null;
 };
 
-const Footer = ({ data, newsletter }: FooterProps) => {
+const Footer = ({ newsletter }: FooterProps) => {
 	return (
 		<>
 			<div className="relative">
@@ -38,7 +37,7 @@ const Footer = ({ data, newsletter }: FooterProps) => {
 
 			<FooterNewsletter data={newsletter} />
 
-			<FooterNavigation data={data} />
+			<FooterNavigation />
 
 			<FooterCopyBar />
 		</>

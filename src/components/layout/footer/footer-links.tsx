@@ -3,43 +3,211 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { FooterLinks } from "@/app/(home)/actions";
 import socialIcon1 from "@/assets/icons/social-1.svg";
 import socialIcon2 from "@/assets/icons/social-2.svg";
 import socialIcon3 from "@/assets/icons/social-3.svg";
 import socialIcon4 from "@/assets/icons/social-4.svg";
 import logo from "@/assets/logo.svg";
 
-const FooterNavigation = ({ data }: { data: FooterLinks[] | null }) => {
+const FooterNavigation = () => {
 	return (
 		<footer className="mt-[140px] wrapper">
 			<div className="mx-auto flex justify-between gap-40 lg_tablet:flex-col lg_phone:gap-14">
 				<div className="flex flex-wrap justify-between gap-12 sm_tablet:justify-start">
-					{Array.from(data || []).map((link, index) => {
-						return (
-							<div className="max-w-[174px]" key={index}>
-								<h4 className="mb-12 font-heading text-h4 font-bold">
-									{link.title}
-								</h4>
-								<ul className="space-y-2">
-									{Array.from(link.links || []).map(
-										(item, idx) => {
-											return (
-												<li key={idx}>
-													<Link
-														href={item.url}
-														className="text-h6 text-coagray transition-colors hover:text-primary"
-													>
-														{item.name}
-													</Link>
-												</li>
-											);
+					<div className="max-w-[174px]">
+						<h4 className="mb-12 font-heading text-h4 font-bold">
+							Home
+						</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href={"/"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Página inicial
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={"/artigos"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Artigos
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={
+										"https://livrariacontraosacademicos.com.br"
+									}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Livraria
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={"/sobre"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Projeto
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={"/contato"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Contato
+								</Link>
+							</li>
+						</ul>
+					</div>
+					<div className="max-w-[174px]">
+						<h4 className="mb-12 font-heading text-h4 font-bold">
+							Planos
+						</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href={"/"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mensal
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={"/"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Semestral
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={"/"}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Anual
+								</Link>
+							</li>
+						</ul>
+					</div>
+					<div className="max-w-[174px]">
+						<h4 className="mb-12 font-heading text-h4 font-bold">
+							Listas
+						</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens: "Mais populares",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Lista",
 										},
-									)}
-								</ul>
-							</div>
-						);
-					})}
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais acessados
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens:
+												"Últimas postagens",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Lista",
+										},
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais recentes
+								</Link>
+							</li>
+						</ul>
+					</div>
+					<div className="max-w-[174px]">
+						<h4 className="mb-12 font-heading text-h4 font-bold">
+							Artigos
+						</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens: "Mais populares",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Todos",
+										},
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais acessados
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens: "Mais populares",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Todos",
+										},
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais acessados do mês
+								</Link>
+							</li>
+						</ul>
+					</div>
+					<div className="max-w-[174px]">
+						<h4 className="mb-12 font-heading text-h4 font-bold">
+							Colunas
+						</h4>
+						<ul className="space-y-2">
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens: "Mais populares",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Coluna",
+										},
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais acessados
+								</Link>
+							</li>
+
+							<li>
+								<Link
+									href={{
+										pathname: "/artigos",
+										query: {
+											filtroPostagens:
+												"Últimas postagens",
+											filtroTipo: "Todas",
+											filtroTipoPost: "Coluna",
+										},
+									}}
+									className="text-h6 text-coagray transition-colors hover:text-primary"
+								>
+									Mais recentes
+								</Link>
+							</li>
+						</ul>
+					</div>
 				</div>
 
 				<div className="max-h-full border-r border-white/50 lg_tablet:hidden"></div>

@@ -43,6 +43,7 @@ export type FeaturedArticles = {
 	image: string | null;
 	slug: string;
 	type: string;
+	highlight: number;
 	author: {
 		id: number;
 		name: string;
