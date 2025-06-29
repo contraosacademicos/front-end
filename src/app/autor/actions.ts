@@ -143,3 +143,31 @@ export async function getPricingTable() {
 		return null;
 	}
 }
+
+// Authors
+// Authors
+export type Authors = {
+	data: {
+		id: number;
+	}[];
+};
+
+export async function getAuthors() {
+	try {
+		const response = await fetcher("authors", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			cache: "no-store",
+		});
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+		return response.data as Post;
+	} catch (error) {
+		console.error("Error fetching authors:", error);
+		return null;
+	}
+}

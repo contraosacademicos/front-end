@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { MainBanner } from "@/app/(home)/actions";
 import heroSlider1 from "@/assets/bg/hero-slider1.jpg";
@@ -9,8 +10,6 @@ import right_icon from "@/assets/icons/right-icon.svg";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import { ButtonBanner } from "../core/buttons/button-banner";
 
 const HeroSlider = ({ data }: { data: MainBanner[] | null }) => {
 	const pagination = {
@@ -41,50 +40,30 @@ const HeroSlider = ({ data }: { data: MainBanner[] | null }) => {
 			>
 				{Array.from(data || [])
 					.slice(0, 5)
-					?.map((banner, index) => {
+					?.map((slide, index) => {
 						return (
 							<SwiperSlide key={index}>
-								<div
-									className="h-[400px] rounded-3xl bg-cover bg-center px-[193px] py-[66px] sm_tablet:px-[40px] lg_phone:px-3"
-									style={{
-										backgroundImage: `url(${banner.backgroundImage || heroSlider1.src})`,
-									}}
-								>
-									<div className="flex flex-col items-start gap-1.5">
-										<div className="flex gap-5 text-base text-primary lg_phone:text-xs">
-											{banner.tags
-												.slice(0, 4)
-												.map((tag, index) => {
-													return (
-														<p key={index}>{tag}</p>
-													);
-												})}
-										</div>
-
-										<div className="w-full">
-											<h1 className="flex h-[84px] items-center font-heading text-h1 font-bold es_tablet:h-full es_tablet:text-h2">
-												{banner.title[0]}
-											</h1>
-
-											<div className="mb-4 flex w-full items-center gap-8">
-												<h1 className="h-[105px] font-heading text-h1 font-bold text-primary es_tablet:h-full es_tablet:text-h2">
-													{banner.title[1]}
-												</h1>
-												<p className="w-[250px] text-base lg_phone:text-p">
-													{banner.resume}
-												</p>
-											</div>
-
-											<ButtonBanner
-												href={banner.button.link}
-											>
-												<strong>
-													{banner.button.text}
-												</strong>
-											</ButtonBanner>
-										</div>
+								<Link href={slide.url || "#"} target="_blank">
+									<div className="h-[400px] overflow-hidden rounded-3xl duration-300 hover:scale-105">
+										<picture>
+											<source
+												media="(max-width: 730px)"
+												srcSet={
+													slide.banners.mobile ||
+													heroSlider1.src
+												}
+											/>
+											<img
+												src={
+													slide.banners.desktop ||
+													heroSlider1.src
+												}
+												alt="Banner"
+												className="size-full object-cover"
+											/>
+										</picture>
 									</div>
-								</div>
+								</Link>
 							</SwiperSlide>
 						);
 					})}
