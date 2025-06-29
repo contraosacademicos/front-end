@@ -1,10 +1,8 @@
 export type MainBanner = {
-	title: string[];
-	resume: string;
-	backgroundImage: string | null;
-	button: {
-		text: string;
-		link: string;
+	url: string;
+	banners: {
+		mobile: string | null;
+		desktop: string | null;
 	};
 	tags: string[];
 };
