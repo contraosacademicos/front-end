@@ -34,7 +34,7 @@ const ArticlesList = ({ posts }: ArticlesListProps) => {
 				>
 					<div className="flex flex-col gap-2 text-base text-coagray">
 						<p className="font-bold">
-							<Link href={`/autor/${post.author?.slug}`}>
+							<Link href={`/autor/${post.author?.id}`}>
 								{post.author?.nome}
 							</Link>
 						</p>

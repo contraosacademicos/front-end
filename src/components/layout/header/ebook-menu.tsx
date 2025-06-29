@@ -14,7 +14,7 @@ const EbooksMenu: React.FC<EbooksMenuProps> = ({ ebooks, className = "" }) => {
 	return (
 		<div
 			id="ebooks-submenu"
-			className={`grigrid-cols-2 gap-4 rounded border border-coagray/30 bg-black p-6 text-white sm_tablet:grid-cols-1 ${className}`}
+			className={`grid grid-cols-2 gap-4 rounded border border-coagray/30 bg-black p-6 text-white sm_tablet:grid-cols-1 ${className}`}
 		>
 			{ebooks.map((ebook) => (
 				<a

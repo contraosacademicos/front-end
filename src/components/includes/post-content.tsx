@@ -36,7 +36,7 @@ const PostContent = ({ data }: { data: Post }) => {
 						<>
 							Por:{" "}
 							<Link
-								href={`/autor/${data.data.author?.slug}`}
+								href={`/autor/${data.data.author?.id}`}
 								className="font-bold hover:underline"
 							>
 								{data.data.author?.nome}

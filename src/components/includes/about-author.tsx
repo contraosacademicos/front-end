@@ -23,42 +23,44 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 							"conic-gradient(from 240deg at 50% 20.74%, #010101 0deg, #37290F 200deg, #454545 244deg, #202020 360deg)",
 					}}
 				>
-					<div className="flex gap-8 p-6">
-						<Image
-							src={
-								data.data.author?.profile_picture &&
-								(data.data.author?.profile_picture.startsWith(
-									"http",
-								) ||
-									data.data.author?.profile_picture.startsWith(
-										"/",
-									))
-									? data.data.author?.profile_picture
-									: data.data.author?.profile_picture
-										? `https://cmscoa.com.br/${data.data.author?.profile_picture}`
-										: imgColumnist1
-							}
-							alt="imgColumnist1"
-							width={48}
-							height={48}
-							className="aspect-square size-12 rounded-full object-cover"
-						/>
+					<Link href={`/autor/${data.data.author?.id}`}>
+						<div className="flex gap-8 p-6">
+							<Image
+								src={
+									data.data.author?.profile_picture &&
+									(data.data.author?.profile_picture.startsWith(
+										"http",
+									) ||
+										data.data.author?.profile_picture.startsWith(
+											"/",
+										))
+										? data.data.author?.profile_picture
+										: data.data.author?.profile_picture
+											? `https://cmscoa.com.br/${data.data.author?.profile_picture}`
+											: imgColumnist1
+								}
+								alt="imgColumnist1"
+								width={48}
+								height={48}
+								className="aspect-square size-12 rounded-full object-cover"
+							/>
 
-						<div>
-							<p className="text-base text-primary">
-								{data.data.author?.nome}
-							</p>
-							<p className="mt-2 text-xs">
-								{data.data.author.posts_count} postagens
-							</p>
+							<div>
+								<p className="text-base text-primary">
+									{data.data.author?.nome}
+								</p>
+								<p className="mt-2 text-xs">
+									{data.data.author.posts_count} postagens
+								</p>
+							</div>
 						</div>
-					</div>
+					</Link>
 				</div>
 			</div>
 
 			<p className="text-base text-coagray">{data.data.author?.resumo}</p>
 
-			<Link href={`/autor/${data.data.author?.slug}`}>
+			<Link href={`/autor/${data.data.author?.id}`}>
 				<ButtonCoa className="w-fit">Mais do autor</ButtonCoa>
 			</Link>
 
