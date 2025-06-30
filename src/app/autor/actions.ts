@@ -154,9 +154,44 @@ export type Author = {
 	profile_picture: string;
 	ativo: number;
 	created_at: string;
+	updated_at: string;
+	user_id: number;
+	deleted_at: string | null;
 	slug: string | null;
 	posts_count: number;
 	name: string;
+	posts: {
+		id: number;
+		title: string;
+		content: string;
+		user_id: number;
+		banner: string;
+		category_id: number;
+		short_description: string;
+		status: number;
+		banner_highlight: string | null;
+		slug: string;
+		coming_soon: number;
+		type: string;
+		created_at: string;
+		updated_at: string;
+		deleted_at: string | null;
+		translator_id: number | null;
+		exclusive_content: number;
+		author_id: number;
+		columnist_id: number | null;
+		draft: number;
+		published_at: string;
+		likes: number;
+		views: number;
+		highlight: string | null;
+		image: string;
+		category: {
+			id: number;
+			nome: string;
+			ativo: number;
+		};
+	}[];
 };
 
 export async function getAuthors(): Promise<Author[] | null> {
@@ -201,86 +236,6 @@ export async function getAuthorBySlugOrId(
 		return response.data as Author;
 	} catch (error) {
 		console.error(`Erro ao buscar autor com slug/id ${slugOrId}:`, error);
-		return null;
-	}
-}
-
-// AuthorArticles
-// AuthorArticles
-export type AuthorArticle = {
-	id: number;
-	title: string;
-	content: string;
-	user_id: number;
-	banner: string;
-	category_id: number;
-	short_description: string;
-	status: number;
-	banner_highlight: string | null;
-	slug: string;
-	coming_soon: number;
-	type: string;
-	created_at: string;
-	updated_at: string;
-	deleted_at: string | null;
-	translator_id: number | null;
-	exclusive_content: number;
-	author_id: number;
-	columnist_id: number;
-	draft: number;
-	published_at: string;
-	likes: number;
-	views: number;
-	highlight: number;
-	image: string;
-
-	author: {
-		id: number;
-		nome: string;
-		resumo: string;
-		link: string | null;
-		profile_picture: string;
-		ativo: number;
-		created_at: string;
-		updated_at: string;
-		user_id: number;
-		deleted_at: string | null;
-		slug: string | null;
-		posts_count: number;
-		name: string;
-	};
-
-	columnist: unknown | null;
-	translator: unknown | null;
-	post_info: unknown | null;
-
-	category: {
-		id: number;
-		nome: string;
-		ativo: number;
-		created_at: string;
-		updated_at: string;
-	};
-};
-
-export async function getAuthorArticles(
-	authorId: number,
-): Promise<AuthorArticle[] | null> {
-	try {
-		const response = await fetcher(`authorArticles?author_id=${authorId}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json",
-			},
-			cache: "no-store",
-		});
-
-		if (!response.ok) throw new Error(`Erro: ${response.statusText}`);
-
-		return response.data as AuthorArticle[];
-	} catch (error) {
-		console.error("Erro ao buscar artigos do autor:", error);
 		return null;
 	}
 }

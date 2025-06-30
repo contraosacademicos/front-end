@@ -3,12 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { getNewsletter } from "@/app/(home)/actions";
-import imgArticleList1 from "@/assets/articles/list-1.jpg";
 import imgColumnist1 from "@/assets/columnist/1.png";
 import imgColumn7 from "@/assets/columns/7.png";
-import eyeIcon from "@/assets/icons/eye-icon.svg";
-import favoriteIcon from "@/assets/icons/favorite-icon.svg";
 import messagesIcon from "@/assets/icons/messages-icon.svg";
+import AuthorArticlesList from "@/components/layout/articles/autor-articles-list";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
@@ -105,13 +103,6 @@ const AuthorPage = async ({ params }: { params: { slug: string } }) => {
 									},
 								)}
 							</p>
-							<p>
-								Com{" "}
-								<span className="text-primary">
-									13 participações
-								</span>{" "}
-								no ContraCast
-							</p>
 						</div>
 
 						<div className="border-b border-dashed border-[#9A9A9A]"></div>
@@ -120,30 +111,43 @@ const AuthorPage = async ({ params }: { params: { slug: string } }) => {
 							Principais artigos do autor
 						</h6>
 
-						{[1, 2, 3].map((_, i) => (
-							<div key={i} className="flex flex-col gap-2">
-								<Image
-									src={imgColumn7}
-									alt="Artigo destaque"
-									className="max-h-[188px] rounded-3xl frame"
-								/>
-								<h5 className="font-heading text-h5">
-									Título do artigo
-								</h5>
-								<p className="text-xs">
-									Por: <strong>{author.nome}</strong>
-								</p>
-								<div className="flex w-fit items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+						{(author.posts || [])
+							.slice()
+							.sort(
+								(a, b) =>
+									Number(b.views || 0) - Number(a.views || 0),
+							)
+							.slice(0, 3)
+							.map((post) => (
+								<Link
+									key={post.id}
+									href={`/${post.type}/${post.slug}`}
+									className="flex flex-col gap-2 transition-opacity hover:opacity-80"
+								>
 									<Image
-										src={messagesIcon}
-										width={18}
-										height={14.5}
-										alt="Ícone de comentários"
+										src={post.image || imgColumn7}
+										alt={post.title}
+										width={400}
+										height={200}
+										className="max-h-[188px] rounded-3xl object-cover frame"
 									/>
-									12
-								</div>
-							</div>
-						))}
+									<h5 className="font-heading text-h5">
+										{post.title}
+									</h5>
+									<p className="text-xs">
+										Por: <strong>{author.nome}</strong>
+									</p>
+									<div className="flex w-fit items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
+										<Image
+											src={messagesIcon}
+											width={18}
+											height={14.5}
+											alt="Comentários"
+										/>
+										12
+									</div>
+								</Link>
+							))}
 					</div>
 
 					<div className="w-full">
@@ -157,91 +161,7 @@ const AuthorPage = async ({ params }: { params: { slug: string } }) => {
 						</div>
 
 						<div className="flex flex-col justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
-							<div className="flex w-full flex-col gap-4 rounded-lg bg-[#232323] p-6">
-								<div className="flex flex-col gap-2 text-base text-coagray">
-									<p className="font-bold">
-										<Link href={`/autor/`}>Teste</Link>
-									</p>
-									<p className="font-medium">12/12/2022</p>
-								</div>
-
-								<Link
-									href={`/`}
-									className="flex flex-col gap-4 text-coagray hover:text-coagray"
-								>
-									<div className="border-b border-dashed border-[#9A9A9A]"></div>
-
-									<div className="flex items-center gap-4">
-										<div
-											className="relative"
-											style={{
-												width: 48,
-												height: 43,
-											}}
-										>
-											<Image
-												src={imgArticleList1}
-												fill
-												alt="Imagem do artigo"
-												className="rounded-[4px] object-cover"
-											/>
-										</div>
-
-										<h5 className="font-heading text-h5 font-medium text-white">
-											titulo
-										</h5>
-									</div>
-
-									<p className="text-base font-medium text-limit-2">
-										descrição
-									</p>
-
-									<div className="flex flex-wrap items-center justify-between gap-4">
-										<div className="flex flex-wrap gap-2">
-											<p className="block rounded-full border px-6 py-1 text-xs text-white duration-300 hover:bg-white hover:text-black">
-												type
-											</p>
-											<p className="block rounded-full border border-primary px-6 py-1 text-xs text-white duration-300 hover:bg-primary hover:text-black">
-												category
-											</p>
-										</div>
-
-										<div className="flex items-center gap-2 text-white">
-											<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-												<Image
-													src={eyeIcon}
-													width={18}
-													height={14.5}
-													alt="Visualizações"
-												/>
-												views
-											</div>
-											<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-												<Image
-													src={messagesIcon}
-													width={18}
-													height={14.5}
-													alt="Comentários"
-												/>
-												12
-											</div>
-											<div className="flex items-center gap-2 rounded-full bg-[#343434] px-3 py-1">
-												likes
-												<Image
-													src={favoriteIcon}
-													width={15}
-													height={15}
-													alt="Curtidas"
-												/>
-											</div>
-										</div>
-									</div>
-								</Link>
-							</div>
-
-							<p className="mt-4 w-full text-center text-coagray">
-								Esse autor ainda não possui artigos publicados.
-							</p>
+							<AuthorArticlesList posts={author.posts ?? []} />
 						</div>
 					</div>
 				</div>

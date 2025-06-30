@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { useSearchParams } from "next/navigation";
 
@@ -40,17 +40,10 @@ const ArticlesContent = ({
 }: ArticlesContentProps) => {
 	const searchParams = useSearchParams();
 
-	const [filtroPostagens, setFiltroPostagens] = useState(
-		searchParams.get("filtroPostagens") || "Últimas postagens",
-	);
-	const [filtroTipo, setFiltroTipo] = useState(
-		searchParams.get("filtroTipo") || "Todas",
-	);
-	const [filtroTipoPost, setFiltroTipoPost] = useState(
-		searchParams.get("filtroTipoPost") || "Todas",
-	);
-
-	const [hasInteracted] = useState(false);
+	const filtroPostagens =
+		searchParams.get("filtroPostagens") || "Últimas postagens";
+	const filtroTipo = searchParams.get("filtroTipo") || "Todas";
+	const filtroTipoPost = searchParams.get("filtroTipoPost") || "Todas";
 
 	const filteredPosts = useMemo(() => {
 		let filtered = posts?.data || [];
@@ -61,7 +54,11 @@ const ArticlesContent = ({
 			);
 		}
 
-		if (filtroTipoPost !== "" && filtroTipoPost !== "Todos") {
+		if (
+			filtroTipoPost !== "" &&
+			filtroTipoPost !== "Todos" &&
+			filtroTipoPost !== "Todas"
+		) {
 			filtered = filtered.filter(
 				(post) =>
 					post.type.toLowerCase() === filtroTipoPost.toLowerCase(),
@@ -76,7 +73,7 @@ const ArticlesContent = ({
 					new Date(a.created_at).getTime() -
 					new Date(b.created_at).getTime(),
 			);
-		} else if (filtroPostagens === "Últimas postagens") {
+		} else {
 			filtered = filtered.sort(
 				(a, b) =>
 					new Date(b.created_at).getTime() -
@@ -90,28 +87,29 @@ const ArticlesContent = ({
 	return (
 		<main>
 			<Header data={categories} />
-			<div className="mt-40"></div>
+			<div className="mt-40" />
 			<HeroSlider data={mainBanner} />
-			<div className="mt-20"></div>
+			<div className="mt-20" />
 			<div className="wrapper">
 				<div className="mb-[31px] flex flex-col gap-5">
 					<div className="flex items-center justify-between">
 						<h3 className="mr-[26px] font-heading text-h3 font-bold">
 							Artigos
 						</h3>
-						<div className="w-full border-b border-dashed border-primary"></div>
+						<div className="w-full border-b border-dashed border-primary" />
 					</div>
 					<Filter
 						data={categories}
 						filtroPostagens={filtroPostagens}
-						setFiltroPostagens={setFiltroPostagens}
+						setFiltroPostagens={() => {}}
 						filtroTipo={filtroTipo}
-						setFiltroTipo={setFiltroTipo}
+						setFiltroTipo={() => {}}
 						filtroTipoPost={filtroTipoPost}
-						setFiltroTipoPost={setFiltroTipoPost}
-						hasInteracted={hasInteracted}
+						setFiltroTipoPost={() => {}}
+						hasInteracted={false}
 					/>
 				</div>
+
 				<div className="flex justify-between gap-5 es_desktop:flex-col es_desktop:items-center">
 					<ArticlesList posts={filteredPosts} />
 
@@ -121,9 +119,9 @@ const ArticlesContent = ({
 					</div>
 				</div>
 			</div>
-			<div className="mt-28"></div>
+			<div className="mt-28" />
 			{/* NOTE <Support data={pricingTable} /> */}
-			<div className="mt-9"></div>
+			<div className="mt-9" />
 			<Footer newsletter={newsletter} />
 		</main>
 	);
