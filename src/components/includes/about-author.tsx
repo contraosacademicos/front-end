@@ -74,7 +74,7 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 				<Image
 					src={imgColumn7}
 					alt="imgColumn7"
-					className="max-h-[188px] rounded-3xl frame"
+					className="h-[188px] w-full rounded-3xl object-cover"
 				/>
 
 				<h5 className="font-heading text-h5">
@@ -100,7 +100,7 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 				<Image
 					src={imgColumn7}
 					alt="imgColumn7"
-					className="max-h-[188px] rounded-3xl frame"
+					className="h-[188px] w-full rounded-3xl object-cover"
 				/>
 
 				<h5 className="font-heading text-h5">
@@ -126,7 +126,7 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 				<Image
 					src={imgColumn7}
 					alt="imgColumn7"
-					className="max-h-[188px] rounded-3xl frame"
+					className="h-[188px] w-full rounded-3xl object-cover"
 				/>
 
 				<h5 className="font-heading text-h5">

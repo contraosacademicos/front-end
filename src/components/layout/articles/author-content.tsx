@@ -170,7 +170,7 @@ const AuthorContent = ({
 										alt={post.title}
 										width={400}
 										height={200}
-										className="h-[188px] rounded-3xl object-cover frame"
+										className="h-[188px] w-full rounded-3xl object-cover"
 									/>
 									<h5 className="font-heading text-h5">
 										{post.title}

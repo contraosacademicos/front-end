@@ -60,7 +60,7 @@ input[type="date"] {
 }
 
 .content-html p {
-	@apply text-base leading-relaxed text-coagray;
+	@apply text-base leading-relaxed text-whitecontent;
 }
 
 .content-html h2 {
@@ -76,11 +76,11 @@ input[type="date"] {
 }
 
 .content-html ol {
-	@apply mb-4 list-inside list-decimal pl-8 text-base text-coagray;
+	@apply mb-4 list-inside list-decimal pl-8 text-base text-whitecontent;
 }
 
 .content-html ul {
-	@apply mb-4 list-inside list-disc pl-5 text-base text-coagray;
+	@apply mb-4 list-inside list-disc pl-5 text-base text-whitecontent;
 }
 
 .content-html li {
@@ -100,7 +100,7 @@ input[type="date"] {
 }
 
 .content-html blockquote {
-	@apply my-6 border-l-4 border-primary pl-4 text-base italic text-coagray;
+	@apply my-6 border-l-4 border-primary pl-4 text-base italic text-whitecontent;
 }
 
 .content-html pre {

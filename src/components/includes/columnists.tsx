@@ -16,7 +16,10 @@ const Columnists = ({ data }: { data: FeaturedColumnists[] | null }) => {
 					.slice(0, 7)
 					.map((author, index, list) => {
 						return (
-							<Link href={`/autor/${author?.id}`} key={author.id}>
+							<Link
+								href={`/autor/${author?.user_id}`}
+								key={author.id}
+							>
 								<div
 									className="cursor-pointer rounded-3xl hover:bg-black"
 									style={

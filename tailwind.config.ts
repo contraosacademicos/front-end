@@ -8,6 +8,7 @@ export const colors = {
 	white: "#fff",
 	primary: "#DBA232",
 	coagray: "#858585",
+	whitecontent: "#CFCFCF",
 
 	danger: rose,
 	succes: green,
