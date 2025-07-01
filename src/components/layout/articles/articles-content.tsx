@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { AuthorArticles, FeaturedColumnists } from "@/app/(home)/actions";
 import {
@@ -38,51 +38,71 @@ const ArticlesContent = ({
 	newsletter,
 	authorArticles,
 }: ArticlesContentProps) => {
+	const router = useRouter();
 	const searchParams = useSearchParams();
 
-	const filtroPostagens =
-		searchParams.get("filtroPostagens") || "Últimas postagens";
-	const filtroTipo = searchParams.get("filtroTipo") || "Todas";
-	const filtroTipoPost = searchParams.get("filtroTipoPost") || "Todas";
+	const [filtroPostagens, setFiltroPostagens] = useState("Últimas postagens");
+	const [filtroTipo, setFiltroTipo] = useState("Todas");
+	const [filtroTipoPost, setFiltroTipoPost] = useState("Todas");
+
+	useEffect(() => {
+		setFiltroPostagens(
+			searchParams.get("filtroPostagens") || "Últimas postagens",
+		);
+		setFiltroTipo(searchParams.get("filtroTipo") || "Todas");
+		setFiltroTipoPost(searchParams.get("filtroTipoPost") || "Todas");
+	}, [searchParams]);
+
+	useEffect(() => {
+		const query = new URLSearchParams({
+			filtroPostagens,
+			filtroTipo,
+			filtroTipoPost,
+		}).toString();
+
+		router.replace(`?${query}`, { scroll: false });
+	}, [filtroPostagens, filtroTipo, filtroTipoPost, router]);
 
 	const filteredPosts = useMemo(() => {
-		let filtered = posts?.data || [];
+		if (!posts) return [];
+
+		let result = [...posts.data];
 
 		if (filtroTipo !== "Todas") {
-			filtered = filtered.filter(
+			result = result.filter(
 				(post) => post.category?.nome === filtroTipo,
 			);
 		}
 
-		if (
-			filtroTipoPost !== "" &&
-			filtroTipoPost !== "Todos" &&
-			filtroTipoPost !== "Todas"
-		) {
-			filtered = filtered.filter(
+		if (!["Todas", "Todos", ""].includes(filtroTipoPost)) {
+			result = result.filter(
 				(post) =>
 					post.type.toLowerCase() === filtroTipoPost.toLowerCase(),
 			);
 		}
 
-		if (filtroPostagens === "Mais populares") {
-			filtered = filtered.sort((a, b) => b.views - a.views);
-		} else if (filtroPostagens === "Mais antigas") {
-			filtered = filtered.sort(
-				(a, b) =>
-					new Date(a.created_at).getTime() -
-					new Date(b.created_at).getTime(),
-			);
-		} else {
-			filtered = filtered.sort(
-				(a, b) =>
-					new Date(b.created_at).getTime() -
-					new Date(a.created_at).getTime(),
-			);
+		switch (filtroPostagens) {
+			case "Mais populares":
+				result.sort((a, b) => b.views - a.views);
+				break;
+			case "Mais antigas":
+				result.sort(
+					(a, b) =>
+						new Date(a.created_at).getTime() -
+						new Date(b.created_at).getTime(),
+				);
+				break;
+			default:
+				result.sort(
+					(a, b) =>
+						new Date(b.created_at).getTime() -
+						new Date(a.created_at).getTime(),
+				);
+				break;
 		}
 
-		return filtered;
-	}, [posts, filtroTipo, filtroPostagens, filtroTipoPost]);
+		return result;
+	}, [posts, filtroTipo, filtroTipoPost, filtroPostagens]);
 
 	return (
 		<main>
@@ -90,6 +110,7 @@ const ArticlesContent = ({
 			<div className="mt-40" />
 			<HeroSlider data={mainBanner} />
 			<div className="mt-20" />
+
 			<div className="wrapper">
 				<div className="mb-[31px] flex flex-col gap-5">
 					<div className="flex items-center justify-between">
@@ -98,15 +119,16 @@ const ArticlesContent = ({
 						</h3>
 						<div className="w-full border-b border-dashed border-primary" />
 					</div>
+
 					<Filter
 						data={categories}
 						filtroPostagens={filtroPostagens}
-						setFiltroPostagens={() => {}}
+						setFiltroPostagens={setFiltroPostagens}
 						filtroTipo={filtroTipo}
-						setFiltroTipo={() => {}}
+						setFiltroTipo={setFiltroTipo}
 						filtroTipoPost={filtroTipoPost}
-						setFiltroTipoPost={() => {}}
-						hasInteracted={false}
+						setFiltroTipoPost={setFiltroTipoPost}
+						hasInteracted={true}
 					/>
 				</div>
 
@@ -119,9 +141,8 @@ const ArticlesContent = ({
 					</div>
 				</div>
 			</div>
+
 			<div className="mt-28" />
-			{/* NOTE <Support data={pricingTable} /> */}
-			<div className="mt-9" />
 			<Footer newsletter={newsletter} />
 		</main>
 	);
