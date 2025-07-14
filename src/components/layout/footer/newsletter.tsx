@@ -1,14 +1,63 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 import Image from "next/image";
 
-import { Newsletter } from "@/app/(home)/actions";
+import { Newsletter, postNewsletter } from "@/app/(home)/actions";
 import logo from "@/assets/logo.svg";
 import newsBg from "@/assets/newsletter-bg.jpg";
+
+import { toast } from "sonner";
 
 import { ButtonFill } from "../../core/buttons/button-fill";
 
 const FooterNewsletter = ({ data }: { data: Newsletter | null }) => {
+	const [email, setEmail] = useState("");
+	const [loading, setLoading] = useState(false);
+
+	const handleSubmit = async () => {
+		if (!email) {
+			toast.error(
+				<>
+					<strong>E-mail inválido</strong>
+					<div className="text-sm text-muted-foreground">
+						Por favor, digite um e-mail válido.
+					</div>
+				</>,
+			);
+			return;
+		}
+
+		setLoading(true);
+		const response = await postNewsletter({ email });
+
+		console.log("Resposta da API:", response);
+
+		setLoading(false);
+
+		if (response?.message?.includes("successfully")) {
+			toast.success(
+				<>
+					<strong>Inscrição realizada!</strong>
+					<div className="text-sm text-muted-foreground">
+						Você foi inscrito com sucesso na newsletter.
+					</div>
+				</>,
+			);
+			setEmail("");
+		} else {
+			toast.error(
+				<>
+					<strong>Erro ao se inscrever</strong>
+					<div className="text-sm text-muted-foreground">
+						Tente novamente mais tarde.
+					</div>
+				</>,
+			);
+		}
+	};
+
 	return (
 		<section className="mt-[155px] wrapper sm_tablet:pb-8 lg_phone:mt-10">
 			<div
@@ -47,8 +96,12 @@ const FooterNewsletter = ({ data }: { data: Newsletter | null }) => {
 							type="email"
 							placeholder="Digite seu e-mail"
 							className="w-full flex-1 text-gray-500 focus:outline-none"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
-						<ButtonFill>{data?.callToAction}</ButtonFill>
+						<ButtonFill onClick={handleSubmit}>
+							{loading ? "Enviando..." : data?.callToAction}
+						</ButtonFill>
 					</div>
 				</div>
 			</div>

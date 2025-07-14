@@ -50,7 +50,7 @@ const LatestArticlesPost = async ({
 								{article.title}
 							</h5>
 							<p className="text-xs">
-								Por: <strong>{article.author.name}</strong>
+								Por: <strong>{article?.author?.name}</strong>
 							</p>
 						</Link>
 					))}
@@ -77,7 +77,8 @@ const LatestArticlesPost = async ({
 									{article.title}
 								</h5>
 								<p className="text-xs">
-									Por: <strong>{article.author.name}</strong>
+									Por:{" "}
+									<strong>{article?.author?.name}</strong>
 								</p>
 							</Link>
 						),

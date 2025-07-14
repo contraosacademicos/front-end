@@ -32,7 +32,7 @@ const MostRead = ({ data }: { data: TrendingLists[] | null }) => {
 									{post.title}
 								</h5>
 								<p className="text-xs">
-									Por: <strong>{post.author.name}</strong>
+									Por: <strong>{post?.author?.name}</strong>
 								</p>
 							</div>
 						</Link>

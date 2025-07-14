@@ -44,7 +44,7 @@ const FeaturedOpinion = ({ data }: { data: AuthorArticles[] | null }) => {
 									{post.title}
 								</p>
 								<p className="mt-1.5 text-xs">
-									{post.author.name}
+									{post?.author?.name}
 								</p>
 							</div>
 						</Link>

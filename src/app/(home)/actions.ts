@@ -162,6 +162,38 @@ export async function getNewsletter() {
 	}
 }
 
+export type NewsletterPayload = {
+	email: string;
+};
+
+export type NewsletterResponse = {
+	success: boolean;
+	message: string;
+};
+
+export async function postNewsletter(payload: NewsletterPayload) {
+	try {
+		const response = await fetcher("newsletter", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			body: JSON.stringify(payload),
+			cache: "no-store",
+		});
+
+		if (!response.ok) {
+			throw new Error(`Erro: ${response.statusText}`);
+		}
+
+		return response.data as NewsletterResponse;
+	} catch (error) {
+		console.error("Erro ao enviar inscrição para newsletter:", error);
+		return null;
+	}
+}
+
 // LatestArticles
 // LatestArticles
 export type LatestArticles = {

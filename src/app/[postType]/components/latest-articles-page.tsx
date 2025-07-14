@@ -35,7 +35,7 @@ const LatestArticlesPage = ({ data }: { data: LatestArticles[] | null }) => {
 									</h5>
 									<p className="text-xs">
 										Por:{" "}
-										<strong>{article.author.name}</strong>
+										<strong>{article?.author?.name}</strong>
 									</p>
 								</div>
 							</Link>

@@ -11,6 +11,8 @@ import "swiper/css/pagination";
 import AOSInit from "@/components/aos-init";
 import { inter, kaisei } from "@/styles/fonts";
 
+import { Toaster } from "sonner";
+
 export const metadata: Metadata = {
 	metadataBase: new URL(DEFINITION.url),
 	title: {
@@ -87,6 +89,7 @@ export default function RootLayout({
 		<html className={`${inter.variable} ${kaisei.variable}`} lang="pt-BR">
 			<body className="bg-black text-white">
 				<AOSInit />
+				<Toaster richColors closeButton position="top-center" />
 				{children}
 			</body>
 		</html>
