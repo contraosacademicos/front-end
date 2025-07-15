@@ -41,7 +41,8 @@ const RelatedArticles = ({ data }: RelatedArticlesProps) => {
 									{article.title}
 								</h5>
 								<p className="text-xs text-white">
-									Por: <strong>{article.author.nome}</strong>
+									Por:{" "}
+									<strong>{article?.author?.nome}</strong>
 								</p>
 							</div>
 						</Link>

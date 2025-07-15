@@ -50,7 +50,7 @@ const AboutAuthor = ({ data }: { data: Post }) => {
 									{data.data.author?.nome}
 								</p>
 								<p className="mt-2 text-xs">
-									{data.data.author.posts_count} postagens
+									{data.data?.author?.posts_count} postagens
 								</p>
 							</div>
 						</div>

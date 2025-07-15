@@ -9,7 +9,6 @@ import Link from "next/link";
 import { Category } from "@/app/artigos/types";
 import searchIcon from "@/assets/icons/search-icon.svg";
 import logo from "@/assets/logo-primary.svg";
-import { ButtonFill } from "@/components/core/buttons/button-fill";
 import {
 	Popover,
 	PopoverContent,
@@ -108,7 +107,7 @@ const Header = ({ data }: { data: Category[] | null }) => {
 				</nav>
 
 				<div className="flex gap-4">
-					<ButtonFill href="/minha-area/login">Entrar</ButtonFill>
+					{/* NOTE <ButtonFill href="/minha-area/login">Entrar</ButtonFill> */}
 				</div>
 
 				<MobileNav navLinks={navLinks} data={data} />

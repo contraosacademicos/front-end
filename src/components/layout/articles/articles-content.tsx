@@ -12,7 +12,6 @@ import {
 	Post,
 	PricingTable,
 } from "@/app/artigos/types";
-import Columnists from "@/components/includes/columnists";
 import Filter from "@/components/includes/filters";
 import HeroSlider from "@/components/includes/hero-slide";
 import ArticlesList from "@/components/layout/articles/articles-list";
@@ -34,7 +33,6 @@ const ArticlesContent = ({
 	mainBanner,
 	categories,
 	posts,
-	featuredColumnists,
 	newsletter,
 	authorArticles,
 }: ArticlesContentProps) => {
@@ -136,7 +134,7 @@ const ArticlesContent = ({
 					<ArticlesList posts={filteredPosts} />
 
 					<div className="flex h-full flex-wrap justify-center gap-10 es_desktop:w-full">
-						<Columnists data={featuredColumnists} />
+						{/* NOTE <Columnists data={featuredColumnists} /> */}
 						<FeaturedOpinion data={authorArticles} />
 					</div>
 				</div>

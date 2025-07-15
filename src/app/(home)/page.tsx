@@ -2,8 +2,6 @@ import { NextPage } from "next";
 import Image from "next/image";
 
 import ellipse1 from "@/assets/shapes/ellipse1.svg";
-import Columnists from "@/components/includes/columnists";
-import Columns from "@/components/includes/columns";
 import CtaCourses from "@/components/includes/cta-courses";
 import HeroSlider from "@/components/includes/hero-slide";
 import MostRead from "@/components/includes/most-read";
@@ -14,11 +12,9 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 
 import {
-	getAuthorArticles,
 	getBannerCreateAcc,
 	getCategories,
 	getFeaturedArticles,
-	getFeaturedColumnists,
 	getLatestArticles,
 	getMainBanner,
 	getNewsletter,
@@ -29,8 +25,6 @@ const Home: NextPage = async () => {
 	const mainBanner = await getMainBanner();
 	const categories = await getCategories();
 	const bannerCreateAcc = await getBannerCreateAcc();
-	const featuredColumnists = await getFeaturedColumnists();
-	const authorArticles = await getAuthorArticles();
 	const featuredArticles = await getFeaturedArticles();
 	const latestArticles = await getLatestArticles();
 	const trendingLists = await getTrendingLists();
@@ -63,8 +57,8 @@ const Home: NextPage = async () => {
 				className="flex justify-between wrapper lg_tablet:hidden"
 				data-aos="fade-up"
 			>
-				<Columnists data={featuredColumnists} />
-				<Columns data={authorArticles} />
+				{/* NOTE <Columnists data={featuredColumnists} />
+				<Columns data={authorArticles} /> */}
 			</div>
 			<div className="mt-20"></div>
 			<MostRead data={trendingLists} />
